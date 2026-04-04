@@ -1,6 +1,7 @@
 <div align="center">
   <h1>🍽️ FitVIT</h1>
-  <p><b>Smart Mess Management & Predictive Analytics for VIT University</b></p>
+  <p><b>Smart Mess Menu & Nutrition Information System</b></p>
+  <p><i>Theme 3: Mess & Dining Optimization | P07</i></p>
 
   <p>
     <a href="https://reactnative.dev/"><img src="https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React Native" /></a>
@@ -12,77 +13,55 @@
 
 <br />
 
-> **FitVIT** is a next-generation mess management platform designed for VIT University. It bridges the gap between student dining preferences and administrative logistics using **Predictive Machine Learning** and **Real-time Analytics** to reduce food waste and enhance the dining experience.
+> **FitVIT** is our comprehensive solution to **Solvathon Problem P07**. We are bridging the gap between student dining and hostel mess management by digitizing menus, tracking nutritional intake, mapping preferences, and utilizing data to drastically reduce food waste.
 
-## ✨ Ecosystem
+## 🎯 The Problem We Are Solving
 
-FitVIT operates across two primary interfaces, backed by a robust cloud infrastructure:
+In traditional hostel mess facilities, students rely on physical notice boards for daily menus, lacking crucial details like nutritional values. This leads to several systemic issues:
+1. **Blind Consumption:** Students cannot track their daily nutritional intake (Calories, Protein, Carbs, Fats).
+2. **Disconnected Preferences:** Mess management has no proactive way to understand what students actually want to eat.
+3. **High Food Wastage:** Dishes are cooked in bulk often resulting in massive waste due to unforeseen low demand.
+4. **Dietary Restrictions:** Students with specific dietary needs (Veg/Non-Veg/Special) lack transparency.
 
-### 🎓 Student Experience (Mobile App - v3 & v4)
-- **Personalized Menu:** View daily menus tailored to dietary preferences (Veg, Non-Veg, Special).
-- **Nutritional Tracking:** Track daily caloric intake and macro distribution (Protein, Carbs, Fats).
-- **Real-time Feedback:** Rate meals, report issues, and provide actionable feedback on food quality.
-- **Automated Preferences:** Smart tracking of student eating habits.
+## ✨ Our Smart Solution
 
-### 📊 Admin Intelligence (Dashboard)
-- **Predictive Demand Engine:** ML-driven analytics to predict top-demanded items and potential food waste risks.
-- **Waste Management:** Categorize waste risks (HIGH, MEDIUM, SAFE) to optimize cooking quantities.
-- **Live Metrics:** Monitor total ratings, average satisfaction, and dietary demographics in real-time.
-- **Dietary Vault:** Visual demographic breakdowns of student preferences.
+FitVIT is built to be simple, accessible for students, and highly practical for hostel mess operations. It features two interconnected modules:
+
+### 🎓 1. The Student Portal (Mobile App)
+- **Digital Daily Menus:** Beautiful, accessible UI displaying the daily mess menu categorized by meals and dietary types.
+- **Nutritional Transparency:** Detailed macro breakdowns (Calories, Protein, Carbohydrates, Fats) for every dish to help students track their intake.
+- **Real-Time Ratings & Feedback:** A seamless interface allowing students to rate dishes out of 5 stars and provide immediate, actionable feedback to the kitchen.
+- **Advance Preference Selection:** Students can indicate their preferred food choices in advance for both Regular Menus and Special Feast Menus, preventing over-preparation.
+
+### 📊 2. The Mess Management Dashboard
+- **Demand Analysis Engine:** A smart dashboard that aggregates student preferences to predict real-time demand for specific dishes.
+- **Wastage Reduction:** By analyzing advance choices and historical ratings, the system flags "High Waste Risk" dishes, allowing management to adjust cooking quantities practically.
+- **Dietary Vault Analytics:** Visual demographic breakdowns of what the student body prefers, optimizing future menu planning.
 
 ## 🗂️ Branch Architecture
 
-This repository is meticulously organized into a branch-based monorepo:
+This repository is organized into a branch-based monorepo:
 
 | Branch | Description | Status |
 |--------|-------------|--------|
-| **[`main`](https://github.com/Sappy101/fitVIT/tree/main)** | Core documentation and project entry point. | 🟢 Active |
-| **[`app`](https://github.com/Sappy101/fitVIT/tree/app)** | Source code for the Expo React Native mobile applications (`v3` and `v4`). | 🟢 Active |
-| **[`website`](https://github.com/Sappy101/fitVIT/tree/website)** | Source code for the FitVIT web portal and landing page. | 🟡 In Development |
+| **[`main`](https://github.com/Sappy101/fitVIT/tree/main)** | Core documentation and Solvathon overview. | 🟢 Active |
+| **[`app`](https://github.com/Sappy101/fitVIT/tree/app)** | Source code for the Student Mobile App & Admin Dashboard (`v3` & `v4`). | 🟢 Active |
+| **[`website`](https://github.com/Sappy101/fitVIT/tree/website)** | Source code for the web portal/landing page. | 🟡 In Development |
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 - Node.js (v18+)
 - Expo CLI (`npm install -g expo-cli`)
-- Python 3.9+ (for Predictive Engine)
-- Supabase CLI
 
-### Installation
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Sappy101/fitVIT.git
-   ```
-
-2. **Switch to the desired branch:**
-   ```bash
-   # For Mobile App development
-   git checkout app
-
-   # For Website development
-   git checkout website
-   ```
-
-3. **Install dependencies (Example for App):**
-   ```bash
-   cd FitVITv4/frontend
-   npm install
-   ```
-
-4. **Run the development server:**
-   ```bash
-   npx expo start
-   ```
-
-## 🧠 Tech Stack
-
-- **Frontend:** React Native, Expo Router, React Native Chart Kit
-- **Backend:** Supabase (PostgreSQL, Auth, Edge Functions), Python FastAPI
-- **Predictive Engine:** Scikit-Learn, Pandas, NumPy
-- **Design:** Custom *Living Greenhouse* UI System (Glassmorphism, Vibrant Colors, Dark Mode)
+### Running the App
+1. Clone the repository: `git clone https://github.com/Sappy101/fitVIT.git`
+2. Switch to the app branch: `git checkout app`
+3. Navigate to the frontend directory (`cd FitVITv4/frontend`)
+4. Install dependencies: `npm install`
+5. Run the server: `npx expo start`
 
 ---
 <div align="center">
-  <p>Built with ❤️ by the <b>FitVIT Team</b> at VIT University</p>
+  <p>Built with ❤️ to optimize the mess experience at VIT</p>
 </div>
