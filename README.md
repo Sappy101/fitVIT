@@ -1,88 +1,95 @@
 <div align="center">
-  <h1>🍽️ FitVIT</h1>
-  <p><b>Smart Mess Management & Predictive Analytics for VIT University</b></p>
-
-  <p>
-    <a href="https://reactnative.dev/"><img src="https://img.shields.io/badge/React_Native-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" alt="React Native" /></a>
-    <a href="https://expo.dev/"><img src="https://img.shields.io/badge/Expo-000020?style=for-the-badge&logo=expo&logoColor=white" alt="Expo" /></a>
-    <a href="https://supabase.com/"><img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white" alt="Supabase" /></a>
-    <a href="https://python.org/"><img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white" alt="Python" /></a>
-  </p>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=FitVIT&fontSize=80&fontAlignY=35&desc=Smart%20Mess%20%26%20Dining%20Optimization&descSize=20&descAlignY=55" alt="FitVIT Header" width="100%"/>
 </div>
 
-<br />
+<div align="center">
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=2E7D32&center=true&vCenter=true&width=600&lines=Solving+Theme+3%3A+Mess+%26+Dining+Optimization;Solvathon+Problem+P07;Predictive+Waste+Reduction;Nutritional+Transparency" alt="Typing SVG" /></a>
+</div>
 
-> **FitVIT** is a next-generation mess management platform designed for VIT University. It bridges the gap between student dining preferences and administrative logistics using **Predictive Machine Learning** and **Real-time Analytics** to reduce food waste and enhance the dining experience.
+<p align="center">
+  <a href="#-the-problem"><img src="https://img.shields.io/badge/Problem-P07-FF5722?style=for-the-badge&logo=target&logoColor=white" alt="Problem"/></a>
+  <a href="#-the-solution"><img src="https://img.shields.io/badge/Solution-FitVIT-4CAF50?style=for-the-badge&logo=check-circle&logoColor=white" alt="Solution"/></a>
+  <a href="#%EF%B8%8F-tech-stack"><img src="https://img.shields.io/badge/Tech-React_Native_%7C_Supabase-000000?style=for-the-badge&logo=react&logoColor=61DAFB" alt="Tech Stack"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Status-Solvathon_Ready-blue?style=for-the-badge&logo=hackaday&logoColor=white" alt="Status"/></a>
+</p>
 
-## ✨ Ecosystem
+---
 
-FitVIT operates across two primary interfaces, backed by a robust cloud infrastructure:
+## 🎯 The Core Problem
 
-### 🎓 Student Experience (Mobile App - v3 & v4)
-- **Personalized Menu:** View daily menus tailored to dietary preferences (Veg, Non-Veg, Special).
-- **Nutritional Tracking:** Track daily caloric intake and macro distribution (Protein, Carbs, Fats).
-- **Real-time Feedback:** Rate meals, report issues, and provide actionable feedback on food quality.
-- **Automated Preferences:** Smart tracking of student eating habits.
+In hostel mess facilities, students rely on static notice boards. This lack of digitization leads to massive systemic inefficiencies:
 
-### 📊 Admin Intelligence (Dashboard)
-- **Predictive Demand Engine:** ML-driven analytics to predict top-demanded items and potential food waste risks.
-- **Waste Management:** Categorize waste risks (HIGH, MEDIUM, SAFE) to optimize cooking quantities.
-- **Live Metrics:** Monitor total ratings, average satisfaction, and dietary demographics in real-time.
-- **Dietary Vault:** Visual demographic breakdowns of student preferences.
+| ❌ The Problems | 📉 The Impact |
+| --- | --- |
+| **Nutritional Blindness** | Students cannot track their Calorie, Protein, Carb, or Fat intake. |
+| **Disconnected Preferences** | Management cooks blindly without knowing what students actually want to eat. |
+| **High Food Wastage** | Bulk cooking of low-demand dishes results in massive daily food waste. |
+| **Dietary Obscurity** | Students with specific dietary profiles (Veg/Non-Veg/Special) lack transparent choices. |
 
-## 🗂️ Branch Architecture
+---
 
-This repository is meticulously organized into a branch-based monorepo:
+## ✨ Our Revolutionary Solution
+
+**FitVIT** is an intelligent, dual-platform ecosystem designed to be effortlessly accessible for students and profoundly insightful for mess management.
+
+### 📱 1. Student Experience App
+*Empowering students with dietary transparency and a loud voice.*
+
+- 🍽️ **Digital Daily Menus:** Beautiful UX displaying daily menus organized by exact dietary profiles.
+- 🥗 **Nutritional Transparency:** Granular macro breakdowns (**Calories, Protein, Carbohydrates, Fats**) for every single dish.
+- ⭐ **Actionable Feedback Loop:** Instant dish rating out of 5 stars + qualitative feedback driving quality control.
+- 📅 **Advance Preference Mapping:** Students lock-in their choices for Regular and Feast Menus, preventing over-preparation.
+
+### 💻 2. Admin Intelligence Dashboard
+*Transforming guesswork into data-driven operations.*
+
+- 🧠 **Predictive Demand Engine:** ML-driven analytics model predicting real-time demand down to the exact dish.
+- ♻️ **Waste Management Triage:** Automated system flagging dishes as **`HIGH RISK`**, **`WATCH`**, or **`SAFE`** for wastage.
+- 📊 **Dietary Vault Analytics:** Stunning visualizations mapping the entire demographic footprint of the student body.
+
+---
+
+## 🏗️ System Architecture
+
+```mermaid
+graph TD;
+    A[Student App] -->|Advance Preferences| B(Supabase DB)
+    A -->|Ratings & Feedback| B
+    B --> C{Predictive Engine}
+    C -->|Calculates Demand & Risk| D[Admin Dashboard]
+    D -->|Adjusts Quantities| E[Hostel Kitchen Operations]
+    E -->|Optimized Menu Flow| A
+    
+    style A fill:#4CAF50,stroke:#388E3C,stroke-width:2px,color:#fff
+    style D fill:#2196F3,stroke:#1976D2,stroke-width:2px,color:#fff
+    style C fill:#FF9800,stroke:#F57C00,stroke-width:2px,color:#fff
+    style B fill:#1E1E1E,stroke:#333,stroke-width:2px,color:#fff
+```
+
+---
+
+## 🗂️ Branch Strategy (Monorepo)
 
 | Branch | Description | Status |
 |--------|-------------|--------|
-| **[`main`](https://github.com/Sappy101/fitVIT/tree/main)** | Core documentation and project entry point. | 🟢 Active |
-| **[`app`](https://github.com/Sappy101/fitVIT/tree/app)** | Source code for the Expo React Native mobile applications (`v3` and `v4`). | 🟢 Active |
-| **[`website`](https://github.com/Sappy101/fitVIT/tree/website)** | Source code for the FitVIT web portal and landing page. | 🟡 In Development |
+| **[`main`](https://github.com/Sappy101/fitVIT/tree/main)** | Core documentation & Solvathon overview. | 🟢 **Active** |
+| **[`app`](https://github.com/Sappy101/fitVIT/tree/app)** | Source code for the Student App & Admin Dashboard. | 🟢 **Active** |
+| **[`website`](https://github.com/Sappy101/fitVIT/tree/website)** | Source code for the web portal. | 🟡 **In Dev** |
 
-## 🚀 Getting Started
+---
 
-### Prerequisites
-- Node.js (v18+)
-- Expo CLI (`npm install -g expo-cli`)
-- Python 3.9+ (for Predictive Engine)
-- Supabase CLI
+## 🛠️ Tech Stack & Magic Under the Hood
 
-### Installation
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=react,ts,tailwind,supabase,python&perline=5" alt="Tech Stack" />
+</p>
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/Sappy101/fitVIT.git
-   ```
-
-2. **Switch to the desired branch:**
-   ```bash
-   # For Mobile App development
-   git checkout app
-
-   # For Website development
-   git checkout website
-   ```
-
-3. **Install dependencies (Example for App):**
-   ```bash
-   cd FitVITv4/frontend
-   npm install
-   ```
-
-4. **Run the development server:**
-   ```bash
-   npx expo start
-   ```
-
-## 🧠 Tech Stack
-
-- **Frontend:** React Native, Expo Router, React Native Chart Kit
-- **Backend:** Supabase (PostgreSQL, Auth, Edge Functions), Python FastAPI
-- **Predictive Engine:** Scikit-Learn, Pandas, NumPy
-- **Design:** Custom *Living Greenhouse* UI System (Glassmorphism, Vibrant Colors, Dark Mode)
+* **Frontend:** React Native (Expo Router) paired with a custom *Living Greenhouse* UI System
+* **Backend:** Supabase (PostgreSQL, Auth, Edge Functions)
+* **Intelligence:** Python-based ML predictive engine
+* **Analytics:** React Native Chart Kit for immersive data visualization
 
 ---
 <div align="center">
-  <p>Built with ❤️ by the <b>FitVIT Team</b> at VIT University</p>
+  <p><i>Concepted, Designed, and Built with ❤️ for Solvathon Optimization</i></p>
 </div>
