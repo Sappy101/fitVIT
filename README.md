@@ -1,16 +1,16 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&height=200&section=header&text=FitVIT&fontSize=80&fontAlignY=35&desc=Smart%20Mess%20%26%20Dining%20Optimization&descSize=20&descAlignY=55" alt="FitVIT Header" width="100%"/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&amp;color=gradient&amp;height=200&amp;section=header&amp;text=FitVIT&amp;fontSize=80&amp;fontAlignY=35&amp;desc=Smart%20Mess%20%26%20Dining%20Optimization&amp;descSize=20&amp;descAlignY=55&amp;animation=twinkling" alt="FitVIT Header" width="100%"/>
 </div>
 
 <div align="center">
-  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=2E7D32&center=true&vCenter=true&width=600&lines=Solving+Theme+3%3A+Mess+%26+Dining+Optimization;Solvathon+Problem+P07;Predictive+Waste+Reduction;Nutritional+Transparency" alt="Typing SVG" /></a>
+  <a href="https://git.io/typing-svg"><img src="https://readme-typing-svg.demolab.com?font=Fira+Code&amp;weight=600&amp;size=20&amp;duration=3000&amp;pause=1000&amp;color=2E7D32&amp;center=true&amp;vCenter=true&amp;width=600&amp;lines=Solving+Theme+3%3A+Mess+%26+Dining+Optimization;Solvathon+Problem+P07;Predictive+Waste+Reduction;Nutritional+Transparency" alt="Typing SVG" /></a>
 </div>
 
 <p align="center">
-  <a href="#-the-problem"><img src="https://img.shields.io/badge/Problem-P07-FF5722?style=for-the-badge&logo=target&logoColor=white" alt="Problem"/></a>
-  <a href="#-the-solution"><img src="https://img.shields.io/badge/Solution-FitVIT-4CAF50?style=for-the-badge&logo=check-circle&logoColor=white" alt="Solution"/></a>
-  <a href="#%EF%B8%8F-tech-stack"><img src="https://img.shields.io/badge/Tech-React_Native_%7C_Supabase-000000?style=for-the-badge&logo=react&logoColor=61DAFB" alt="Tech Stack"/></a>
-  <a href="#"><img src="https://img.shields.io/badge/Status-Solvathon_Ready-blue?style=for-the-badge&logo=hackaday&logoColor=white" alt="Status"/></a>
+  <a href="#-the-problem"><img src="https://img.shields.io/badge/Problem-P07-FF5722?style=for-the-badge&amp;logo=target&amp;logoColor=white" alt="Problem"/></a>
+  <a href="#-the-solution"><img src="https://img.shields.io/badge/Solution-FitVIT-4CAF50?style=for-the-badge&amp;logo=check-circle&amp;logoColor=white" alt="Solution"/></a>
+  <a href="#%EF%B8%8F-tech-stack"><img src="https://img.shields.io/badge/Tech-React_Native_%7C_Supabase-000000?style=for-the-badge&amp;logo=react&amp;logoColor=61DAFB" alt="Tech Stack"/></a>
+  <a href="#"><img src="https://img.shields.io/badge/Status-Solvathon_Ready-blue?style=for-the-badge&amp;logo=hackaday&amp;logoColor=white" alt="Status"/></a>
 </p>
 
 ---
@@ -81,7 +81,7 @@ graph TD;
 ## 🛠️ Tech Stack & Magic Under the Hood
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=react,ts,tailwind,supabase,python&perline=5" alt="Tech Stack" />
+  <img src="https://skillicons.dev/icons?i=react,ts,tailwind,supabase,python&amp;perline=5" alt="Tech Stack" />
 </p>
 
 * **Frontend:** React Native (Expo Router) paired with a custom *Living Greenhouse* UI System
