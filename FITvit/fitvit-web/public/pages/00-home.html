@@ -1,0 +1,52 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>FitVit - Page Atlas</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="../shell.css" />
+	</head>
+	<body>
+		<header class="top-shell">
+			<div>
+				<div class="brand">FitVit Stitch Build</div>
+				<small>11-page navigation with original Stitch essence</small>
+			</div>
+			<div class="shell-actions">
+				<button id="logoutBtn" class="btn btn-ghost">Logout</button>
+			</div>
+		</header>
+
+		<main class="page-wrap">
+			<section class="page-head">
+				<h1>All Pages</h1>
+				<p>
+					Each page below includes a purpose description and renders your original Stitch HTML so visuals stay true to your uploaded files.
+				</p>
+			</section>
+
+			<section class="grid">
+				<a class="card-link" href="./01-sign-up.html"><h3>01. Sign Up</h3><p>Account creation and brand entry experience.</p></a>
+				<a class="card-link" href="./02-marketplace.html"><h3>02. Marketplace</h3><p>Nutrition product discovery and cart-style interactions.</p></a>
+				<a class="card-link" href="./03-performance-dashboard.html"><h3>03. Performance Dashboard</h3><p>Main metrics and high-performance nutrition summary.</p></a>
+				<a class="card-link" href="./04-nutrition-vault.html"><h3>04. Nutrition Vault</h3><p>Structured nutrient library and menu data details.</p></a>
+				<a class="card-link" href="./05-meal-planner.html"><h3>05. Meal Planner</h3><p>Weekly meal calendar and meal session blocks.</p></a>
+				<a class="card-link" href="./06-dietary-preferences.html"><h3>06. Dietary Preferences</h3><p>Allergies, dislikes, and personal filters setup.</p></a>
+				<a class="card-link" href="./07-dietary-goals.html"><h3>07. Dietary Goals</h3><p>Goal-oriented nutrition objective and macro intent.</p></a>
+				<a class="card-link" href="./08-profile-settings.html"><h3>08. Profile Settings</h3><p>User profile, security, and preference controls.</p></a>
+				<a class="card-link" href="./09-daily-nutrition.html"><h3>09. Daily Nutrition</h3><p>Day-level macro dashboard and consumption tracking.</p></a>
+				<a class="card-link" href="./10-onboarding-profile.html"><h3>10. Onboarding Profile</h3><p>Initial personal profile and mess-type preferences flow.</p></a>
+				<a class="card-link" href="./11-stitch-style-guide.html"><h3>11. Stitch Style Guide</h3><p>Design-system summary derived from your DESIGN.md files.</p></a>
+			</section>
+		</main>
+
+		<script type="module">
+			import { requireAuth, wireShell } from "../shell.js";
+			requireAuth();
+			wireShell();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FitVit - Meal Planner</title>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Material Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-container-lowest": "#ffffff",
+              "on-tertiary-fixed-variant": "#005312",
+              "error-container": "#ffdad6",
+              "surface-container-low": "#f1f4f1",
+              "secondary-container": "#d9e6da",
+              "primary": "#216d00",
+              "secondary-fixed-dim": "#bdcabe",
+              "on-surface-variant": "#3f4a38",
+              "secondary": "#556158",
+              "on-primary": "#ffffff",
+              "surface-dim": "#d7dbd8",
+              "surface-tint": "#216d00",
+              "on-primary-fixed": "#052100",
+              "on-secondary-fixed": "#131e17",
+              "on-error": "#ffffff",
+              "surface": "#f7faf7",
+              "on-secondary-container": "#5b675e",
+              "outline-variant": "#becab4",
+              "on-background": "#181c1b",
+              "tertiary-container": "#5cab5a",
+              "on-secondary-fixed-variant": "#3e4a41",
+              "surface-bright": "#f7faf7",
+              "inverse-on-surface": "#eef1ee",
+              "tertiary-fixed": "#a3f69c",
+              "primary-fixed-dim": "#72df49",
+              "surface-container-high": "#e6e9e6",
+              "on-primary-container": "#0d3a00",
+              "background": "#f7faf7",
+              "on-tertiary": "#ffffff",
+              "on-primary-fixed-variant": "#175200",
+              "surface-container": "#ebefec",
+              "outline": "#6f7b67",
+              "secondary-fixed": "#d9e6da",
+              "inverse-primary": "#72df49",
+              "surface-variant": "#e0e3e0",
+              "on-secondary": "#ffffff",
+              "on-tertiary-container": "#003b0a",
+              "on-surface": "#181c1b",
+              "error": "#ba1a1a",
+              "tertiary": "#1b6d24",
+              "surface-container-highest": "#e0e3e0",
+              "primary-fixed": "#8dfc63",
+              "on-tertiary-fixed": "#002204",
+              "tertiary-fixed-dim": "#88d982",
+              "primary-container": "#44af1a",
+              "on-error-container": "#93000a",
+              "inverse-surface": "#2d3130"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+
+        body {
+          opacity: 0;
+          transform: translateX(18px);
+          transition: opacity 260ms ease, transform 340ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        body.page-ready {
+          opacity: 1;
+          transform: translateX(0);
+        }
+
+        .slide-reveal {
+          opacity: 0;
+          transform: translateX(24px);
+          animation: fitvitSlideIn 550ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+          animation-delay: var(--slide-delay, 0ms);
+          will-change: transform, opacity;
+        }
+
+        body.page-exit {
+          opacity: 0;
+          transform: translateX(-18px);
+          pointer-events: none;
+        }
+
+        @keyframes fitvitSlideIn {
+          from {
+            opacity: 0;
+            transform: translateX(24px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          body,
+          body.page-ready,
+          body.page-exit {
+            opacity: 1;
+            transform: none;
+            transition: none;
+          }
+
+          .slide-reveal {
+            opacity: 1;
+            transform: none;
+            animation: none;
+          }
+        }
+
+        .anim-brand-breathe {
+          animation: fitvitBrandBreathe 3.2s ease-in-out infinite;
+          transform-origin: left center;
+        }
+
+        .anim-hover-lift {
+          transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 260ms ease;
+        }
+
+        .anim-hover-lift:hover {
+          transform: translateY(-4px);
+          box-shadow: 0 14px 28px rgba(33, 109, 0, 0.12);
+        }
+
+        .anim-cta-pulse {
+          animation: fitvitCtaPulse 2.6s ease-in-out infinite;
+        }
+
+        @keyframes fitvitBrandBreathe {
+          0%, 100% { transform: translateY(0); letter-spacing: 0; }
+          50% { transform: translateY(-1px); letter-spacing: 0.2px; }
+        }
+
+        @keyframes fitvitCtaPulse {
+          0%, 100% { box-shadow: 0 0 0 0 rgba(68, 175, 26, 0); }
+          50% { box-shadow: 0 0 0 10px rgba(68, 175, 26, 0.08); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .anim-brand-breathe,
+          .anim-cta-pulse {
+            animation: none;
+          }
+
+          .anim-hover-lift,
+          .anim-hover-lift:hover {
+            transition: none;
+            transform: none;
+            box-shadow: none;
+          }
+        }
+
+    </style>
+</head>
+<body class="bg-[#f2f8f0] text-on-background min-h-screen">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#f7faf7]/60 dark:bg-zinc-900/60 backdrop-blur-md flex justify-between items-center px-6 h-16">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-bold tracking-tight text-green-800 dark:text-green-400">FitVit</span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-zinc-600 font-medium hover:bg-green-100/50 transition-colors px-3 py-1 rounded-full" href="/flow/02-performance-dashboard.html" target="_top">Dashboard</a>
+<a class="text-green-700 font-bold hover:bg-green-100/50 transition-colors px-3 py-1 rounded-full" href="/flow/04-meal-planner.html" target="_top">Meal Planner</a>
+<a class="text-zinc-600 font-medium hover:bg-green-100/50 transition-colors px-3 py-1 rounded-full" href="/flow/03-meal-rating.html" target="_top">Meal Rating</a>
+<a class="text-zinc-600 font-medium hover:bg-green-100/50 transition-colors px-3 py-1 rounded-full" href="/flow/01-food-preferences.html" target="_top">Food Preferences</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-zinc-500 dark:text-zinc-400 hover:bg-green-50/50 transition-colors p-2 rounded-full active:scale-95 duration-200" onclick="window.top.location.href='/flow/07-profile-settings.html'">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<!-- SideNavBar (Hidden on Mobile) -->
+<aside class="hidden md:flex h-screen w-72 rounded-r-[3rem] fixed left-0 top-0 z-40 bg-[#f7faf7] shadow-xl shadow-green-900/5 flex-col h-full py-8 gap-2 pt-24 px-4">
+<nav class="flex-1 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:bg-zinc-200/50 rounded-full transition-all hover:translate-x-1 duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<!-- Active State for Meal Planner -->
+<a class="flex items-center gap-3 px-4 py-3 bg-gradient-to-br from-[#216d00] to-[#44AF1A] text-white rounded-full shadow-lg shadow-green-700/20 active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="restaurant_menu" style="font-variation-settings: 'FILL' 1;">restaurant_menu</span>
+<span class="font-bold">Meal Planner</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:bg-zinc-200/50 rounded-full transition-all hover:translate-x-1 duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="menu_book">menu_book</span>
+<span class="font-medium">Meal Rating</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:bg-zinc-200/50 rounded-full transition-all hover:translate-x-1 duration-300" href="#">
+<span class="material-symbols-outlined" data-icon="storefront">storefront</span>
+<span class="font-medium">Food Preferences</span>
+</a>
+</nav>
+<div class="mt-auto border-t border-zinc-100 pt-6 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:bg-zinc-200/50 rounded-full transition-all" href="/flow/07-profile-settings.html" target="_top">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="font-medium">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-zinc-600 hover:bg-zinc-200/50 rounded-full transition-all" href="/stitch/stitch_smart_mess_dashboard%20(10)/code.html" onclick="Object.keys(localStorage).filter(function(k){return k.indexOf('fitvit_')===0;}).forEach(function(k){localStorage.removeItem(k);});Object.keys(sessionStorage).filter(function(k){return k.indexOf('fitvit_')===0;}).forEach(function(k){sessionStorage.removeItem(k);});" target="_top">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="font-medium">Log Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="md:pl-72 pt-24 min-h-screen">
+<div class="max-w-6xl mx-auto px-6 py-8">
+<!-- Header & Mess Type Selector -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div>
+<h1 class="text-4xl font-extrabold text-on-surface tracking-tight mb-2">Weekly Performance Menu</h1>
+<p class="text-on-surface-variant font-medium">Fuelling your academic and athletic success.</p>
+</div>
+<!-- Mess Type Selector -->
+<div class="bg-surface-container-high p-1.5 rounded-full flex gap-1 self-start" id="messTypeSelector">
+<button class="px-6 py-2 rounded-full font-bold transition-all text-zinc-500 hover:text-primary" data-mess-type="Veg">Veg</button>
+<button class="px-6 py-2 rounded-full font-bold transition-all bg-surface-container-lowest text-primary shadow-sm" data-mess-type="Non-Veg">Non-Veg</button>
+<button class="px-6 py-2 rounded-full font-bold transition-all text-zinc-500 hover:text-primary" data-mess-type="Special">Special</button>
+</div>
+</div>
+<!-- Weekly Calendar View -->
+<div class="flex overflow-x-auto gap-4 pb-8 mb-4 no-scrollbar" id="plannerDaySelector">
+<!-- Days of week -->
+<button class="flex-shrink-0 w-24 h-32 rounded-xl bg-primary-container text-white flex flex-col items-center justify-center gap-2 shadow-lg shadow-green-700/20" data-day="Mon">
+<span class="text-xs font-bold uppercase tracking-widest opacity-80">Mon</span>
+<span class="text-2xl font-black">01</span>
+</button>
+<button class="flex-shrink-0 w-24 h-32 rounded-xl bg-surface-container-lowest text-on-surface flex flex-col items-center justify-center gap-2 hover:bg-green-50 transition-colors" data-day="Tue">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Tue</span>
+<span class="text-2xl font-black">02</span>
+</button>
+<button class="flex-shrink-0 w-24 h-32 rounded-xl bg-surface-container-lowest text-on-surface flex flex-col items-center justify-center gap-2 hover:bg-green-50 transition-colors" data-day="Wed">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Wed</span>
+<span class="text-2xl font-black">03</span>
+</button>
+<button class="flex-shrink-0 w-24 h-32 rounded-xl bg-surface-container-lowest text-on-surface flex flex-col items-center justify-center gap-2 hover:bg-green-50 transition-colors" data-day="Thu">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Thu</span>
+<span class="text-2xl font-black">04</span>
+</button>
+<button class="flex-shrink-0 w-24 h-32 rounded-xl bg-surface-container-lowest text-on-surface flex flex-col items-center justify-center gap-2 hover:bg-green-50 transition-colors" data-day="Fri">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Fri</span>
+<span class="text-2xl font-black">05</span>
+</button>
+<button class="flex-shrink-0 w-24 h-32 rounded-xl bg-surface-container-lowest text-on-surface flex flex-col items-center justify-center gap-2 hover:bg-green-50 transition-colors" data-day="Sat">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Sat</span>
+<span class="text-2xl font-black">06</span>
+</button>
+<button class="flex-shrink-0 w-24 h-32 rounded-xl bg-surface-container-lowest text-on-surface flex flex-col items-center justify-center gap-2 hover:bg-green-50 transition-colors" data-day="Sun">
+<span class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Sun</span>
+<span class="text-2xl font-black">07</span>
+</button>
+</div>
+<!-- Meal Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-start">
+<!-- Breakfast Card -->
+<div class="bg-surface-container-lowest p-8 rounded-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8 text-primary opacity-10 scale-150">
+<span class="material-symbols-outlined text-9xl" data-icon="sunny">sunny</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container" data-icon="breakfast_dining">breakfast_dining</span>
+</div>
+<div>
+<h3 class="text-lg font-bold">Breakfast</h3>
+<p class="text-xs font-medium text-on-surface-variant">07:30 AM - 09:30 AM</p>
+</div>
+</div>
+<ul class="space-y-4" id="breakfastMenuList">
+<li class="flex items-start gap-3">
+<div class="mt-1 w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div>
+<p class="font-bold text-on-surface">Mix Veg Upma + Chutney + Curd</p>
+<p class="text-sm text-on-surface-variant">High-fiber whole wheat base</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="mt-1 w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div>
+<p class="font-bold text-on-surface">Pongal + Sambar</p>
+<p class="text-sm text-on-surface-variant">Protein-rich lentil &amp; rice mix</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="mt-1 w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div>
+<p class="font-bold text-on-surface">Tea / Coffee / Milk / Egg</p>
+<p class="text-sm text-on-surface-variant">Essential morning beverages</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- Lunch Card -->
+<div class="bg-surface-container-lowest p-8 rounded-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8 text-primary opacity-10 scale-150">
+<span class="material-symbols-outlined text-9xl" data-icon="wb_sunny">wb_sunny</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="lunch_dining">lunch_dining</span>
+</div>
+<div>
+<h3 class="text-lg font-bold">Lunch</h3>
+<p class="text-xs font-medium text-on-surface-variant">12:30 PM - 02:30 PM</p>
+</div>
+</div>
+<ul class="space-y-4" id="lunchMenuList">
+<li class="flex items-start gap-3">
+<div class="mt-1 w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div>
+<p class="font-bold text-on-surface">Veg Pulao &amp; Dal Fry</p>
+<p class="text-sm text-on-surface-variant">Slow-release carbohydrates</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="mt-1 w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div>
+<p class="font-bold text-on-surface">Boiled Rice / Phulka</p>
+<p class="text-sm text-on-surface-variant">Choice of grain</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="mt-1 w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div>
+<p class="font-bold text-on-surface">Mix Veg Curry, Curd, Salad</p>
+<p class="text-sm text-on-surface-variant">Micronutrient boost</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- Snacks Card -->
+<div class="bg-surface-container-lowest p-8 rounded-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8 text-primary opacity-10 scale-150">
+<span class="material-symbols-outlined text-9xl" data-icon="bakery_dining">bakery_dining</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-12 h-12 rounded-full bg-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="cookie">cookie</span>
+</div>
+<div>
+<h3 class="text-lg font-bold">Evening Snacks</h3>
+<p class="text-xs font-medium text-on-surface-variant">05:00 PM - 06:00 PM</p>
+</div>
+</div>
+<ul class="space-y-4" id="snacksMenuList">
+<li class="flex items-start gap-3">
+<div class="mt-1 w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div>
+<p class="font-bold text-on-surface">Veg Sandwich</p>
+<p class="text-sm text-on-surface-variant">Freshly grilled vegetables</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="mt-1 w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div>
+<p class="font-bold text-on-surface">Tea / Coffee / Milk</p>
+<p class="text-sm text-on-surface-variant">Energy replenishment</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<!-- Dinner Card -->
+<div class="bg-surface-container-lowest p-8 rounded-xl relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8 text-primary opacity-10 scale-150">
+<span class="material-symbols-outlined text-9xl" data-icon="bedtime">bedtime</span>
+</div>
+<div class="relative z-10">
+<div class="flex items-center gap-3 mb-6">
+<div class="w-12 h-12 rounded-full bg-inverse-surface flex items-center justify-center">
+<span class="material-symbols-outlined text-surface" data-icon="dinner_dining">dinner_dining</span>
+</div>
+<div>
+<h3 class="text-lg font-bold">Dinner</h3>
+<p class="text-xs font-medium text-on-surface-variant">07:30 PM - 09:30 PM</p>
+</div>
+</div>
+<ul class="space-y-4" id="dinnerMenuList">
+<li class="flex items-start gap-3">
+<div class="mt-1 w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div>
+<p class="font-bold text-on-surface">Phulka &amp; Rajma Curry</p>
+<p class="text-sm text-on-surface-variant">Rich plant-based protein</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="mt-1 w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div>
+<p class="font-bold text-on-surface">Jeera Dal &amp; White Rice</p>
+<p class="text-sm text-on-surface-variant">Easy digestion before bed</p>
+</div>
+</li>
+<li class="flex items-start gap-3">
+<div class="mt-1 w-1.5 h-1.5 rounded-full bg-primary"></div>
+<div>
+<p class="font-bold text-on-surface">Sweet / Fruit</p>
+<p class="text-sm text-on-surface-variant">Daily dessert treat</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- Nutrition Summary & CTA -->
+<div class="mt-12 bg-surface-container-low rounded-xl p-8 flex flex-col md:flex-row items-center justify-between gap-8 border-none">
+<div class="flex gap-8">
+<div class="text-center">
+<input class="w-28 text-center text-2xl font-black text-primary bg-surface-container-lowest rounded-lg px-3 py-2 border border-outline-variant/20" id="weeklyKcalInput" min="0" step="1" type="number" value="2450"/>
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Kcal Total</span>
+</div>
+<div class="text-center">
+<input class="w-24 text-center text-2xl font-black text-on-surface bg-surface-container-lowest rounded-lg px-3 py-2 border border-outline-variant/20" id="weeklyProteinInput" min="0" step="1" type="number" value="120"/>
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Protein</span>
+</div>
+<div class="text-center">
+<input class="w-24 text-center text-2xl font-black text-on-surface bg-surface-container-lowest rounded-lg px-3 py-2 border border-outline-variant/20" id="weeklyFatsInput" min="0" step="1" type="number" value="45"/>
+<span class="text-xs font-bold text-on-surface-variant uppercase tracking-widest">Fats</span>
+</div>
+</div>
+<button class="w-full md:w-auto bg-gradient-to-br from-[#216d00] to-[#44AF1A] text-white px-12 py-4 rounded-full font-bold shadow-xl shadow-green-700/20 active:scale-95 transition-all" id="setWeeklyPlanBtn" type="button">
+                    Set Weekly Plan
+                </button>
+</div>
+<p class="hidden mt-3 text-sm font-semibold text-primary" id="weeklyPlanStatus">Weekly targets saved.</p>
+<!-- Food Aesthetic Visual -->
+<div class="mt-12 rounded-xl overflow-hidden h-64 relative">
+<img alt="Healthy Meal" class="w-full h-full object-cover" data-alt="cinematic top-down view of vibrant healthy Mediterranean meal bowls on a rustic wooden table with soft sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBTqWzWl8RigwuJMu2jxjJEGxXOCMcrlD-dpQL0jsNJ64LNzivz7tqLUHhGCkBVOPR9Ry2Jk08zU5HzAiXz568DH8_pVgoN4NiY1xPr4YV5Pz4rM3CCjUGPKPo3At_PglF82-CM85IVATsSrt4JJ8RVOVqvJTWLl2OcceMDy3HtDpyK_16RviSBzx9lVbqqlWuN4eBOaiENBDoBmHqKobC174zXugl1z8UdvSWMqGb-QXcVvSgr8XckSaKqEnNBS2BOIaGCu8Dl8Q"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end p-8">
+<p class="text-white text-xl font-bold">Eat smart. Live better.</p>
+</div>
+</div>
+</div>
+</main>
+<!-- FAB for quick action (suppressed as per instructions for details/task pages, but including as ghost reference for UI completeness if needed elsewhere) -->
+<script src="/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/supabase-client.js"></script>
+<script>
+  (() => {
+    const typeButtons = Array.from(document.querySelectorAll("[data-mess-type]"));
+    const dayButtons = Array.from(document.querySelectorAll("[data-day]"));
+
+    const mealLists = {
+      breakfast: document.getElementById("breakfastMenuList"),
+      lunch: document.getElementById("lunchMenuList"),
+      snacks: document.getElementById("snacksMenuList"),
+      dinner: document.getElementById("dinnerMenuList")
+    };
+
+    const allowedMessTypes = ["Veg", "Non-Veg", "Special"];
+    const savedMessType = localStorage.getItem("fitvit_preferred_mess") || "Non-Veg";
+    let selectedType = allowedMessTypes.includes(savedMessType) ? savedMessType : "Non-Veg";
+    const dayKeys = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+    let selectedDay = dayKeys[new Date().getDay()] || "Mon";
+    const setWeeklyPlanBtn = document.getElementById("setWeeklyPlanBtn");
+    const weeklyPlanStatus = document.getElementById("weeklyPlanStatus");
+    const weeklyKcalInput = document.getElementById("weeklyKcalInput");
+    const weeklyProteinInput = document.getElementById("weeklyProteinInput");
+    const weeklyFatsInput = document.getElementById("weeklyFatsInput");
+
+    const weeklyTargetsKey = "fitvit_weekly_targets";
+    let weeklyTargets = {
+      required_kcal: 2450,
+      required_protein: 120,
+      required_fats: 45
+    };
+
+    const fallbackData = {
+      "Veg": {
+        "Mon": { breakfast: ["Moong Dal Chilla", "Coconut Chutney"], lunch: ["Veg Pulao", "Dal Tadka", "Cucumber Raita"], snacks: ["Corn Chaat", "Masala Chai"], dinner: ["Phulka", "Palak Paneer", "Jeera Rice"] },
+        "Tue": { breakfast: ["Poha", "Sprouts Salad"], lunch: ["Rajma", "Steamed Rice", "Beetroot Salad"], snacks: ["Fruit Bowl", "Buttermilk"], dinner: ["Chapati", "Mix Veg Curry", "Curd"] },
+        "Wed": { breakfast: ["Idli", "Sambar", "Peanut Chutney"], lunch: ["Chole", "Jeera Rice", "Kachumber"], snacks: ["Roasted Makhana", "Lemon Tea"], dinner: ["Phulka", "Lauki Kofta", "Dal Fry"] },
+        "Thu": { breakfast: ["Vegetable Upma", "Banana"], lunch: ["Paneer Bhurji", "Roti", "Masoor Dal"], snacks: ["Veg Sandwich", "Green Tea"], dinner: ["Khichdi", "Kaddu Sabzi", "Curd"] },
+        "Fri": { breakfast: ["Aloo Paratha", "Curd"], lunch: ["Kadhi Pakora", "Rice", "Cabbage Stir Fry"], snacks: ["Bhel Puri", "Mint Chaas"], dinner: ["Phulka", "Matar Paneer", "Moong Dal"] },
+        "Sat": { breakfast: ["Rava Dosa", "Sambar"], lunch: ["Veg Biryani", "Boondi Raita", "Dal Makhani"], snacks: ["Peanut Sundal", "Herbal Tea"], dinner: ["Chapati", "Aloo Gobi", "Lentil Soup"] },
+        "Sun": { breakfast: ["Masala Oats", "Apple"], lunch: ["Paneer Tikka Masala", "Naan", "Salad"], snacks: ["Baked Sweet Potato", "Lassi"], dinner: ["Vegetable Pulao", "Dal Palak", "Cucumber Salad"] }
+      },
+      "Non-Veg": {
+        "Mon": { breakfast: ["Boiled Eggs", "Whole Wheat Toast"], lunch: ["Chicken Curry", "Steamed Rice", "Onion Salad"], snacks: ["Chicken Sandwich", "Black Coffee"], dinner: ["Egg Bhurji", "Phulka", "Dal Tadka"] },
+        "Tue": { breakfast: ["Egg Omelette", "Multigrain Bread"], lunch: ["Fish Curry", "Jeera Rice", "Curd"], snacks: ["Tuna Salad Cup", "Lemon Water"], dinner: ["Chicken Keema", "Chapati", "Veg Soup"] },
+        "Wed": { breakfast: ["Scrambled Eggs", "Sauteed Veggies"], lunch: ["Chicken Pulao", "Raita", "Dal Fry"], snacks: ["Boiled Egg Chaat", "Tea"], dinner: ["Grilled Fish", "Garlic Rice", "Sauteed Beans"] },
+        "Thu": { breakfast: ["Egg Sandwich", "Milk"], lunch: ["Mutton Stew", "Phulka", "Salad"], snacks: ["Chicken Wrap", "Buttermilk"], dinner: ["Chicken Soup", "Paneer Bhurji", "Roti"] },
+        "Fri": { breakfast: ["Masala Egg Bhurji", "Toast"], lunch: ["Fish Tikka", "Rice", "Dal"], snacks: ["Protein Shake", "Roasted Chickpeas"], dinner: ["Chicken Handi", "Chapati", "Cucumber Salad"] },
+        "Sat": { breakfast: ["Egg Dosa", "Coconut Chutney"], lunch: ["Prawn Masala", "Jeera Rice", "Veg Stir Fry"], snacks: ["Chicken Cutlet", "Mint Tea"], dinner: ["Chicken Roast", "Phulka", "Lentil Soup"] },
+        "Sun": { breakfast: ["French Omelette", "Fruit Bowl"], lunch: ["Butter Chicken", "Naan", "Onion Salad"], snacks: ["Egg Roll", "Lassi"], dinner: ["Fish Fry", "Dal Khichdi", "Sauteed Carrots"] }
+      },
+      "Special": {
+        "Mon": { breakfast: ["Avocado Toast", "Greek Yogurt"], lunch: ["Quinoa Bowl", "Grilled Paneer", "Mint Dip"], snacks: ["Protein Bar", "Cold Brew"], dinner: ["Millet Khichdi", "Roasted Veggies", "Hung Curd"] },
+        "Tue": { breakfast: ["Chia Pudding", "Seasonal Berries"], lunch: ["Tofu Stir Fry", "Brown Rice", "Miso Soup"], snacks: ["Hummus Platter", "Kombucha"], dinner: ["Zucchini Noodles", "Pesto Veggies", "Pumpkin Soup"] },
+        "Wed": { breakfast: ["Smoothie Bowl", "Granola"], lunch: ["Sushi Veg Roll", "Edamame", "Clear Soup"], snacks: ["Trail Mix", "Green Juice"], dinner: ["Stuffed Bell Peppers", "Herb Rice", "Lentil Broth"] },
+        "Thu": { breakfast: ["Buckwheat Pancakes", "Honey Drizzle"], lunch: ["Falafel Wrap", "Tahini Dip", "Tabbouleh"], snacks: ["Yogurt Parfait", "Iced Tea"], dinner: ["Mushroom Risotto", "Garlic Greens", "Tomato Consomme"] },
+        "Fri": { breakfast: ["Overnight Oats", "Mixed Nuts"], lunch: ["Thai Curry Veg", "Jasmine Rice", "Papaya Salad"], snacks: ["Seed Crackers", "Matcha Latte"], dinner: ["Mexican Bean Bowl", "Corn Salsa", "Avocado Salad"] },
+        "Sat": { breakfast: ["Spinach Wrap", "Orange Juice"], lunch: ["Mediterranean Platter", "Pita", "Hummus"], snacks: ["Fruit Skewers", "Mint Cooler"], dinner: ["Ratatouille", "Herb Couscous", "Creamy Soup"] },
+        "Sun": { breakfast: ["Acai Bowl", "Pumpkin Seeds"], lunch: ["Pesto Pasta", "Grilled Veggies", "Garden Salad"], snacks: ["Dark Chocolate Oats Bites", "Detox Water"], dinner: ["Saffron Rice", "Paneer Steak", "Roasted Broccoli"] }
+      }
+    };
+
+    function setTypeButtonState() {
+      typeButtons.forEach((button) => {
+        const isActive = button.dataset.messType === selectedType;
+        button.classList.toggle("bg-surface-container-lowest", isActive);
+        button.classList.toggle("text-primary", isActive);
+        button.classList.toggle("shadow-sm", isActive);
+        button.classList.toggle("text-zinc-500", !isActive);
+      });
+    }
+
+    function setDayButtonState() {
+      dayButtons.forEach((button) => {
+        const isActive = button.dataset.day === selectedDay;
+        button.classList.toggle("bg-primary-container", isActive);
+        button.classList.toggle("text-white", isActive);
+        button.classList.toggle("shadow-lg", isActive);
+        button.classList.toggle("shadow-green-700/20", isActive);
+        button.classList.toggle("bg-surface-container-lowest", !isActive);
+        button.classList.toggle("text-on-surface", !isActive);
+        button.classList.toggle("hover:bg-green-50", !isActive);
+      });
+    }
+
+    function renderList(listNode, items, note) {
+      if (!listNode) return;
+      listNode.innerHTML = (items || [])
+        .map(
+          (item) => `
+            <li class="flex items-start gap-3">
+              <div class="mt-1 w-1.5 h-1.5 rounded-full bg-primary"></div>
+              <div>
+                <p class="font-bold text-on-surface">${item}</p>
+                <p class="text-sm text-on-surface-variant">${note}</p>
+              </div>
+            </li>
+          `
+        )
+        .join("");
+    }
+
+    function renderMenus(data) {
+      const dayMenu = data?.[selectedType]?.[selectedDay];
+      if (!dayMenu) return;
+      renderList(mealLists.breakfast, dayMenu.breakfast, "Morning fuel for focused classes");
+      renderList(mealLists.lunch, dayMenu.lunch, "Balanced mid-day performance plate");
+      renderList(mealLists.snacks, dayMenu.snacks, "Quick recovery snack options");
+      renderList(mealLists.dinner, dayMenu.dinner, "Easy-to-digest evening nutrition");
+    }
+
+    function renderWeeklyTargets() {
+      if (weeklyKcalInput) weeklyKcalInput.value = String(Math.max(0, Number(weeklyTargets.required_kcal || 0)));
+      if (weeklyProteinInput) weeklyProteinInput.value = String(Math.max(0, Number(weeklyTargets.required_protein || 0)));
+      if (weeklyFatsInput) weeklyFatsInput.value = String(Math.max(0, Number(weeklyTargets.required_fats || 0)));
+    }
+
+    function loadWeeklyTargetsFromStorage() {
+      try {
+        const parsed = JSON.parse(localStorage.getItem(weeklyTargetsKey) || "{}");
+        weeklyTargets = {
+          required_kcal: Number(parsed.required_kcal || weeklyTargets.required_kcal),
+          required_protein: Number(parsed.required_protein || weeklyTargets.required_protein),
+          required_fats: Number(parsed.required_fats || weeklyTargets.required_fats)
+        };
+      } catch {
+        // Keep defaults.
+      }
+      renderWeeklyTargets();
+    }
+
+    async function hydrateWeeklyTargetsFromProfile() {
+      try {
+        if (!window.FitVitSupabase?.isConfigured() || typeof window.FitVitSupabase.getProfile !== "function") return;
+        const currentUser = JSON.parse(localStorage.getItem("fitvit_user") || "{}");
+        const uid = String(currentUser.uid || "self");
+        const result = await window.FitVitSupabase.getProfile(uid);
+        if (result.error || !result.data) return;
+
+        const next = {
+          required_kcal: Number(result.data.required_kcal || weeklyTargets.required_kcal),
+          required_protein: Number(result.data.required_protein || weeklyTargets.required_protein),
+          required_fats: Number(result.data.required_fats || weeklyTargets.required_fats)
+        };
+        weeklyTargets = next;
+        localStorage.setItem(weeklyTargetsKey, JSON.stringify(next));
+        renderWeeklyTargets();
+      } catch {
+        // Keep local value as fallback.
+      }
+    }
+
+    async function saveWeeklyTargets() {
+      const next = {
+        required_kcal: Math.max(0, Number(weeklyKcalInput?.value || 0)),
+        required_protein: Math.max(0, Number(weeklyProteinInput?.value || 0)),
+        required_fats: Math.max(0, Number(weeklyFatsInput?.value || 0))
+      };
+
+      if (!Number.isFinite(next.required_kcal) || !Number.isFinite(next.required_protein) || !Number.isFinite(next.required_fats)) {
+        window.alert("Please enter valid numeric values.");
+        return;
+      }
+
+      weeklyTargets = next;
+      localStorage.setItem(weeklyTargetsKey, JSON.stringify(next));
+      renderWeeklyTargets();
+
+      try {
+        if (window.FitVitSupabase?.isConfigured() && typeof window.FitVitSupabase.upsertProfile === "function") {
+          const currentUser = JSON.parse(localStorage.getItem("fitvit_user") || "{}");
+          const uid = String(currentUser.uid || "self");
+          const result = await window.FitVitSupabase.upsertProfile(uid, next);
+          if (result.error) {
+            window.alert("Saved locally. Supabase sync failed.");
+          }
+        }
+      } catch {
+        window.alert("Saved locally. Supabase sync failed.");
+      }
+
+      if (weeklyPlanStatus) {
+        weeklyPlanStatus.classList.remove("hidden");
+        setTimeout(() => weeklyPlanStatus.classList.add("hidden"), 2500);
+      }
+    }
+
+    async function loadPlannerData() {
+      try {
+        if (window.FitVitSupabase?.isConfigured()) {
+          const { data, error } = await window.FitVitSupabase.getMealsVaultPlannerTypes();
+          if (!error && data) {
+            return data;
+          }
+        }
+      } catch {
+        // Ignore Supabase issues and use existing fallback chain.
+      }
+
+      const fromStorage = localStorage.getItem("fitvit_mock_db");
+      if (fromStorage) {
+        const parsed = JSON.parse(fromStorage);
+        if (parsed?.mealPlanner?.types) return parsed.mealPlanner.types;
+      }
+
+      try {
+        const res = await fetch("/api/bootstrap");
+        if (res.ok) {
+          const db = await res.json();
+          if (db?.mealPlanner?.types) return db.mealPlanner.types;
+        }
+      } catch {
+        // Ignore fetch errors and use fallback data.
+      }
+
+      try {
+        const res = await fetch("/db/mockData.json");
+        if (res.ok) {
+          const db = await res.json();
+          if (db?.mealPlanner?.types) return db.mealPlanner.types;
+        }
+      } catch {
+        // Ignore fetch errors and use fallback data.
+      }
+
+      return fallbackData;
+    }
+
+    typeButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        selectedType = button.dataset.messType;
+        setTypeButtonState();
+        renderMenus(window.__fitvitPlannerData);
+      });
+    });
+
+    dayButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        selectedDay = button.dataset.day;
+        setDayButtonState();
+        renderMenus(window.__fitvitPlannerData);
+      });
+    });
+
+    Promise.resolve(loadPlannerData()).then((plannerTypes) => {
+      window.__fitvitPlannerData = plannerTypes;
+      setTypeButtonState();
+      setDayButtonState();
+      renderMenus(plannerTypes);
+    });
+
+    loadWeeklyTargetsFromStorage();
+    hydrateWeeklyTargetsFromProfile();
+
+    if (setWeeklyPlanBtn) {
+      setWeeklyPlanBtn.addEventListener("click", () => {
+        saveWeeklyTargets();
+      });
+    }
+  })();
+</script>
+<script>
+  (() => {
+    const brand = document.querySelector("header .text-2xl");
+    if (brand) brand.classList.add("anim-brand-breathe");
+
+    const liftTargets = document.querySelectorAll("main .rounded-xl, main button");
+    liftTargets.forEach((node) => node.classList.add("anim-hover-lift"));
+
+    const pulseTargets = document.querySelectorAll("#setWeeklyPlanBtn, #saveChangesBtn, #savePreferencesBtn");
+    pulseTargets.forEach((node) => node.classList.add("anim-cta-pulse"));
+  })();
+</script>
+<script>
+  (() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      document.body.classList.add("page-ready");
+      return;
+    }
+
+    const animatedNodes = Array.from(document.querySelectorAll("header, aside, main, section, nav, .rounded-xl, .shadow-sm, .shadow-lg"));
+    const seen = new Set();
+    let index = 0;
+
+    animatedNodes.forEach((node) => {
+      if (!(node instanceof HTMLElement)) return;
+      if (seen.has(node)) return;
+      seen.add(node);
+      node.classList.add("slide-reveal");
+      node.style.setProperty("--slide-delay", `${Math.min(index * 35, 420)}ms`);
+      index += 1;
+    });
+
+    requestAnimationFrame(() => {
+      document.body.classList.add("page-ready");
+    });
+
+    document.querySelectorAll("a[href]").forEach((anchor) => {
+      anchor.addEventListener("click", (event) => {
+        if (event.defaultPrevented) return;
+        if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        if (event.button !== 0) return;
+
+        const href = anchor.getAttribute("href") || "";
+        if (!href || href.startsWith("#") || href.startsWith("javascript:")) return;
+        if ((anchor.getAttribute("target") || "").toLowerCase() === "_blank") return;
+
+        let nextUrl;
+        try {
+          nextUrl = new URL(href, window.location.href);
+        } catch {
+          return;
+        }
+
+        if (nextUrl.origin !== window.location.origin) return;
+        if (nextUrl.href === window.location.href) return;
+
+        event.preventDefault();
+        document.body.classList.add("page-exit");
+        setTimeout(() => {
+          window.location.href = nextUrl.href;
+        }, 260);
+      });
+    });
+
+    window.addEventListener("pageshow", () => {
+      document.body.classList.remove("page-exit");
+    });
+  })();
+</script>
+</body></html>

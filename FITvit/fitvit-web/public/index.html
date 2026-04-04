@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitVit</title>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+    <script>
+      (() => {
+        const token = localStorage.getItem("fitvit_token");
+        const routeRenameMap = {
+          "/flow/01-marketplace.html": "/flow/01-food-preferences.html",
+          "/flow/03-nutrition-vault.html": "/flow/03-meal-rating.html"
+        };
+
+        const storedLastPage = localStorage.getItem("fitvit_last_page") || "";
+        const normalizedLastPage = routeRenameMap[storedLastPage] || storedLastPage;
+
+        if (normalizedLastPage && normalizedLastPage !== storedLastPage) {
+          localStorage.setItem("fitvit_last_page", normalizedLastPage);
+          sessionStorage.setItem("fitvit_last_page", normalizedLastPage);
+        }
+
+        if (token) {
+          const safePage = normalizedLastPage.startsWith("/flow/")
+            ? normalizedLastPage
+            : "/flow/02-performance-dashboard.html";
+          window.location.replace(safePage);
+          return;
+        }
+
+        window.location.replace("/stitch/stitch_smart_mess_dashboard%20(10)/code.html");
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,280 @@
+:root {
+  --bg: #f5faf4;
+  --surface: #ffffff;
+  --surface-soft: #eaf2e7;
+  --text: #162312;
+  --muted: #5d6d59;
+  --primary: #216d00;
+  --primary-2: #44af1a;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Manrope", sans-serif;
+  background: radial-gradient(circle at 10% 10%, #deedd8, transparent 35%), var(--bg);
+  color: var(--text);
+}
+
+h1,
+h2,
+h3,
+.eyebrow {
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.auth-page {
+  min-height: 100vh;
+}
+
+.auth-layout {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  min-height: 100vh;
+}
+
+.auth-hero {
+  position: relative;
+  background-image: url("https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1400&q=80");
+  background-size: cover;
+  background-position: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(150deg, rgba(14, 56, 0, 0.75), rgba(34, 91, 5, 0.35));
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+  padding: 4rem;
+  max-width: 640px;
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 4vw, 3.8rem);
+  margin-bottom: 1rem;
+}
+
+.auth-panel {
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: 28px;
+  box-shadow: 0 18px 50px rgba(29, 49, 20, 0.08);
+  padding: 1.4rem;
+}
+
+.auth-card {
+  width: min(460px, 100%);
+  padding: 2rem;
+}
+
+.auth-card label {
+  display: grid;
+  gap: 0.4rem;
+  margin: 1rem 0;
+  font-weight: 700;
+}
+
+input,
+select,
+button {
+  font: inherit;
+}
+
+input,
+select {
+  width: 100%;
+  border: none;
+  border-radius: 14px;
+  padding: 0.8rem 1rem;
+  background: var(--surface-soft);
+  color: var(--text);
+}
+
+.btn-primary,
+.btn-ghost {
+  border: none;
+  border-radius: 999px;
+  padding: 0.75rem 1.2rem;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.btn-primary {
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--primary-2));
+}
+
+.btn-ghost {
+  background: var(--surface-soft);
+  color: var(--primary);
+}
+
+.pill {
+  display: inline-block;
+  background: #ddf2d4;
+  color: #16380a;
+  padding: 0.3rem 0.8rem;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.message,
+.muted {
+  color: var(--muted);
+}
+
+.topbar {
+  padding: 1rem 1.4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  backdrop-filter: blur(12px);
+  background: rgba(245, 250, 244, 0.8);
+  z-index: 10;
+}
+
+.topbar h1 {
+  margin: 0;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  font-weight: 700;
+  font-size: 0.74rem;
+}
+
+.page-grid {
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1rem;
+}
+
+.page-grid > section:nth-child(1),
+.page-grid > section:nth-child(2) {
+  grid-column: span 6;
+}
+
+.page-grid > section:nth-child(3),
+.page-grid > section:nth-child(4) {
+  grid-column: span 12;
+}
+
+.filters {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.mess-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.8rem;
+}
+
+.mess-item {
+  background: #f0f7ec;
+  border-radius: 18px;
+  padding: 0.9rem;
+}
+
+.mess-item h3 {
+  margin-top: 0;
+}
+
+.score {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.menu-list li {
+  background: #f0f7ec;
+  border-radius: 12px;
+  padding: 0.7rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  gap: 0.8rem;
+}
+
+.form-grid button {
+  grid-column: span 3;
+}
+
+.stitch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 0.7rem;
+}
+
+.stitch-link {
+  text-decoration: none;
+  background: #f0f7ec;
+  color: inherit;
+  border-radius: 14px;
+  padding: 0.8rem;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.stitch-link small {
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .auth-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .auth-hero {
+    min-height: 280px;
+  }
+
+  .hero-content {
+    padding: 2rem;
+  }
+
+  .page-grid > section:nth-child(1),
+  .page-grid > section:nth-child(2),
+  .page-grid > section:nth-child(3),
+  .page-grid > section:nth-child(4) {
+    grid-column: span 12;
+  }
+
+  .filters,
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-grid button {
+    grid-column: auto;
+  }
+}

@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FitVit - Stitch Style Guide</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../shell.css" />
+  </head>
+  <body>
+    <header class="top-shell">
+      <div class="brand">FitVit Stitch Build</div>
+      <div class="shell-actions">
+        <button id="homeBtn" class="btn btn-ghost">All Pages</button>
+        <button id="logoutBtn" class="btn btn-ghost">Logout</button>
+      </div>
+    </header>
+
+    <main class="page-wrap">
+      <section class="page-head">
+        <h1>Stitch Style Guide (from DESIGN.md)</h1>
+        <p>This page captures the intended essence of your uploaded Stitch system so implementation decisions remain faithful.</p>
+      </section>
+
+      <section class="frame-box" style="padding: 1.2rem;">
+        <h2>Core Intent</h2>
+        <p>The product tone is high-performance nutrition for students, framed as an editorial, greenhouse-inspired digital experience rather than a generic utility app.</p>
+
+        <h2>Visual Direction</h2>
+        <p>Primary green palette, warm-white background, layered tonal surfaces, strong rounded geometry, and minimal hard borders (background separation over divider lines).</p>
+
+        <h2>Typography</h2>
+        <p>Display/headline voice: Plus Jakarta Sans. Body/labels: Manrope. Big hierarchy jumps are intentional for editorial rhythm.</p>
+
+        <h2>Component Rules</h2>
+        <p>Pill CTAs with gradient fills, rounded input fields, chip-based filters, anti-divider list spacing, and soft tonal cards over flat border-heavy layouts.</p>
+
+        <h2>What This Rebuild Does</h2>
+        <p>Each of the 10 Stitch HTML exports is rendered directly in-page, and each page has a clear description of intended purpose so the full 11-page site reflects your original design language.</p>
+      </section>
+    </main>
+
+    <script type="module">
+      import { requireAuth, wireShell } from "../shell.js";
+      requireAuth();
+      wireShell();
+    </script>
+  </body>
+</html>

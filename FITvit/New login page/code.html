@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary": "#ffffff",
+                    "surface-container-lowest": "#ffffff",
+                    "surface": "#f7faf7",
+                    "tertiary": "#1b6d24",
+                    "on-error": "#ffffff",
+                    "surface-container-high": "#e6e9e6",
+                    "outline": "#6f7b67",
+                    "on-tertiary-fixed": "#002204",
+                    "on-error-container": "#93000a",
+                    "surface-tint": "#216d00",
+                    "primary": "#216d00",
+                    "on-primary-fixed-variant": "#175200",
+                    "inverse-on-surface": "#eef1ee",
+                    "secondary-container": "#d9e6da",
+                    "background": "#f7faf7",
+                    "inverse-surface": "#2d3130",
+                    "on-secondary-fixed": "#131e17",
+                    "on-primary-fixed": "#052100",
+                    "tertiary-fixed-dim": "#88d982",
+                    "surface-container-low": "#f1f4f1",
+                    "surface-container-highest": "#e0e3e0",
+                    "primary-container": "#44af1a",
+                    "surface-variant": "#e0e3e0",
+                    "surface-bright": "#f7faf7",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#0d3a00",
+                    "surface-container": "#ebefec",
+                    "primary-fixed": "#8dfc63",
+                    "error": "#ba1a1a",
+                    "on-tertiary-container": "#003b0a",
+                    "tertiary-container": "#5cab5a",
+                    "secondary-fixed": "#d9e6da",
+                    "on-secondary-fixed-variant": "#3e4a41",
+                    "on-tertiary-fixed-variant": "#005312",
+                    "on-secondary-container": "#5b675e",
+                    "on-surface": "#181c1b",
+                    "on-tertiary": "#ffffff",
+                    "error-container": "#ffdad6",
+                    "primary-fixed-dim": "#72df49",
+                    "on-background": "#181c1b",
+                    "surface-dim": "#d7dbd8",
+                    "secondary-fixed-dim": "#bdcabe",
+                    "outline-variant": "#becab4",
+                    "on-surface-variant": "#3f4a38",
+                    "secondary": "#556158",
+                    "tertiary-fixed": "#a3f69c",
+                    "inverse-primary": "#72df49"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .primary-gradient {
+            background: linear-gradient(135deg, #216d00 0%, #44af1a 100%);
+        }
+        .glass-header {
+            background: rgba(247, 250, 247, 0.6);
+            backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen flex flex-col">
+<!-- Top Navigation Bar (Suppressed because focused task, but keeping placeholder style if shell is required) -->
+<!-- As per instructions: Suppress navigation for Transactional (Login) screens -->
+<main class="flex-grow flex flex-col md:flex-row min-h-screen">
+<!-- Left Column: Visual Brand Anchor (Desktop Only) -->
+<div class="hidden md:flex md:w-1/2 lg:w-3/5 relative overflow-hidden bg-surface-container-high">
+<img alt="Fresh Salad" class="absolute inset-0 w-full h-full object-cover" data-alt="Close-up of a vibrant, organic Mediterranean salad with kale, quinoa, and colorful vegetables in a sunlit garden setting with soft bokeh." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCHpHhccPgbvQsRz39lIwHJ5Vq8s_YoAooy5FwoYG8qfOWVqnx1m_i171av2JE_TA8c-lEierJX02g0U6F8pHYbVpQDJ0aiU8vaBLci0HpEZyD3tu_Ua6kejrn0FkfbJM5Pp7vFVpDYm-wFfX5ECK5nb5Up84y4FaHMGQ6f96s_8d_sY6edBwuhaP8vtjlNHdt3P7v2fDi6FBIbnEjg7ofwt7JUwhTe866pEic-rGCSL-iXWelXqoZqa3x6ZFMONRfPkMi4OfhvIg" style=""/>
+<!-- Overlay Content -->
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 to-transparent p-16 flex flex-col justify-end">
+<div class="max-w-md">
+<div class="flex items-center gap-2 mb-6">
+<span class="material-symbols-outlined text-primary-fixed text-4xl" data-weight="fill" style='font-variation-settings: "FILL" 1;'>eco</span>
+<span class="text-white text-3xl font-black tracking-tight" style="">FitVit</span>
+</div>
+<h2 class="text-white text-4xl font-extrabold mb-4 leading-tight" style="">Fueling Academic Excellence through Nutrition.</h2>
+<p class="text-surface-container-lowest/90 text-lg font-medium" style="">Join the greenhouse and transform your university dining experience with personalized, data-driven meals.</p>
+</div>
+</div>
+</div>
+<!-- Right Column: Login Form -->
+<div class="w-full md:w-1/2 lg:w-2/5 flex items-center justify-center p-8 md:p-12 lg:p-20 bg-surface">
+<div class="w-full max-w-md">
+<!-- Mobile Logo Header -->
+<div class="md:hidden flex flex-col items-center mb-12">
+<div class="w-16 h-16 rounded-xl bg-primary-container flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-on-primary-container text-4xl" data-weight="fill" style='font-variation-settings: "FILL" 1;'>eco</span>
+</div>
+<h1 class="text-3xl font-black text-primary tracking-tight" style="">FitVit</h1>
+<p class="text-on-surface-variant text-sm font-semibold" style="">The Living Greenhouse</p>
+</div>
+<div class="mb-10 text-left">
+<h2 class="text-3xl font-extrabold text-on-surface mb-2" style="">Welcome Back</h2>
+<p class="text-on-surface-variant font-medium" style="">Please enter your credentials to access your nutrition portal.</p>
+</div>
+<form class="space-y-6">
+<!-- Email Field -->
+<div class="space-y-2">
+<label class="block text-sm font-bold text-on-surface ml-1" for="email" style="">University Email</label>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" style="">school</span>
+</div>
+<input class="w-full bg-surface-container-highest border-none rounded-[1rem] py-4 pl-12 pr-4 text-on-surface focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all duration-200 outline-none placeholder:text-outline" id="email" name="email" placeholder="student@university.edu" required="" type="email"/>
+</div>
+</div>
+<!-- Password Field -->
+<div class="space-y-2">
+<div class="flex justify-between items-center px-1">
+<label class="block text-sm font-bold text-on-surface" for="password" style="">Password</label>
+<a class="text-primary text-xs font-bold hover:underline transition-all" href="#" style="">Forgot Password?</a>
+</div>
+<div class="relative">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+<span class="material-symbols-outlined text-on-surface-variant text-xl" style="">lock</span>
+</div>
+<input class="w-full bg-surface-container-highest border-none rounded-[1rem] py-4 pl-12 pr-4 text-on-surface focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all duration-200 outline-none placeholder:text-outline" id="password" name="password" placeholder="••••••••" required="" type="password"/>
+</div>
+</div>
+<!-- Primary Sign In Button -->
+<button class="w-full primary-gradient text-on-primary font-bold py-4 rounded-full shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2" style="" type="submit">
+<span class="" style="">Sign In</span>
+<span class="material-symbols-outlined text-xl" style="">arrow_forward</span>
+</button>
+<!-- Divider -->
+<!-- Secondary Login Options -->
+</form>
+<!-- Footer Link -->
+<div class="mt-12 text-center"><p class="text-on-surface-variant font-medium">
+    New to the greenhouse? 
+    <a class="text-primary font-bold ml-1 hover:underline decoration-2 underline-offset-4" href="#">Create an Account</a>
+</p>
+<p class="text-on-surface-variant font-medium mt-3">
+    Are you a staff member? 
+    <a class="text-primary font-bold ml-1 hover:underline decoration-2 underline-offset-4" href="#">Sign in to Administration Portal</a>
+</p></div>
+</div>
+</div>
+</main>
+<!-- Support Floating Element (Tertiary) -->
+</body></html>

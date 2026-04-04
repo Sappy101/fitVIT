@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FitVit - Profile &amp; Settings</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "surface-bright": "#f7faf7",
+            "on-primary-container": "#0d3a00",
+            "secondary-container": "#d9e6da",
+            "inverse-primary": "#72df49",
+            "on-secondary-container": "#5b675e",
+            "on-secondary": "#ffffff",
+            "on-tertiary": "#ffffff",
+            "surface": "#f7faf7",
+            "on-secondary-fixed": "#131e17",
+            "on-error-container": "#93000a",
+            "secondary": "#556158",
+            "surface-container-low": "#f1f4f1",
+            "primary-container": "#44af1a",
+            "outline-variant": "#becab4",
+            "inverse-surface": "#2d3130",
+            "surface-container-lowest": "#ffffff",
+            "on-primary-fixed": "#052100",
+            "on-primary": "#ffffff",
+            "on-background": "#181c1b",
+            "on-error": "#ffffff",
+            "primary-fixed": "#8dfc63",
+            "tertiary-fixed-dim": "#88d982",
+            "primary-fixed-dim": "#72df49",
+            "tertiary-container": "#5cab5a",
+            "tertiary": "#1b6d24",
+            "primary": "#216d00",
+            "on-tertiary-fixed": "#002204",
+            "tertiary-fixed": "#a3f69c",
+            "error-container": "#ffdad6",
+            "on-surface-variant": "#3f4a38",
+            "surface-tint": "#216d00",
+            "error": "#ba1a1a",
+            "on-tertiary-container": "#003b0a",
+            "on-secondary-fixed-variant": "#3e4a41",
+            "surface-dim": "#d7dbd8",
+            "surface-container-highest": "#e0e3e0",
+            "secondary-fixed": "#d9e6da",
+            "outline": "#6f7b67",
+            "on-primary-fixed-variant": "#175200",
+            "surface-variant": "#e0e3e0",
+            "background": "#f7faf7",
+            "surface-container": "#ebefec",
+            "inverse-on-surface": "#eef1ee",
+            "surface-container-high": "#e6e9e6",
+            "secondary-fixed-dim": "#bdcabe",
+            "on-tertiary-fixed-variant": "#005312",
+            "on-surface": "#181c1b"
+          },
+          fontFamily: {
+            "headline": ["Plus Jakarta Sans"],
+            "body": ["Manrope"],
+            "label": ["Manrope"]
+          },
+          borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    .glass-effect {
+      background: rgba(247, 250, 247, 0.6);
+      backdrop-filter: blur(20px);
+    }
+    .primary-gradient {
+      background: linear-gradient(135deg, #216d00 0%, #44af1a 100%);
+    }
+  </style>
+</head>
+<body class="bg-surface font-body text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="flex justify-between items-center w-full px-6 py-4 sticky top-0 z-50 bg-[#f7faf7] dark:bg-[#181c1b]">
+<button class="font-['Plus_Jakarta_Sans'] font-extrabold text-2xl text-[#216d00] dark:text-[#44AF1A] tracking-tight hover:opacity-85 transition-opacity" id="brandHomeBtn" type="button">FitVit</button>
+<div class="flex items-center gap-4">
+<button class="text-[#216d00] dark:text-[#44AF1A] hover:opacity-80 transition-opacity p-2 active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+</div>
+</header>
+<main class="max-w-4xl mx-auto px-6 pb-32 pt-4">
+<!-- User Profile Header Section -->
+<section class="mb-10">
+<div class="flex flex-col md:flex-row items-center gap-8 bg-surface-container-lowest p-8 rounded-xl shadow-[0_4px_24px_rgba(24,28,27,0.04)]">
+<div class="relative group">
+<div class="w-32 h-32 rounded-xl overflow-hidden ring-4 ring-primary-container/20">
+<img alt="Profile Picture" class="w-full h-full object-cover" data-alt="Close-up portrait of a young athletic man with a friendly smile, natural outdoor morning light, athletic aesthetic" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBKdz9d0xe077gJblwNz0Ny76gr_Gd3dqUkfRGTuGaYPu8o77nsthRon8Gk_b6ZITOH7Xkz7MC2muGGrJTTw7dZ3Zg4C6jwabvsBXO_SHyzLIaAwgNppn6loxHThLpjCFBsYK30X9a-3VjNoYjqmJPMh4kccR2WABXSB7sxaQlQwdh1i6Cni5cuyV37xu3SmuYnhSpqoDKZYzaEVy-hqnN0zNIPPEribPyC6ihRg6kzGPUHHkQmwNFYb4A7ZvHnAC4yBKd9Bn4xtQ"/>
+</div>
+<button class="absolute -bottom-2 -right-2 bg-primary text-on-primary p-2 rounded-full shadow-lg hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="edit">edit</span>
+</button>
+</div>
+<div class="text-center md:text-left space-y-2">
+<h1 class="font-headline font-extrabold text-3xl tracking-tight text-on-surface" id="profileHeaderName">Alex Rivers</h1>
+<div class="inline-flex items-center gap-2 px-4 py-1.5 bg-primary-fixed text-on-primary-fixed rounded-full font-label font-bold text-xs uppercase tracking-widest">
+<span class="material-symbols-outlined text-[14px]" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+            Elite Performance
+          </div>
+<p class="text-on-surface-variant font-medium">Active member since March 2023</p>
+</div>
+</div>
+</section>
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Left Column: Personal Info & Settings -->
+<div class="lg:col-span-12 space-y-8">
+<!-- Personal Information Card -->
+<section class="bg-surface-container-low p-8 rounded-xl">
+<div class="flex items-center justify-between mb-6">
+<h2 class="font-headline font-bold text-xl text-on-surface">Personal Information</h2>
+<button class="text-primary font-bold text-sm hover:underline" id="editPersonalBtn">Edit</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label font-bold text-xs uppercase text-on-surface-variant tracking-wider ml-1">Full Name</label>
+<div class="bg-surface-container-highest px-4 py-3 rounded-lg text-on-surface font-medium" data-profile-field="name">Alex Rivers</div>
+</div>
+<div class="space-y-2">
+<label class="font-label font-bold text-xs uppercase text-on-surface-variant tracking-wider ml-1">Email Address</label>
+<div class="bg-surface-container-highest px-4 py-3 rounded-lg text-on-surface font-medium break-all leading-tight" data-profile-field="email">alex.rivers@fitvit.edu</div>
+</div>
+<div class="space-y-2">
+<label class="font-label font-bold text-xs uppercase text-on-surface-variant tracking-wider ml-1">Age</label>
+<div class="bg-surface-container-highest px-4 py-3 rounded-lg text-on-surface font-medium" data-profile-field="age">24 years</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div class="space-y-2">
+<label class="font-label font-bold text-xs uppercase text-on-surface-variant tracking-wider ml-1">Weight</label>
+<div class="bg-surface-container-highest px-4 py-3 rounded-lg text-on-surface font-medium" data-profile-field="weight">78 kg</div>
+</div>
+<div class="space-y-2">
+<label class="font-label font-bold text-xs uppercase text-on-surface-variant tracking-wider ml-1">Height</label>
+<div class="bg-surface-container-highest px-4 py-3 rounded-lg text-on-surface font-medium" data-profile-field="height">182 cm</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Settings & Preferences -->
+<section class="bg-surface-container-low p-8 rounded-xl">
+<h2 class="font-headline font-bold text-xl text-on-surface mb-6">Preferences &amp; Security</h2>
+<div class="space-y-6">
+<div class="space-y-3">
+<p class="text-sm font-bold text-on-surface">Preferred Mess</p>
+<p class="text-sm text-on-surface-variant">Meal Planner will open with this mess type by default.</p>
+<div class="bg-surface-container-high p-1.5 rounded-full flex gap-1 self-start w-fit" id="preferredMessSelector">
+<button class="px-5 py-2 rounded-full font-bold transition-all text-zinc-500 hover:text-primary" data-preferred-mess="Veg" type="button">Veg</button>
+<button class="px-5 py-2 rounded-full font-bold transition-all text-zinc-500 hover:text-primary" data-preferred-mess="Non-Veg" type="button">Non-Veg</button>
+<button class="px-5 py-2 rounded-full font-bold transition-all text-zinc-500 hover:text-primary" data-preferred-mess="Special" type="button">Special</button>
+</div>
+</div>
+<button class="w-full md:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-[#ef4444] text-white font-headline font-bold hover:opacity-90 active:scale-95 transition-all" id="signOutBtn" type="button">
+<span class="material-symbols-outlined text-[20px]" data-icon="logout">logout</span>
+            Sign Out
+          </button>
+</div>
+</section>
+</div>
+</div>
+<!-- Sticky Bottom CTA -->
+<div class="fixed bottom-28 left-0 w-full px-6 flex justify-center pointer-events-none">
+<button class="pointer-events-auto primary-gradient text-on-primary font-headline font-bold px-12 py-4 rounded-full shadow-xl shadow-primary/20 flex items-center gap-3 active:scale-95 transition-all" id="saveChangesBtn">
+<span class="material-symbols-outlined" data-icon="save">save</span>
+        Save Changes
+      </button>
+</div>
+</main>
+<script src="/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/supabase-client.js"></script>
+<script>
+  (() => {
+    const currentUser = JSON.parse(localStorage.getItem("fitvit_user") || "{}");
+    const uid = currentUser.uid || "guest";
+    const profileMap = JSON.parse(localStorage.getItem("fitvit_user_profiles") || "{}");
+    const defaults = {
+      name: currentUser.name || "User",
+      email: uid === "guest" ? "" : uid,
+      age: "",
+      weight: "",
+      height: ""
+    };
+
+    let profile = {
+      ...defaults,
+      ...(profileMap[uid] || {})
+    };
+    let isEditing = false;
+
+    const headerName = document.getElementById("profileHeaderName");
+    const brandHomeBtn = document.getElementById("brandHomeBtn");
+    const editBtn = document.getElementById("editPersonalBtn");
+    const saveBtn = document.getElementById("saveChangesBtn");
+    const signOutBtn = document.getElementById("signOutBtn");
+    const preferredMessButtons = Array.from(document.querySelectorAll("[data-preferred-mess]"));
+
+    const allowedMessTypes = ["Veg", "Non-Veg", "Special"];
+    let preferredMess = localStorage.getItem("fitvit_preferred_mess") || "Non-Veg";
+    if (!allowedMessTypes.includes(preferredMess)) {
+      preferredMess = "Non-Veg";
+    }
+
+    const fieldFormat = {
+      name: (v) => v,
+      email: (v) => v,
+      age: (v) => `${v} years`,
+      weight: (v) => `${v} kg`,
+      height: (v) => `${v} cm`
+    };
+
+    function renderProfile() {
+      if (headerName) headerName.textContent = profile.name || defaults.name;
+      document.querySelectorAll("[data-profile-field]").forEach((node) => {
+        const key = node.getAttribute("data-profile-field");
+        const value = profile[key] || defaults[key] || "";
+        node.textContent = fieldFormat[key] ? fieldFormat[key](value) : value;
+      });
+    }
+
+    function enableEditMode() {
+      isEditing = true;
+      document.querySelectorAll("[data-profile-field]").forEach((node) => {
+        const key = node.getAttribute("data-profile-field");
+        const value = profile[key] || defaults[key] || "";
+        node.innerHTML = `<input data-edit-input="${key}" value="${value}" class="w-full bg-white rounded-lg px-3 py-2 border border-outline-variant/40" />`;
+      });
+    }
+
+    function collectEdits() {
+      document.querySelectorAll("[data-edit-input]").forEach((input) => {
+        const key = input.getAttribute("data-edit-input");
+        profile[key] = input.value.trim();
+      });
+      profileMap[uid] = profile;
+      localStorage.setItem("fitvit_user_profiles", JSON.stringify(profileMap));
+
+      localStorage.setItem(
+        "fitvit_user",
+        JSON.stringify({
+          ...currentUser,
+          uid,
+          name: profile.name || currentUser.name || defaults.name
+        })
+      );
+
+      isEditing = false;
+      renderProfile();
+    }
+
+    async function hydrateProfileFromSupabase() {
+      if (!window.FitVitSupabase?.isConfigured() || uid === "guest") {
+        return;
+      }
+
+      try {
+        const { data, error } = await window.FitVitSupabase.getProfile(uid);
+        if (error || !data) {
+          return;
+        }
+
+        profile = {
+          ...profile,
+          name: data.name || profile.name || defaults.name,
+          email: data.email || profile.email || defaults.email,
+          age: data.age ?? profile.age ?? "",
+          weight: data.weight ?? profile.weight ?? "",
+          height: data.height ?? profile.height ?? ""
+        };
+
+        if (data.preferred_mess && allowedMessTypes.includes(data.preferred_mess)) {
+          preferredMess = data.preferred_mess;
+          localStorage.setItem("fitvit_preferred_mess", preferredMess);
+        }
+
+        profileMap[uid] = profile;
+        localStorage.setItem("fitvit_user_profiles", JSON.stringify(profileMap));
+        localStorage.setItem(
+          "fitvit_user",
+          JSON.stringify({
+            ...currentUser,
+            uid,
+            name: profile.name || currentUser.name || defaults.name
+          })
+        );
+
+        renderProfile();
+        renderPreferredMessSelection();
+      } catch (error) {
+        console.warn("Supabase profile load failed; using local profile.", error);
+      }
+    }
+
+    async function clearFitvitSession() {
+      try {
+        if (window.FitVitSupabase?.isConfigured()) {
+          await window.FitVitSupabase.signOutAuth();
+        }
+      } catch (error) {
+        console.warn("Supabase sign out failed.", error);
+      }
+
+      const preservedKeys = new Set(["fitvit_accounts", "fitvit_dummy_account", "fitvit_supabase_url", "fitvit_supabase_anon_key"]);
+      const localKeys = Object.keys(localStorage).filter(
+        (key) => key.startsWith("fitvit_") && !preservedKeys.has(key)
+      );
+      localKeys.forEach((key) => localStorage.removeItem(key));
+
+      const sessionKeys = Object.keys(sessionStorage).filter((key) => key.startsWith("fitvit_"));
+      sessionKeys.forEach((key) => sessionStorage.removeItem(key));
+    }
+
+    function renderPreferredMessSelection() {
+      preferredMessButtons.forEach((button) => {
+        const isActive = button.dataset.preferredMess === preferredMess;
+        button.classList.toggle("bg-surface-container-lowest", isActive);
+        button.classList.toggle("text-primary", isActive);
+        button.classList.toggle("shadow-sm", isActive);
+        button.classList.toggle("text-zinc-500", !isActive);
+      });
+    }
+
+    renderProfile();
+    renderPreferredMessSelection();
+    hydrateProfileFromSupabase();
+
+    if (editBtn) {
+      editBtn.addEventListener("click", () => {
+        enableEditMode();
+      });
+    }
+
+    if (brandHomeBtn) {
+      brandHomeBtn.addEventListener("click", () => {
+        window.location.href = "/flow/02-performance-dashboard.html";
+      });
+    }
+
+    if (saveBtn) {
+      saveBtn.addEventListener("click", async () => {
+        if (isEditing) {
+          collectEdits();
+        }
+
+        try {
+          if (window.FitVitSupabase?.isConfigured()) {
+            const result = await window.FitVitSupabase.upsertProfile(uid, {
+              ...profile,
+              email: profile.email || uid,
+              preferredMess
+            });
+            if (result?.error) {
+              throw result.error;
+            }
+          }
+        } catch (error) {
+          console.error("Supabase profile save failed; continuing with local profile.", error);
+          alert("Supabase profile save failed: " + (error?.message || "Unknown error"));
+        }
+
+        const lastPage = sessionStorage.getItem("fitvit_last_page") || "";
+        const safeReturn =
+          !lastPage ||
+          lastPage.includes("/flow/07-profile-settings") ||
+          lastPage.includes("/stitch/")
+            ? "/flow/02-performance-dashboard.html"
+            : lastPage;
+
+        window.location.href = safeReturn;
+      });
+    }
+
+    preferredMessButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const selected = button.dataset.preferredMess;
+        if (!allowedMessTypes.includes(selected)) {
+          return;
+        }
+        preferredMess = selected;
+        localStorage.setItem("fitvit_preferred_mess", preferredMess);
+        renderPreferredMessSelection();
+      });
+    });
+
+    if (signOutBtn) {
+      signOutBtn.addEventListener("click", async () => {
+        await clearFitvitSession();
+        window.location.href = "/stitch/stitch_smart_mess_dashboard%20(10)/code.html";
+      });
+    }
+  })();
+</script>
+</body></html>

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FitVit Admin - Smart Nutrition Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#a3f69c",
+                    "inverse-on-surface": "#eef1ee",
+                    "on-primary-container": "#0d3a00",
+                    "on-tertiary-fixed-variant": "#005312",
+                    "inverse-surface": "#2d3130",
+                    "tertiary-container": "#5cab5a",
+                    "on-surface-variant": "#3f4a38",
+                    "on-background": "#181c1b",
+                    "on-primary": "#ffffff",
+                    "surface": "#f7faf7",
+                    "primary-fixed": "#8dfc63",
+                    "surface-variant": "#e0e3e0",
+                    "primary-container": "#44af1a",
+                    "on-primary-fixed": "#052100",
+                    "on-surface": "#181c1b",
+                    "on-secondary-fixed": "#131e17",
+                    "inverse-primary": "#72df49",
+                    "outline": "#6f7b67",
+                    "surface-container-highest": "#e0e3e0",
+                    "surface-container": "#ebefec",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#5b675e",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e6e9e6",
+                    "on-tertiary-container": "#003b0a",
+                    "primary-fixed-dim": "#72df49",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#002204",
+                    "on-secondary": "#ffffff",
+                    "primary": "#216d00",
+                    "background": "#f7faf7",
+                    "error": "#ba1a1a",
+                    "secondary": "#556158",
+                    "on-primary-fixed-variant": "#175200",
+                    "tertiary": "#1b6d24",
+                    "secondary-fixed": "#d9e6da",
+                    "tertiary-fixed-dim": "#88d982",
+                    "surface-tint": "#216d00",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#d7dbd8",
+                    "secondary-container": "#d9e6da",
+                    "on-secondary-fixed-variant": "#3e4a41",
+                    "error-container": "#ffdad6",
+                    "outline-variant": "#becab4",
+                    "secondary-fixed-dim": "#bdcabe",
+                    "surface-bright": "#f7faf7",
+                    "surface-container-low": "#f1f4f1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { background: rgba(247, 250, 247, 0.6); backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#f7faf7]/60 dark:bg-stone-900/60 backdrop-blur-xl shadow-sm shadow-green-900/5">
+<div class="flex justify-between items-center w-full px-8 py-4">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-[#216d00] tracking-tight">FitVit Admin</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#216d00] border-b-2 border-[#216d00] pb-1 transition-colors" href="/stitch/Admin%20main%20dashboard/code.html">Main Dashboard</a>
+<a class="font-['Plus_Jakarta_Sans'] font-bold text-lg text-stone-500 dark:text-stone-400 hover:text-[#216d00] transition-colors" href="/stitch/Admin%20Popular%20foods/code.html">Popular Foods</a>
+<a class="font-['Plus_Jakarta_Sans'] font-bold text-lg text-stone-500 dark:text-stone-400 hover:text-[#216d00] transition-colors" href="/stitch/Admin%20Waste%20management/code.html">Waste Management</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#216d00] text-3xl cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen pt-20">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 pt-24 bg-[#f7faf7] dark:bg-stone-900 border-r border-outline-variant/10 hidden md:block">
+<div class="px-6 py-6 flex flex-col justify-between h-[calc(100vh-6rem)]"><nav class="mb-8 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-full bg-primary-container text-on-primary-container font-bold transition-all" href="/stitch/Admin%20main%20dashboard/code.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm">Main Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all" href="/stitch/Admin%20Popular%20foods/code.html">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="text-sm">Popular Foods</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all" href="/stitch/Admin%20Waste%20management/code.html">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+<span class="text-sm">Waste Management</span>
+</a>
+</nav><nav class="space-y-2 mb-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all" href="/stitch/Admin%20Login%20Page/code.html" id="adminLogoutLink">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-sm">Logout</span>
+</a>
+</nav>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 p-8">
+<!-- Hero Stats Bento -->
+<section class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+<div class="col-span-1 md:col-span-2 p-8 bg-surface-container-lowest rounded-xl shadow-sm flex items-end justify-between overflow-hidden relative border border-outline-variant/10">
+<div class="relative z-10">
+<h1 class="text-4xl font-extrabold text-on-surface mb-2 tracking-tight" id="adminHeroTitle">Breakfast Performance</h1>
+<p class="text-on-surface-variant font-medium max-w-xs" id="adminHeroSubtitle">Real-time engagement and satisfaction metrics from student meal ratings.</p>
+<div class="mt-6 flex items-center gap-6">
+<div>
+<p class="text-sm font-bold text-primary uppercase tracking-wider">Total Calories</p>
+<p class="text-3xl font-black" id="totalCaloriesValue">0</p>
+</div>
+<div class="w-px h-10 bg-outline-variant"></div>
+<div>
+<p class="text-sm font-bold text-primary uppercase tracking-wider">Avg Rating</p>
+<div class="flex items-center gap-1">
+<p class="text-3xl font-black" id="avgRatingValue">0.0</p>
+<span class="material-symbols-outlined text-amber-400" data-icon="star" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+</div>
+</div>
+<div class="absolute right-0 bottom-0 opacity-10">
+<span class="material-symbols-outlined text-[12rem]" data-icon="restaurant">restaurant</span>
+</div>
+</div>
+<div class="p-8 bg-primary rounded-xl text-on-primary shadow-lg shadow-primary/10 relative overflow-hidden">
+<div class="relative z-10 h-full flex flex-col justify-between">
+<p class="text-sm font-bold uppercase tracking-widest text-primary-fixed">Active Students</p>
+<p class="text-6xl font-black" id="activeStudentsValue">0</p>
+<div class="h-6"></div>
+</div>
+<div class="absolute -right-4 -bottom-4 bg-primary-container/20 rounded-full w-32 h-32 blur-3xl"></div>
+</div>
+</section>
+<!-- Filters Section -->
+<section class="mb-10 space-y-4">
+<div class="flex flex-wrap items-center gap-3">
+<button class="px-6 py-2 rounded-full bg-primary-container text-on-primary-container font-bold shadow-sm" data-diet="Veg" type="button">Veg</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-medium hover:bg-surface-container-highest transition-colors" data-diet="Non-Veg" type="button">Non-Veg</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-medium hover:bg-surface-container-highest transition-colors" data-diet="Special" type="button">Special</button>
+</div>
+<div class="flex flex-wrap items-center gap-3">
+<button class="px-8 py-2 rounded-full bg-primary-fixed text-on-primary-fixed font-black text-sm" data-slot="breakfast" type="button">BREAKFAST</button>
+<button class="px-8 py-2 rounded-full bg-surface-container text-on-surface-variant font-bold text-sm hover:bg-surface-container-high transition-colors" data-slot="lunch" type="button">LUNCH</button>
+<button class="px-8 py-2 rounded-full bg-surface-container text-on-surface-variant font-bold text-sm hover:bg-surface-container-high transition-colors" data-slot="dinner" type="button">DINNER</button>
+</div>
+</section>
+<!-- Menu Grid -->
+<section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="adminReviewGrid"></section>
+<section class="hidden mt-6" id="adminNoReviewsWrap">
+<div class="p-6 rounded-xl border border-outline-variant/20 bg-surface-container-lowest">
+<p class="text-xl font-bold text-on-surface">No reviews yet</p>
+<p class="text-on-surface-variant mt-1">Students have not submitted meal ratings for this filter.</p>
+</div>
+</section>
+</main>
+</div>
+<script src="/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/supabase-client.js"></script>
+<script>
+  (() => {
+    const dietButtons = Array.from(document.querySelectorAll("[data-diet]"));
+    const slotButtons = Array.from(document.querySelectorAll("[data-slot]"));
+    const reviewGrid = document.getElementById("adminReviewGrid");
+    const noReviewsWrap = document.getElementById("adminNoReviewsWrap");
+    const totalCaloriesValue = document.getElementById("totalCaloriesValue");
+    const avgRatingValue = document.getElementById("avgRatingValue");
+    const activeStudentsValue = document.getElementById("activeStudentsValue");
+    const adminHeroTitle = document.getElementById("adminHeroTitle");
+    const adminHeroSubtitle = document.getElementById("adminHeroSubtitle");
+    const logoutLink = document.getElementById("adminLogoutLink");
+    let liveRefreshTimer = null;
+    let liveChannel = null;
+
+    let selectedDiet = "Veg";
+    let selectedSlot = "breakfast";
+
+    function toTitle(text) {
+      const t = String(text || "").trim();
+      return t ? t.charAt(0).toUpperCase() + t.slice(1) : "";
+    }
+
+    function normalizeDietType(value) {
+      const t = String(value || "").trim().toLowerCase();
+      const compact = t.replace(/[^a-z]/g, "");
+      if (compact === "veg" || compact === "vegetarian") return "Veg";
+      if (compact === "nonveg" || compact === "nonvegetarian") return "Non-Veg";
+      if (compact === "special" || compact === "highprotein") return "Special";
+      return "";
+    }
+
+    function normalizeSlot(value) {
+      const t = String(value || "").trim().toLowerCase();
+      if (t.startsWith("breakfast")) return "breakfast";
+      if (t.startsWith("lunch")) return "lunch";
+      if (t.startsWith("dinner")) return "dinner";
+      if (t.startsWith("snack")) return "snacks";
+      return "";
+    }
+
+    function debounce(fn, waitMs) {
+      let timeoutId = null;
+      return (...args) => {
+        if (timeoutId) clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => fn(...args), waitMs);
+      };
+    }
+
+    function setFilterUi() {
+      dietButtons.forEach((button) => {
+        const active = button.dataset.diet === selectedDiet;
+        button.classList.toggle("bg-primary-container", active);
+        button.classList.toggle("text-on-primary-container", active);
+        button.classList.toggle("font-bold", active);
+        button.classList.toggle("shadow-sm", active);
+        button.classList.toggle("bg-surface-container-high", !active);
+        button.classList.toggle("text-on-surface-variant", !active);
+        button.classList.toggle("font-medium", !active);
+      });
+
+      slotButtons.forEach((button) => {
+        const active = button.dataset.slot === selectedSlot;
+        button.classList.toggle("bg-primary-fixed", active);
+        button.classList.toggle("text-on-primary-fixed", active);
+        button.classList.toggle("font-black", active);
+        button.classList.toggle("bg-surface-container", !active);
+        button.classList.toggle("text-on-surface-variant", !active);
+        button.classList.toggle("font-bold", !active);
+      });
+    }
+
+    function renderNoReviews() {
+      if (reviewGrid) reviewGrid.innerHTML = "";
+      noReviewsWrap?.classList.remove("hidden");
+
+      if (totalCaloriesValue) totalCaloriesValue.textContent = "0";
+      if (avgRatingValue) avgRatingValue.textContent = "0.0";
+      if (activeStudentsValue) activeStudentsValue.textContent = "0";
+      if (adminHeroTitle) adminHeroTitle.textContent = `${toTitle(selectedSlot)} Performance`;
+      if (adminHeroSubtitle) adminHeroSubtitle.textContent = `No reviews found for ${selectedDiet} ${selectedSlot}.`;
+    }
+
+    function aggregateByItem(rows) {
+      const map = new Map();
+
+      rows.forEach((row) => {
+        const name = String(row.item_name || "").trim();
+        if (!name) return;
+
+        if (!map.has(name)) {
+          map.set(name, {
+            itemName: name,
+            totalServings: 0,
+            totalCaloriesConsumed: 0,
+            ratingSum: 0,
+            ratingCount: 0
+          });
+        }
+
+        const item = map.get(name);
+        const servings = Math.max(0, Number(row.servings || 0));
+        const calories = Number(row.calories || 0);
+        const rating = row.rating == null ? null : Number(row.rating);
+
+        item.totalServings += servings;
+        item.totalCaloriesConsumed += servings * calories;
+        if (rating != null && !Number.isNaN(rating)) {
+          item.ratingSum += rating;
+          item.ratingCount += 1;
+        }
+      });
+
+      return Array.from(map.values()).sort((a, b) => b.totalCaloriesConsumed - a.totalCaloriesConsumed);
+    }
+
+    function renderCards(items) {
+      if (!reviewGrid) return;
+      reviewGrid.innerHTML = items.map((item) => {
+        const avg = item.ratingCount ? (item.ratingSum / item.ratingCount).toFixed(1) : "0.0";
+        return `
+          <div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant/15 shadow-sm">
+            <h3 class="text-xl font-bold text-on-surface">${item.itemName}</h3>
+            <div class="mt-4 space-y-2 text-sm text-on-surface-variant">
+              <p><span class="font-bold text-on-surface">${item.totalServings}</span> total servings</p>
+              <p><span class="font-bold text-on-surface">${Math.round(item.totalCaloriesConsumed)}</span> kcal consumed</p>
+              <p><span class="font-bold text-on-surface">${avg}</span> avg rating</p>
+            </div>
+          </div>
+        `;
+      }).join("");
+    }
+
+    async function renderDashboardFromReviews() {
+      setFilterUi();
+
+      if (!window.FitVitSupabase?.isConfigured() || !window.FitVitSupabase.getClient) {
+        renderNoReviews();
+        if (adminHeroSubtitle) adminHeroSubtitle.textContent = "Supabase is not configured.";
+        return;
+      }
+
+      const client = window.FitVitSupabase.getClient();
+      if (!client) {
+        renderNoReviews();
+        if (adminHeroSubtitle) adminHeroSubtitle.textContent = "Supabase client is unavailable.";
+        return;
+      }
+
+      const result = await client
+        .from("meal_ratings_daily")
+        .select("auth_user_id,email,log_date,diet_type,slot,item_name,servings,calories,rating");
+
+      if (result.error || !Array.isArray(result.data)) {
+        renderNoReviews();
+        if (adminHeroSubtitle) {
+          adminHeroSubtitle.textContent = result.error?.message || "Unable to load review data.";
+        }
+        return;
+      }
+
+      const selectedDietKey = normalizeDietType(selectedDiet);
+      const selectedSlotKey = normalizeSlot(selectedSlot);
+      const rows = result.data.filter((row) => {
+        const rowDiet = normalizeDietType(row.diet_type);
+        const rowSlot = normalizeSlot(row.slot);
+        return rowDiet === selectedDietKey && rowSlot === selectedSlotKey;
+      });
+
+      if (!rows.length) {
+        renderNoReviews();
+        return;
+      }
+
+      noReviewsWrap?.classList.add("hidden");
+
+      const uniqueUsers = new Set();
+      let totalCalories = 0;
+      let ratingSum = 0;
+      let ratingCount = 0;
+
+      rows.forEach((row) => {
+        const rating = row.rating == null ? null : Number(row.rating);
+        const servings = Math.max(0, Number(row.servings || 0));
+        const calories = Number(row.calories || 0);
+        const uid = String(row.email || row.auth_user_id || "").trim().toLowerCase();
+
+        totalCalories += servings * calories;
+
+        if (rating != null && !Number.isNaN(rating)) {
+          ratingSum += rating;
+          ratingCount += 1;
+          if (uid) uniqueUsers.add(uid);
+        }
+      });
+
+      const avg = ratingCount ? (ratingSum / ratingCount).toFixed(1) : "0.0";
+      if (totalCaloriesValue) totalCaloriesValue.textContent = String(Math.round(totalCalories));
+      if (avgRatingValue) avgRatingValue.textContent = avg;
+      if (activeStudentsValue) activeStudentsValue.textContent = String(uniqueUsers.size);
+      if (adminHeroTitle) adminHeroTitle.textContent = `${toTitle(selectedSlot)} Performance`;
+      if (adminHeroSubtitle) {
+        adminHeroSubtitle.textContent = `${selectedDiet} ${toTitle(selectedSlot)} reviews from all available student submissions.`;
+      }
+
+      const items = aggregateByItem(rows);
+      renderCards(items);
+    }
+
+    dietButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        selectedDiet = button.dataset.diet || selectedDiet;
+        renderDashboardFromReviews();
+      });
+    });
+
+    slotButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        selectedSlot = button.dataset.slot || selectedSlot;
+        renderDashboardFromReviews();
+      });
+    });
+
+    renderDashboardFromReviews();
+
+    const debouncedRefresh = debounce(() => {
+      renderDashboardFromReviews();
+    }, 250);
+
+    // Keep dashboard near-real-time even if realtime events are delayed.
+    liveRefreshTimer = setInterval(() => {
+      renderDashboardFromReviews();
+    }, 15000);
+
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) {
+        renderDashboardFromReviews();
+      }
+    });
+
+    if (window.FitVitSupabase?.isConfigured() && window.FitVitSupabase.getClient) {
+      const client = window.FitVitSupabase.getClient();
+      if (client) {
+        liveChannel = client
+          .channel("admin-meal-ratings-live")
+          .on(
+            "postgres_changes",
+            { event: "*", schema: "public", table: "meal_ratings_daily" },
+            () => debouncedRefresh()
+          )
+          .subscribe();
+      }
+    }
+
+    window.addEventListener("beforeunload", () => {
+      if (liveRefreshTimer) {
+        clearInterval(liveRefreshTimer);
+      }
+      if (liveChannel && window.FitVitSupabase?.getClient) {
+        try {
+          window.FitVitSupabase.getClient().removeChannel(liveChannel);
+        } catch {
+          // Best-effort cleanup.
+        }
+      }
+    });
+
+    if (!logoutLink) return;
+
+    logoutLink.addEventListener("click", async (event) => {
+      event.preventDefault();
+
+      try {
+        if (window.FitVitSupabase?.signOutAuth) {
+          await window.FitVitSupabase.signOutAuth();
+        }
+      } catch {
+        // Best-effort sign out.
+      }
+
+      const preservedKeys = new Set(["fitvit_supabase_url", "fitvit_supabase_anon_key"]);
+      Object.keys(localStorage)
+        .filter((key) => key.startsWith("fitvit_") && !preservedKeys.has(key))
+        .forEach((key) => localStorage.removeItem(key));
+
+      Object.keys(sessionStorage)
+        .filter((key) => key.startsWith("fitvit_"))
+        .forEach((key) => sessionStorage.removeItem(key));
+
+      window.location.href = "/stitch/Admin%20Login%20Page/code.html";
+    });
+  })();
+</script>
+</body></html>

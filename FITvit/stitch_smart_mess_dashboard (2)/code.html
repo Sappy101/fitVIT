@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FitVit - High Performance Nutrition</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-on-surface": "#eef1ee",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-highest": "#e0e3e0",
+                        "error-container": "#ffdad6",
+                        "secondary": "#556158",
+                        "inverse-primary": "#72df49",
+                        "primary-container": "#44af1a",
+                        "on-primary-fixed": "#052100",
+                        "primary-fixed-dim": "#72df49",
+                        "primary": "#216d00",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#88d982",
+                        "surface-tint": "#216d00",
+                        "primary-fixed": "#8dfc63",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#003b0a",
+                        "on-secondary-fixed": "#131e17",
+                        "on-secondary": "#ffffff",
+                        "surface-container-high": "#e6e9e6",
+                        "surface-container": "#ebefec",
+                        "surface-bright": "#f7faf7",
+                        "error": "#ba1a1a",
+                        "surface": "#f7faf7",
+                        "outline": "#6f7b67",
+                        "background": "#f7faf7",
+                        "surface-dim": "#d7dbd8",
+                        "surface-container-low": "#f1f4f1",
+                        "tertiary": "#1b6d24",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#2d3130",
+                        "on-secondary-container": "#5b675e",
+                        "on-secondary-fixed-variant": "#3e4a41",
+                        "secondary-container": "#d9e6da",
+                        "outline-variant": "#becab4",
+                        "on-primary-container": "#0d3a00",
+                        "on-background": "#181c1b",
+                        "secondary-fixed": "#d9e6da",
+                        "tertiary-fixed": "#a3f69c",
+                        "tertiary-container": "#5cab5a",
+                        "secondary-fixed-dim": "#bdcabe",
+                        "on-surface-variant": "#3f4a38",
+                        "on-surface": "#181c1b",
+                        "on-primary-fixed-variant": "#175200",
+                        "surface-variant": "#e0e3e0",
+                        "on-tertiary-fixed-variant": "#005312",
+                        "on-tertiary-fixed": "#002204",
+                        "surface-container-lowest": "#ffffff"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .signature-gradient {
+            background: linear-gradient(135deg, #216d00 0%, #44af1a 100%);
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            background-color: #f2f8f0;
+            color: #181c1b;
+        }
+        h1, h2, h3, .brand-font {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        body {
+            opacity: 0;
+            transform: translateX(18px);
+            transition: opacity 260ms ease, transform 340ms cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        body.page-ready {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide-reveal {
+            opacity: 0;
+            transform: translateX(24px);
+            animation: fitvitSlideIn 550ms cubic-bezier(0.22, 1, 0.36, 1) forwards;
+            animation-delay: var(--slide-delay, 0ms);
+            will-change: transform, opacity;
+        }
+
+        body.page-exit {
+            opacity: 0;
+            transform: translateX(-18px);
+            pointer-events: none;
+        }
+
+        @keyframes fitvitSlideIn {
+            from {
+                opacity: 0;
+                transform: translateX(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            body,
+            body.page-ready,
+            body.page-exit {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
+
+            .slide-reveal {
+                opacity: 1;
+                transform: none;
+                animation: none;
+            }
+        }
+
+        .anim-brand-breathe {
+            animation: fitvitBrandBreathe 3.2s ease-in-out infinite;
+            transform-origin: left center;
+        }
+
+        .anim-hover-lift {
+            transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1), box-shadow 260ms ease;
+        }
+
+        .anim-hover-lift:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px rgba(33, 109, 0, 0.12);
+        }
+
+        .anim-cta-pulse {
+            animation: fitvitCtaPulse 2.6s ease-in-out infinite;
+        }
+
+        @keyframes fitvitBrandBreathe {
+            0%, 100% { transform: translateY(0); letter-spacing: 0; }
+            50% { transform: translateY(-1px); letter-spacing: 0.2px; }
+        }
+
+        @keyframes fitvitCtaPulse {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(68, 175, 26, 0); }
+            50% { box-shadow: 0 0 0 10px rgba(68, 175, 26, 0.08); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .anim-brand-breathe,
+            .anim-cta-pulse {
+                animation: none;
+            }
+
+            .anim-hover-lift,
+            .anim-hover-lift:hover {
+                transition: none;
+                transform: none;
+                box-shadow: none;
+            }
+        }
+
+    </style>
+</head>
+<body class="min-h-screen bg-[#f2f8f0]">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#f7faf7]/60 dark:bg-zinc-900/60 backdrop-blur-md flex justify-between items-center px-6 h-16">
+<div class="flex items-center gap-4">
+<span class="text-2xl font-bold tracking-tight text-green-800 dark:text-green-400">FitVit</span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-green-700 font-bold hover:bg-green-100/50 transition-colors px-3 py-1 rounded-full" href="/flow/02-performance-dashboard.html" target="_top">Dashboard</a>
+<a class="text-zinc-600 font-medium hover:bg-green-100/50 transition-colors px-3 py-1 rounded-full" href="/flow/04-meal-planner.html" target="_top">Meal Planner</a>
+<a class="text-zinc-600 font-medium hover:bg-green-100/50 transition-colors px-3 py-1 rounded-full" href="/flow/03-meal-rating.html" target="_top">Meal Rating</a>
+<a class="text-zinc-600 font-medium hover:bg-green-100/50 transition-colors px-3 py-1 rounded-full" href="/flow/01-food-preferences.html" target="_top">Food Preferences</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="text-zinc-500 dark:text-zinc-400 hover:bg-green-50/50 transition-colors p-2 rounded-full active:scale-95 duration-200" onclick="window.top.location.href='/flow/07-profile-settings.html'">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<div>
+<!-- SideNavBar (Hidden on Mobile) -->
+<aside class="hidden md:flex h-screen w-72 rounded-r-[3rem] fixed left-0 top-0 z-40 bg-[#f7faf7] shadow-xl shadow-green-900/5 flex-col h-full py-8 gap-2 pt-24 px-4">
+<nav class="flex-1 space-y-2">
+<a class="flex items-center space-x-3 px-4 py-3 bg-gradient-to-br from-[#216d00] to-[#44AF1A] text-white rounded-full font-bold shadow-lg shadow-green-700/20 active:scale-95 duration-200" href="/flow/02-performance-dashboard.html" target="_top">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Manrope'] font-bold text-sm">Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-zinc-600 hover:bg-zinc-200/50 rounded-full transition-all hover:translate-x-1 duration-300" href="/flow/04-meal-planner.html" target="_top">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="font-['Manrope'] font-medium text-sm">Meal Planner</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-zinc-600 hover:bg-zinc-200/50 rounded-full transition-all hover:translate-x-1 duration-300" href="/flow/03-meal-rating.html" target="_top">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-['Manrope'] font-medium text-sm">Meal Rating</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-zinc-600 hover:bg-zinc-200/50 rounded-full transition-all hover:translate-x-1 duration-300" href="/flow/01-food-preferences.html" target="_top">
+<span class="material-symbols-outlined">storefront</span>
+<span class="font-['Manrope'] font-medium text-sm">Food Preferences</span>
+</a>
+</nav>
+<div class="pt-6 border-t border-outline-variant/15 space-y-2">
+<a class="flex items-center space-x-3 px-4 py-3 text-zinc-600 hover:bg-zinc-200/50 rounded-full transition-all hover:translate-x-1 duration-300" href="/flow/07-profile-settings.html" target="_top">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Manrope'] font-medium text-sm">Settings</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 text-zinc-600 hover:bg-zinc-200/50 rounded-full transition-all hover:translate-x-1 duration-300" href="/stitch/stitch_smart_mess_dashboard%20(10)/code.html" onclick="Object.keys(localStorage).filter(function(k){return k.indexOf('fitvit_')===0;}).forEach(function(k){localStorage.removeItem(k);});Object.keys(sessionStorage).filter(function(k){return k.indexOf('fitvit_')===0;}).forEach(function(k){sessionStorage.removeItem(k);});" target="_top">
+<span class="material-symbols-outlined">logout</span>
+<span class="font-['Manrope'] font-medium text-sm">Log Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="md:pl-72 pt-24 min-h-screen px-6 py-8 max-w-7xl mx-auto space-y-12">
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant/20 p-4 md:p-5 flex items-center justify-between gap-4">
+<div class="flex items-center gap-3">
+<span class="material-symbols-outlined text-primary">touch_app</span>
+<p class="text-sm md:text-base font-semibold text-on-surface">Click here to dispense your own quantities</p>
+</div>
+<a class="inline-flex items-center gap-2 bg-gradient-to-br from-[#216d00] to-[#44AF1A] text-white px-4 py-2 rounded-full font-bold text-sm shadow-lg shadow-green-700/20 active:scale-95 transition-transform" href="https://palaeological-unvolubly-devorah.ngrok-free.dev/" rel="noopener noreferrer" target="_blank">
+Open Dispenser
+<span class="material-symbols-outlined text-[18px]">open_in_new</span>
+</a>
+</section>
+<!-- Bento Dashboard Metrics -->
+<section class="grid grid-cols-1 gap-6 md:grid-cols-3">
+<!-- Calorie Card -->
+<div class="md:col-span-2 bg-surface-container-lowest p-8 rounded-xl border border-outline-variant/15 flex flex-col justify-between">
+<div>
+<span class="text-sm font-bold uppercase tracking-widest text-on-surface-variant opacity-60">Daily Energy</span>
+<h2 class="text-6xl font-black mt-2 text-primary"><span id="dailyEnergyValue">0</span> <span class="text-2xl text-on-surface-variant/40">kcal</span></h2>
+<p class="mt-4 text-on-surface-variant font-medium" id="dailyEnergyRemaining">2460 kcal remaining to hit your growth target.</p>
+</div>
+<div class="mt-8 h-3 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full signature-gradient rounded-full" id="dailyEnergyBar" style="width: 0%"></div>
+</div>
+</div>
+<!-- Macro Trackers (P/C/F) -->
+<div class="bg-surface-container-low p-6 rounded-xl space-y-6">
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="text-sm font-bold text-on-surface-variant">Protein</span>
+<span class="text-lg font-bold text-primary"><span id="proteinValue">0</span>g</span>
+</div>
+<div class="h-1.5 bg-surface-container-highest rounded-full">
+<div class="h-full bg-primary rounded-full" id="proteinBar" style="width: 0%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="text-sm font-bold text-on-surface-variant">Carbs</span>
+<span class="text-lg font-bold text-on-secondary-container"><span id="carbsValue">0</span>g</span>
+</div>
+<div class="h-1.5 bg-surface-container-highest rounded-full">
+<div class="h-full bg-secondary rounded-full" id="carbsBar" style="width: 0%"></div>
+</div>
+</div>
+<div class="space-y-2">
+<div class="flex justify-between items-end">
+<span class="text-sm font-bold text-on-surface-variant">Fats</span>
+<span class="text-lg font-bold text-tertiary"><span id="fatsValue">0</span>g</span>
+</div>
+<div class="h-1.5 bg-surface-container-highest rounded-full">
+<div class="h-full bg-tertiary rounded-full" id="fatsBar" style="width: 0%"></div>
+</div>
+</div>
+</div>
+<!-- Hydration Bento -->
+</section>
+<!-- Today's Menu Section (The Living Greenhouse Editorial) -->
+<section class="space-y-8">
+<div class="flex items-end justify-between border-b border-outline-variant/15 pb-4">
+<div>
+<h2 class="text-4xl font-extrabold tracking-tight text-emerald-950">Today's Menu</h2>
+<p class="text-on-surface-variant mt-2" id="todayMenuSubtitle">High-performance fuel prepared at the Smart Mess.</p>
+<p class="mt-2">
+<span class="inline-flex items-center rounded-full px-3 py-1 text-xs font-bold bg-surface-container-high text-on-surface-variant" id="menuDataSourceBadge">Data Source: Inactive (Local)</span>
+</p>
+</div>
+<div class="flex space-x-2" id="todayMealSlotTabs">
+<button class="px-4 py-2 rounded-full text-sm font-bold transition-all" data-meal-slot="breakfast" type="button">Breakfast</button>
+<button class="px-4 py-2 rounded-full text-sm font-bold transition-all" data-meal-slot="lunch" type="button">Lunch</button>
+<button class="px-4 py-2 rounded-full text-sm font-bold transition-all" data-meal-slot="dinner" type="button">Dinner</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" id="todayMenuGrid"></div>
+</div>
+</section>
+<!-- Bottom Editorial Section (Nutrition Vault Preview) -->
+</main>
+</div>
+<!-- Mobile Bottom Navigation (Execution from Rule) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-[#f7faf7]/90 backdrop-blur-xl flex justify-around items-center py-4 px-6 z-50 border-t border-outline-variant/10">
+<a class="flex flex-col items-center text-primary font-bold" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">dashboard</span>
+<span class="text-[10px] mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center text-emerald-900/60" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="text-[10px] mt-1">Meals</span>
+</a>
+<a class="flex flex-col items-center text-emerald-900/60" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="text-[10px] mt-1">Vault</span>
+</a>
+<a class="flex flex-col items-center text-emerald-900/60" href="#">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[10px] mt-1">Profile</span>
+</a>
+</nav>
+<script src="/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/supabase-client.js"></script>
+<script>
+    (() => {
+        const slotButtons = Array.from(document.querySelectorAll("[data-meal-slot]"));
+        const todayMenuGrid = document.getElementById("todayMenuGrid");
+        const subtitle = document.getElementById("todayMenuSubtitle");
+        const menuDataSourceBadge = document.getElementById("menuDataSourceBadge");
+        const dailyEnergyValue = document.getElementById("dailyEnergyValue");
+        const dailyEnergyRemaining = document.getElementById("dailyEnergyRemaining");
+        const dailyEnergyBar = document.getElementById("dailyEnergyBar");
+        const proteinValue = document.getElementById("proteinValue");
+        const proteinBar = document.getElementById("proteinBar");
+        const carbsValue = document.getElementById("carbsValue");
+        const carbsBar = document.getElementById("carbsBar");
+        const fatsValue = document.getElementById("fatsValue");
+        const fatsBar = document.getElementById("fatsBar");
+
+        const allowedMessTypes = ["Veg", "Non-Veg", "Special"];
+        const preferredMess = localStorage.getItem("fitvit_preferred_mess") || "Non-Veg";
+        const selectedType = allowedMessTypes.includes(preferredMess) ? preferredMess : "Non-Veg";
+
+        const dayKeys = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+        const dayLabels = {
+            Sun: "Sunday",
+            Mon: "Monday",
+            Tue: "Tuesday",
+            Wed: "Wednesday",
+            Thu: "Thursday",
+            Fri: "Friday",
+            Sat: "Saturday"
+        };
+
+        let selectedSlot = "lunch";
+        let plannerTypes = null;
+
+        const currentUser = JSON.parse(localStorage.getItem("fitvit_user") || "{}");
+        const userKey = String(currentUser.uid || "guest").trim().toLowerCase();
+        const todayDateKey = new Date().toISOString().slice(0, 10);
+        const intakeStorageKey = "fitvit_meal_ratings_v1";
+        const weeklyTargetsKey = "fitvit_weekly_targets";
+
+        const DEFAULT_GOALS = {
+            calories: 2460,
+            protein: 170,
+            carbs: 300,
+            fats: 80
+        };
+        let goals = { ...DEFAULT_GOALS };
+
+        function pct(value, goal) {
+            if (!goal || goal <= 0) return 0;
+            return Math.max(0, Math.min(100, (value / goal) * 100));
+        }
+
+        function cleanupOldMealRatings() {
+            let store = {};
+            try {
+                store = JSON.parse(localStorage.getItem(intakeStorageKey) || "{}");
+            } catch {
+                store = {};
+            }
+
+            let changed = false;
+            Object.keys(store).forEach((key) => {
+                const entry = store[key] || {};
+                const dateKey = String(entry.dateKey || "");
+                const updatedAt = String(entry.updatedAt || "");
+                const keep = dateKey === todayDateKey || updatedAt.startsWith(todayDateKey);
+                if (!keep) {
+                    delete store[key];
+                    changed = true;
+                }
+            });
+
+            if (changed) {
+                localStorage.setItem(intakeStorageKey, JSON.stringify(store));
+            }
+
+            return store;
+        }
+
+        function getDayKeyFromIsoDate(dateIso) {
+            const map = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            const d = new Date(`${dateIso}T00:00:00`);
+            return map[d.getDay()] || "Mon";
+        }
+
+        function loadGoalsFromStorage() {
+            try {
+                const parsed = JSON.parse(localStorage.getItem(weeklyTargetsKey) || "{}");
+                goals = {
+                    calories: Math.max(0, Number(parsed.required_kcal || DEFAULT_GOALS.calories)),
+                    protein: Math.max(0, Number(parsed.required_protein || DEFAULT_GOALS.protein)),
+                    carbs: DEFAULT_GOALS.carbs,
+                    fats: Math.max(0, Number(parsed.required_fats || DEFAULT_GOALS.fats))
+                };
+            } catch {
+                goals = { ...DEFAULT_GOALS };
+            }
+        }
+
+        async function hydrateGoalsFromSupabase() {
+            try {
+                if (!window.FitVitSupabase?.isConfigured() || typeof window.FitVitSupabase.getProfile !== "function") {
+                    return;
+                }
+                const result = await window.FitVitSupabase.getProfile(String(currentUser.uid || "self"));
+                if (result.error || !result.data) return;
+
+                const next = {
+                    required_kcal: Math.max(0, Number(result.data.required_kcal || goals.calories)),
+                    required_protein: Math.max(0, Number(result.data.required_protein || goals.protein)),
+                    required_fats: Math.max(0, Number(result.data.required_fats || goals.fats))
+                };
+
+                localStorage.setItem(weeklyTargetsKey, JSON.stringify(next));
+                loadGoalsFromStorage();
+                renderDailyIntake();
+            } catch {
+                // Keep local goals fallback.
+            }
+        }
+
+        async function syncDailyRatingsFromSupabase() {
+            try {
+                if (!window.FitVitSupabase?.isConfigured() || typeof window.FitVitSupabase.getMealRatingsForDate !== "function") {
+                    return;
+                }
+
+                const result = await window.FitVitSupabase.getMealRatingsForDate(todayDateKey);
+                if (result.error || !Array.isArray(result.data)) {
+                    return;
+                }
+
+                let store = {};
+                try {
+                    store = JSON.parse(localStorage.getItem(intakeStorageKey) || "{}");
+                } catch {
+                    store = {};
+                }
+
+                Object.keys(store).forEach((key) => {
+                    const entry = store[key] || {};
+                    if (
+                        String(entry.userKey || "").toLowerCase() === userKey &&
+                        String(entry.dateKey || "") === todayDateKey
+                    ) {
+                        delete store[key];
+                    }
+                });
+
+                const dayKey = getDayKeyFromIsoDate(todayDateKey);
+                result.data.forEach((row) => {
+                    const itemName = String(row.item_name || "").trim();
+                    const slot = String(row.slot || "").trim().toLowerCase();
+                    const selectedTypeFromRow = String(row.diet_type || "Non-Veg").trim() || "Non-Veg";
+                    if (!itemName || !slot) return;
+
+                    const key = `${userKey}::${dayKey}::${selectedTypeFromRow}::${slot}::${itemName.toLowerCase()}`;
+                    store[key] = {
+                        servings: Math.max(0, Number(row.servings || 0)),
+                        rating: row.rating == null ? null : Number(row.rating),
+                        calories: Number(row.calories || 0),
+                        protein_g: Number(row.protein_g || 0),
+                        carbs_g: Number(row.carbs_g || 0),
+                        fat_g: Number(row.fat_g || 0),
+                        userKey,
+                        dateKey: todayDateKey,
+                        slot,
+                        itemName,
+                        selectedType: selectedTypeFromRow,
+                        updatedAt: String(row.updated_at || new Date().toISOString())
+                    };
+                });
+
+                localStorage.setItem(intakeStorageKey, JSON.stringify(store));
+            } catch {
+                // Keep local values when sync fails.
+            }
+        }
+
+        function getDailyTotals() {
+            const store = cleanupOldMealRatings();
+            const totals = {
+                calories: 0,
+                protein: 0,
+                carbs: 0,
+                fats: 0
+            };
+
+            Object.values(store).forEach((entry) => {
+                if (!entry || typeof entry !== "object") return;
+                if (String(entry.userKey || "").toLowerCase() !== userKey) return;
+                if (String(entry.dateKey || "") !== todayDateKey) return;
+
+                const servings = Math.max(0, Number(entry.servings || 0));
+                totals.calories += servings * Number(entry.calories || 0);
+                totals.protein += servings * Number(entry.protein_g || 0);
+                totals.carbs += servings * Number(entry.carbs_g || 0);
+                totals.fats += servings * Number(entry.fat_g || 0);
+            });
+
+            return totals;
+        }
+
+        function renderDailyIntake() {
+            const totals = getDailyTotals();
+
+            const calories = Math.round(totals.calories);
+            const protein = Math.round(totals.protein);
+            const carbs = Math.round(totals.carbs);
+            const fats = Math.round(totals.fats);
+
+            if (dailyEnergyValue) dailyEnergyValue.textContent = String(calories);
+            if (proteinValue) proteinValue.textContent = String(protein);
+            if (carbsValue) carbsValue.textContent = String(carbs);
+            if (fatsValue) fatsValue.textContent = String(fats);
+
+            const kcalRemaining = Math.max(0, goals.calories - calories);
+            if (dailyEnergyRemaining) {
+                dailyEnergyRemaining.textContent = `${kcalRemaining} kcal remaining to hit your growth target.`;
+            }
+
+            if (dailyEnergyBar) dailyEnergyBar.style.width = `${pct(calories, goals.calories)}%`;
+            if (proteinBar) proteinBar.style.width = `${pct(protein, goals.protein)}%`;
+            if (carbsBar) carbsBar.style.width = `${pct(carbs, goals.carbs)}%`;
+            if (fatsBar) fatsBar.style.width = `${pct(fats, goals.fats)}%`;
+        }
+
+        function getCurrentSlot() {
+            const hour = new Date().getHours();
+            if (hour >= 14 && hour < 22) return "dinner";
+            if (hour >= 9 && hour < 14) return "lunch";
+            return "breakfast";
+        }
+
+        function setActiveSlotState() {
+            slotButtons.forEach((button) => {
+                const isActive = button.dataset.mealSlot === selectedSlot;
+                button.classList.toggle("bg-gradient-to-br", isActive);
+                button.classList.toggle("from-[#216d00]", isActive);
+                button.classList.toggle("to-[#44AF1A]", isActive);
+                button.classList.toggle("text-white", isActive);
+                button.classList.toggle("shadow-lg", isActive);
+                button.classList.toggle("shadow-green-700/20", isActive);
+                button.classList.toggle("text-on-surface-variant/60", !isActive);
+            });
+        }
+
+        function renderCards(items) {
+            if (!todayMenuGrid) return;
+
+            todayMenuGrid.innerHTML = (items || []).map((item, index) => {
+                return `
+                    <div class="bg-surface-container-low rounded-xl p-5 shadow-sm border border-outline-variant/20">
+                        <h3 class="text-xl font-bold text-on-surface">${item}</h3>
+                    </div>
+                `;
+            }).join("");
+        }
+
+        function setMenuDataSourceStatus(source, reason) {
+            if (!menuDataSourceBadge) return;
+
+            const isSupabase = source === "supabase";
+            menuDataSourceBadge.textContent = isSupabase
+                ? "Data Source: Active (Supabase)"
+                : `Data Source: Inactive (Local${reason ? `: ${reason}` : ""})`;
+            menuDataSourceBadge.className = isSupabase
+                ? "inline-flex items-center rounded-full px-3 py-1 text-xs font-bold bg-emerald-100 text-emerald-800"
+                : "inline-flex items-center rounded-full px-3 py-1 text-xs font-bold bg-surface-container-high text-on-surface-variant";
+        }
+
+        function renderTodayMenu() {
+            if (!plannerTypes) return;
+
+            const now = new Date();
+            const effectiveDate = new Date(now);
+            // After dinner hours, breakfast preview should point to next day's menu.
+            if (selectedSlot === "breakfast" && now.getHours() >= 22) {
+                effectiveDate.setDate(effectiveDate.getDate() + 1);
+            }
+
+            const dayKey = dayKeys[effectiveDate.getDay()] || "Mon";
+            const dayData = plannerTypes?.[selectedType]?.[dayKey] || null;
+            const items = dayData?.[selectedSlot] || [];
+
+            if (subtitle) {
+                const slotTitle = selectedSlot.charAt(0).toUpperCase() + selectedSlot.slice(1);
+                subtitle.textContent = `${slotTitle} menu for ${dayLabels[dayKey]} (${selectedType}).`;
+            }
+
+            renderCards(items);
+            setActiveSlotState();
+        }
+
+        async function loadPlannerData() {
+            function hasAnyPlannerItems(types) {
+                if (!types || typeof types !== "object") return false;
+                return Object.values(types).some((dietMap) =>
+                    Object.values(dietMap || {}).some((dayMap) =>
+                        ["breakfast", "lunch", "snacks", "dinner"].some(
+                            (slot) => Array.isArray(dayMap?.[slot]) && dayMap[slot].length > 0
+                        )
+                    )
+                );
+            }
+
+            let supabaseReason = "";
+
+            if (!window.FitVitSupabase || typeof window.FitVitSupabase.isConfigured !== "function") {
+                supabaseReason = "Supabase client not loaded";
+            } else {
+                const configStatus = typeof window.FitVitSupabase.getConfigStatus === "function"
+                    ? window.FitVitSupabase.getConfigStatus()
+                    : null;
+
+                if (!window.FitVitSupabase.isConfigured()) {
+                    supabaseReason = configStatus
+                        ? `config missing (url:${configStatus.urlPresent ? "ok" : "no"}, key:${configStatus.anonKeyPresent ? "ok" : "no"}, runtime:${configStatus.runtimePresent ? "ok" : "no"})`
+                        : "Supabase not configured";
+                } else {
+                    try {
+                        const { data, error } = await window.FitVitSupabase.getMealsVaultPlannerTypes();
+                        if (!error && hasAnyPlannerItems(data)) {
+                            return { types: data, source: "supabase", reason: "live meals_vault" };
+                        }
+                        supabaseReason = error
+                            ? String(error?.message || "Supabase query failed").slice(0, 80)
+                            : "Supabase returned no planner rows";
+                    } catch {
+                        supabaseReason = "Supabase request threw error";
+                    }
+                }
+            }
+
+            const fromStorage = localStorage.getItem("fitvit_mock_db");
+            if (fromStorage) {
+                const parsed = JSON.parse(fromStorage);
+                if (parsed?.mealPlanner?.types) {
+                    const reason = supabaseReason ? `localStorage fallback (${supabaseReason})` : "localStorage fallback";
+                    return { types: parsed.mealPlanner.types, source: "local", reason };
+                }
+            }
+
+            try {
+                const res = await fetch("/api/bootstrap");
+                if (res.ok) {
+                    const db = await res.json();
+                    if (db?.mealPlanner?.types) {
+                        const reason = supabaseReason ? `bootstrap fallback (${supabaseReason})` : "bootstrap fallback";
+                        return { types: db.mealPlanner.types, source: "local", reason };
+                    }
+                }
+            } catch {
+                // Ignore fetch errors and use file fallback.
+            }
+
+            try {
+                const res = await fetch("/db/mockData.json");
+                if (res.ok) {
+                    const db = await res.json();
+                    if (db?.mealPlanner?.types) {
+                        const reason = supabaseReason ? `mock file fallback (${supabaseReason})` : "mock file fallback";
+                        return { types: db.mealPlanner.types, source: "local", reason };
+                    }
+                }
+            } catch {
+                // Ignore fetch errors.
+            }
+
+            return { types: null, source: "local", reason: supabaseReason || "no source available" };
+        }
+
+        slotButtons.forEach((button) => {
+            button.addEventListener("click", () => {
+                selectedSlot = button.dataset.mealSlot || selectedSlot;
+                renderTodayMenu();
+            });
+        });
+
+        selectedSlot = getCurrentSlot();
+
+        loadGoalsFromStorage();
+        Promise.resolve(syncDailyRatingsFromSupabase()).then(() => renderDailyIntake());
+        hydrateGoalsFromSupabase();
+
+        window.addEventListener("storage", (event) => {
+            if (event.key === intakeStorageKey) {
+                renderDailyIntake();
+            }
+            if (event.key === weeklyTargetsKey) {
+                loadGoalsFromStorage();
+                renderDailyIntake();
+            }
+        });
+
+        setInterval(() => {
+            syncDailyRatingsFromSupabase().then(() => renderDailyIntake());
+        }, 30000);
+
+        document.addEventListener("visibilitychange", () => {
+            if (!document.hidden) {
+                syncDailyRatingsFromSupabase().then(() => renderDailyIntake());
+                hydrateGoalsFromSupabase();
+            }
+        });
+
+        Promise.resolve(loadPlannerData()).then((result) => {
+            plannerTypes = result?.types || null;
+            setMenuDataSourceStatus(result?.source || "local", result?.reason || "");
+            renderTodayMenu();
+        });
+    })();
+</script>
+<script>
+    (() => {
+        const brand = document.querySelector("header .text-2xl");
+        if (brand) brand.classList.add("anim-brand-breathe");
+
+        const liftTargets = document.querySelectorAll("main .rounded-xl, main button");
+        liftTargets.forEach((node) => node.classList.add("anim-hover-lift"));
+
+        const pulseTargets = document.querySelectorAll("#setWeeklyPlanBtn, #saveChangesBtn, #savePreferencesBtn");
+        pulseTargets.forEach((node) => node.classList.add("anim-cta-pulse"));
+    })();
+</script>
+<script>
+    (() => {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            document.body.classList.add("page-ready");
+            return;
+        }
+
+        const animatedNodes = Array.from(document.querySelectorAll("header, aside, main, section, nav, .rounded-xl, .shadow-sm, .shadow-lg"));
+        const seen = new Set();
+        let index = 0;
+
+        animatedNodes.forEach((node) => {
+            if (!(node instanceof HTMLElement)) return;
+            if (seen.has(node)) return;
+            seen.add(node);
+            node.classList.add("slide-reveal");
+            node.style.setProperty("--slide-delay", `${Math.min(index * 35, 420)}ms`);
+            index += 1;
+        });
+
+        requestAnimationFrame(() => {
+            document.body.classList.add("page-ready");
+        });
+
+        document.querySelectorAll("a[href]").forEach((anchor) => {
+            anchor.addEventListener("click", (event) => {
+                if (event.defaultPrevented) return;
+                if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+                if (event.button !== 0) return;
+
+                const href = anchor.getAttribute("href") || "";
+                if (!href || href.startsWith("#") || href.startsWith("javascript:")) return;
+                if ((anchor.getAttribute("target") || "").toLowerCase() === "_blank") return;
+
+                let nextUrl;
+                try {
+                    nextUrl = new URL(href, window.location.href);
+                } catch {
+                    return;
+                }
+
+                if (nextUrl.origin !== window.location.origin) return;
+                if (nextUrl.href === window.location.href) return;
+
+                event.preventDefault();
+                document.body.classList.add("page-exit");
+                setTimeout(() => {
+                    window.location.href = nextUrl.href;
+                }, 260);
+            });
+        });
+
+        window.addEventListener("pageshow", () => {
+            document.body.classList.remove("page-exit");
+        });
+    })();
+</script>
+</body></html>

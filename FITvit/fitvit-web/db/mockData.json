@@ -1,0 +1,128 @@
+{
+  "messes": [
+    {
+      "id": 1,
+      "name": "Green Bowl Mess",
+      "type": "Veg",
+      "pricePerMonth": 3200,
+      "distanceKm": 0.6,
+      "rating": 4.4,
+      "hygiene": 4.7
+    },
+    {
+      "id": 2,
+      "name": "Campus Fuel House",
+      "type": "Non-Veg",
+      "pricePerMonth": 3900,
+      "distanceKm": 1.2,
+      "rating": 4.2,
+      "hygiene": 4.1
+    },
+    {
+      "id": 3,
+      "name": "Athlete Tiffin Hub",
+      "type": "Special",
+      "pricePerMonth": 4500,
+      "distanceKm": 0.9,
+      "rating": 4.8,
+      "hygiene": 4.9
+    },
+    {
+      "id": 4,
+      "name": "Metro Mess Point",
+      "type": "Non-Veg",
+      "pricePerMonth": 3000,
+      "distanceKm": 2,
+      "rating": 3.9,
+      "hygiene": 3.8
+    }
+  ],
+  "menu": [
+    {
+      "day": "Monday",
+      "meal": "Breakfast",
+      "items": ["Idli", "Sambar", "Banana"]
+    },
+    {
+      "day": "Monday",
+      "meal": "Lunch",
+      "items": ["Veg Pulao", "Curd", "Salad"]
+    },
+    {
+      "day": "Tuesday",
+      "meal": "Breakfast",
+      "items": ["Poha", "Sprouts", "Milk"]
+    },
+    {
+      "day": "Tuesday",
+      "meal": "Dinner",
+      "items": ["Chapati", "Paneer Masala", "Rice"]
+    }
+  ],
+  "mealPlanner": {
+    "days": ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    "types": {
+      "Veg": {
+        "Mon": {"breakfast": ["Moong Dal Chilla", "Coconut Chutney"], "lunch": ["Veg Pulao", "Dal Tadka", "Cucumber Raita"], "snacks": ["Corn Chaat", "Masala Chai"], "dinner": ["Phulka", "Palak Paneer", "Jeera Rice"]},
+        "Tue": {"breakfast": ["Poha", "Sprouts Salad"], "lunch": ["Rajma", "Steamed Rice", "Beetroot Salad"], "snacks": ["Fruit Bowl", "Buttermilk"], "dinner": ["Chapati", "Mix Veg Curry", "Curd"]},
+        "Wed": {"breakfast": ["Idli", "Sambar", "Peanut Chutney"], "lunch": ["Chole", "Jeera Rice", "Kachumber"], "snacks": ["Roasted Makhana", "Lemon Tea"], "dinner": ["Phulka", "Lauki Kofta", "Dal Fry"]},
+        "Thu": {"breakfast": ["Vegetable Upma", "Banana"], "lunch": ["Paneer Bhurji", "Roti", "Masoor Dal"], "snacks": ["Veg Sandwich", "Green Tea"], "dinner": ["Khichdi", "Kaddu Sabzi", "Curd"]},
+        "Fri": {"breakfast": ["Aloo Paratha", "Curd"], "lunch": ["Kadhi Pakora", "Rice", "Cabbage Stir Fry"], "snacks": ["Bhel Puri", "Mint Chaas"], "dinner": ["Phulka", "Matar Paneer", "Moong Dal"]},
+        "Sat": {"breakfast": ["Rava Dosa", "Sambar"], "lunch": ["Veg Biryani", "Boondi Raita", "Dal Makhani"], "snacks": ["Peanut Sundal", "Herbal Tea"], "dinner": ["Chapati", "Aloo Gobi", "Lentil Soup"]},
+        "Sun": {"breakfast": ["Masala Oats", "Apple"], "lunch": ["Paneer Tikka Masala", "Naan", "Salad"], "snacks": ["Baked Sweet Potato", "Lassi"], "dinner": ["Vegetable Pulao", "Dal Palak", "Cucumber Salad"]}
+      },
+      "Non-Veg": {
+        "Mon": {"breakfast": ["Boiled Eggs", "Whole Wheat Toast"], "lunch": ["Chicken Curry", "Steamed Rice", "Onion Salad"], "snacks": ["Chicken Sandwich", "Black Coffee"], "dinner": ["Egg Bhurji", "Phulka", "Dal Tadka"]},
+        "Tue": {"breakfast": ["Egg Omelette", "Multigrain Bread"], "lunch": ["Fish Curry", "Jeera Rice", "Curd"], "snacks": ["Tuna Salad Cup", "Lemon Water"], "dinner": ["Chicken Keema", "Chapati", "Veg Soup"]},
+        "Wed": {"breakfast": ["Scrambled Eggs", "Sauteed Veggies"], "lunch": ["Chicken Pulao", "Raita", "Dal Fry"], "snacks": ["Boiled Egg Chaat", "Tea"], "dinner": ["Grilled Fish", "Garlic Rice", "Sauteed Beans"]},
+        "Thu": {"breakfast": ["Egg Sandwich", "Milk"], "lunch": ["Mutton Stew", "Phulka", "Salad"], "snacks": ["Chicken Wrap", "Buttermilk"], "dinner": ["Chicken Soup", "Paneer Bhurji", "Roti"]},
+        "Fri": {"breakfast": ["Masala Egg Bhurji", "Toast"], "lunch": ["Fish Tikka", "Rice", "Dal"], "snacks": ["Protein Shake", "Roasted Chickpeas"], "dinner": ["Chicken Handi", "Chapati", "Cucumber Salad"]},
+        "Sat": {"breakfast": ["Egg Dosa", "Coconut Chutney"], "lunch": ["Prawn Masala", "Jeera Rice", "Veg Stir Fry"], "snacks": ["Chicken Cutlet", "Mint Tea"], "dinner": ["Chicken Roast", "Phulka", "Lentil Soup"]},
+        "Sun": {"breakfast": ["French Omelette", "Fruit Bowl"], "lunch": ["Butter Chicken", "Naan", "Onion Salad"], "snacks": ["Egg Roll", "Lassi"], "dinner": ["Fish Fry", "Dal Khichdi", "Sauteed Carrots"]}
+      },
+      "Special": {
+        "Mon": {"breakfast": ["Avocado Toast", "Greek Yogurt"], "lunch": ["Quinoa Bowl", "Grilled Paneer", "Mint Dip"], "snacks": ["Protein Bar", "Cold Brew"], "dinner": ["Millet Khichdi", "Roasted Veggies", "Hung Curd"]},
+        "Tue": {"breakfast": ["Chia Pudding", "Seasonal Berries"], "lunch": ["Tofu Stir Fry", "Brown Rice", "Miso Soup"], "snacks": ["Hummus Platter", "Kombucha"], "dinner": ["Zucchini Noodles", "Pesto Veggies", "Pumpkin Soup"]},
+        "Wed": {"breakfast": ["Smoothie Bowl", "Granola"], "lunch": ["Sushi Veg Roll", "Edamame", "Clear Soup"], "snacks": ["Trail Mix", "Green Juice"], "dinner": ["Stuffed Bell Peppers", "Herb Rice", "Lentil Broth"]},
+        "Thu": {"breakfast": ["Buckwheat Pancakes", "Honey Drizzle"], "lunch": ["Falafel Wrap", "Tahini Dip", "Tabbouleh"], "snacks": ["Yogurt Parfait", "Iced Tea"], "dinner": ["Mushroom Risotto", "Garlic Greens", "Tomato Consomme"]},
+        "Fri": {"breakfast": ["Overnight Oats", "Mixed Nuts"], "lunch": ["Thai Curry Veg", "Jasmine Rice", "Papaya Salad"], "snacks": ["Seed Crackers", "Matcha Latte"], "dinner": ["Mexican Bean Bowl", "Corn Salsa", "Avocado Salad"]},
+        "Sat": {"breakfast": ["Spinach Wrap", "Orange Juice"], "lunch": ["Mediterranean Platter", "Pita", "Hummus"], "snacks": ["Fruit Skewers", "Mint Cooler"], "dinner": ["Ratatouille", "Herb Couscous", "Creamy Soup"]},
+        "Sun": {"breakfast": ["Acai Bowl", "Pumpkin Seeds"], "lunch": ["Pesto Pasta", "Grilled Veggies", "Garden Salad"], "snacks": ["Dark Chocolate Oats Bites", "Detox Water"], "dinner": ["Saffron Rice", "Paneer Steak", "Roasted Broccoli"]}
+      }
+    }
+  },
+  "stitchPages": [
+    {
+      "name": "Sign Up",
+      "path": "stitch_smart_mess_dashboard/code.html"
+    },
+    {
+      "name": "Marketplace",
+      "path": "stitch_smart_mess_dashboard (1)/code.html"
+    },
+    {
+      "name": "Dashboard",
+      "path": "stitch_smart_mess_dashboard (2)/code.html"
+    },
+    {
+      "name": "Nutrition Vault",
+      "path": "stitch_smart_mess_dashboard (3)/code.html"
+    },
+    {
+      "name": "Meal Planner",
+      "path": "stitch_smart_mess_dashboard (4)/code.html"
+    },
+    {
+      "name": "Profile Settings",
+      "path": "stitch_smart_mess_dashboard (7)/code.html"
+    },
+    {
+      "name": "Daily Nutrition",
+      "path": "stitch_smart_mess_dashboard (8)/code.html"
+    },
+    {
+      "name": "Onboarding",
+      "path": "stitch_smart_mess_dashboard (9)/code.html"
+    }
+  ]
+}

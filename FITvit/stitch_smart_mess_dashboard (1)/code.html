@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Food Preferences - FitVit Pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "inverse-on-surface": "#eef1ee",
+            "on-tertiary": "#ffffff",
+            "surface-container-highest": "#e0e3e0",
+            "error-container": "#ffdad6",
+            "secondary": "#556158",
+            "inverse-primary": "#72df49",
+            "primary-container": "#44af1a",
+            "on-primary-fixed": "#052100",
+            "primary-fixed-dim": "#72df49",
+            "primary": "#216d00",
+            "on-primary": "#ffffff",
+            "tertiary-fixed-dim": "#88d982",
+            "surface-tint": "#216d00",
+            "primary-fixed": "#8dfc63",
+            "on-error": "#ffffff",
+            "on-tertiary-container": "#003b0a",
+            "on-secondary-fixed": "#131e17",
+            "on-secondary": "#ffffff",
+            "surface-container-high": "#e6e9e6",
+            "surface-container": "#ebefec",
+            "surface-bright": "#f7faf7",
+            "error": "#ba1a1a",
+            "surface": "#f7faf7",
+            "outline": "#6f7b67",
+            "background": "#f7faf7",
+            "surface-dim": "#d7dbd8",
+            "surface-container-low": "#f1f4f1",
+            "tertiary": "#1b6d24",
+            "on-error-container": "#93000a",
+            "inverse-surface": "#2d3130",
+            "on-secondary-container": "#5b675e",
+            "on-secondary-fixed-variant": "#3e4a41",
+            "secondary-container": "#d9e6da",
+            "outline-variant": "#becab4",
+            "on-primary-container": "#0d3a00",
+            "on-background": "#181c1b",
+            "secondary-fixed": "#d9e6da",
+            "tertiary-fixed": "#a3f69c",
+            "tertiary-container": "#5cab5a",
+            "secondary-fixed-dim": "#bdcabe",
+            "on-surface-variant": "#3f4a38",
+            "on-surface": "#181c1b",
+            "on-primary-fixed-variant": "#175200",
+            "surface-variant": "#e0e3e0",
+            "on-tertiary-fixed-variant": "#005312",
+            "on-tertiary-fixed": "#002204",
+            "surface-container-lowest": "#ffffff"
+          },
+          fontFamily: {
+            "headline": ["Plus Jakarta Sans"],
+            "body": ["Manrope"],
+            "label": ["Manrope"]
+          },
+          borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    body { font-family: 'Manrope', sans-serif; }
+    h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; }
+  </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-[#f7faf7]/60 backdrop-blur-xl flex justify-between items-center px-6 py-4">
+<div class="text-2xl font-black text-emerald-800 tracking-tight">FitVit</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-emerald-900/60 font-medium hover:bg-emerald-100/50 transition-colors px-3 py-1 rounded-full" href="#">Dashboard</a>
+<a class="text-emerald-900/60 font-medium hover:bg-emerald-100/50 transition-colors px-3 py-1 rounded-full" href="#">Meal Planner</a>
+<a class="text-emerald-900/60 font-medium hover:bg-emerald-100/50 transition-colors px-3 py-1 rounded-full" href="#">Meal Rating</a>
+<a class="text-emerald-700 font-bold hover:bg-emerald-100/50 transition-colors px-3 py-1 rounded-full" href="#">Food Preferences</a>
+</div>
+<div class="flex items-center space-y-0 space-x-4">
+<button class="p-2 text-emerald-700 hover:bg-emerald-100/50 rounded-full transition-colors" onclick="window.top.location.href='/flow/07-profile-settings.html'">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</nav>
+<div class="flex pt-20">
+<!-- SideNavBar (Desktop Only) -->
+<aside class="hidden lg:flex flex-col h-[calc(100vh-5rem)] w-64 fixed left-0 p-6 space-y-8 bg-[#f7faf7] rounded-r-xl">
+<div class="space-y-1">
+<h2 class="font-['Plus_Jakarta_Sans'] font-extrabold text-emerald-800 text-xl">FitVit Pro</h2>
+<p class="text-xs text-on-surface-variant opacity-70">High Performance Nutrition</p>
+</div>
+<nav class="flex-1 space-y-2">
+<a class="flex items-center space-x-3 p-3 text-emerald-800/70 hover:bg-emerald-50 hover:translate-x-1 transition-all rounded-full group" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-medium">Dashboard</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-emerald-800/70 hover:bg-emerald-50 hover:translate-x-1 transition-all rounded-full group" href="#">
+<span class="material-symbols-outlined">restaurant_menu</span>
+<span class="font-medium">Meal Planner</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-emerald-800/70 hover:bg-emerald-50 hover:translate-x-1 transition-all rounded-full group" href="#">
+<span class="material-symbols-outlined">menu_book</span>
+<span class="font-medium">Meal Rating</span>
+</a>
+<a class="flex items-center space-x-3 p-3 bg-gradient-to-br from-[#216d00] to-[#44AF1A] text-white rounded-full font-bold shadow-lg shadow-green-700/20 active:scale-95 duration-200" href="#">
+<span class="material-symbols-outlined">shopping_basket</span>
+<span>Food Preferences</span>
+</a>
+</nav>
+<div class="pt-4 border-t border-surface-container-high space-y-2">
+<a class="flex items-center space-x-3 p-3 text-emerald-800/70 hover:bg-emerald-50 rounded-full" href="/flow/07-profile-settings.html" target="_top">
+<span class="material-symbols-outlined">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+<a class="flex items-center space-x-3 p-3 text-emerald-800/70 hover:bg-emerald-50 rounded-full" href="/stitch/stitch_smart_mess_dashboard%20(10)/code.html" onclick="Object.keys(localStorage).filter(function(k){return k.indexOf('fitvit_')===0;}).forEach(function(k){localStorage.removeItem(k);});Object.keys(sessionStorage).filter(function(k){return k.indexOf('fitvit_')===0;}).forEach(function(k){sessionStorage.removeItem(k);});" target="_top">
+<span class="material-symbols-outlined">logout</span>
+<span class="text-sm">Log Out</span>
+</a>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 lg:ml-64 p-6 md:p-10">
+<!-- Editorial Header -->
+<header class="mb-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-2">
+<span class="text-primary font-bold tracking-widest text-sm uppercase">Fuel Your Performance</span>
+<h1 class="text-4xl md:text-5xl font-extrabold text-on-surface tracking-tight leading-tight">
+              The Fresh <br/><span class="text-primary italic">Food Preferences</span>
+</h1>
+</div>
+<div class="flex gap-2">
+<span class="px-6 py-2 bg-primary-container text-on-primary-container rounded-full font-bold text-sm">All Items</span>
+<span class="px-6 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-medium text-sm hover:bg-surface-container-highest cursor-pointer transition-colors">Juices</span>
+<span class="px-6 py-2 bg-surface-container-high text-on-surface-variant rounded-full font-medium text-sm hover:bg-surface-container-highest cursor-pointer transition-colors">Protein</span>
+</div>
+</div>
+</header>
+<!-- Bento Grid Inspired Marketplace -->
+<div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-8">
+<!-- Product Card: Apples -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-emerald-900/5 transition-all duration-500 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Organic Crisp Apples" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 rounded-b-xl" data-alt="Close-up of a pile of vibrant, shiny organic red and green apples with soft garden lighting and natural textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBoEXbXm9FAphYXEHj9dZW4DqeBbEdlqgqW87dwOaYAVQ88ApRODuwZshgp08q1XCQbSLpeuU51JdcZ8s5oB2XRJoh0slvdJL7JzrKFFUH_iX_uB9qCSY2fhUT5AmiNNY3Krir5fIj7NKhbTmXg6GwspcmUjljL4tYia8xdNYRICCcShdcoTqpri7U5gyHpsRBxlATP8uBbtOi5EVJ-p0CVInT1LifisYM877NeEhE3_7WLjsg-ruk_IAh3ZFCQP8EMz2MaDmZvnA"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-primary">Fresh Pick</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-on-surface">Crisp Gala Apples</h3>
+<span class="text-lg font-extrabold text-primary">₹270</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 flex-1">High-fiber, organic gala apples. Perfect for a quick afternoon crunch and metabolic support.</p>
+<button class="w-full py-3 bg-surface-container-high text-on-surface font-bold rounded-full group-hover:bg-primary group-hover:text-white transition-all flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined text-xl">shopping_cart</span>
+<span>Add to Cart</span>
+</button>
+</div>
+</div>
+<!-- Product Card: Protein Shake -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-emerald-900/5 transition-all duration-500 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Chocolate Whey Protein Shake" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 rounded-b-xl" data-alt="Artistic studio shot of a tall glass filled with a creamy chocolate protein shake with dark chocolate shavings on top" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzIyC68eniaVSoFiQIi4boIBbXHfGBj04Gq_4PMQ71ItMfdwTeVXHZQ8X1aC8j4I-hFjOdGAtn2odaCgtGChGg_ERFEV9rOTx350WvurkvrAwzybSxVP-6AWVc0yQthWkQy7sLOq8pmDM2lWSRCgYgSlGGiF4m1LMUcRe89KXz-KpiZr2BsnZN_FA3Sj8NAeQF3qqvIUYPgWy4vjqNJI97eEqpBAUaKVlb_PTMUR10XgjaygOx7yaOFmaIOz61SGHOuG2Vnz_SbQ"/>
+<div class="absolute top-4 right-4 bg-primary text-white px-3 py-1 rounded-full text-xs font-bold">Best Seller</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-on-surface">FitVit Whey Pro</h3>
+<span class="text-lg font-extrabold text-primary">₹270</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 flex-1">30g pure isolate protein with chocolate ganache notes. Optimal post-workout recovery.</p>
+<button class="w-full py-3 bg-surface-container-high text-on-surface font-bold rounded-full group-hover:bg-primary group-hover:text-white transition-all flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined text-xl">shopping_cart</span>
+<span>Add to Cart</span>
+</button>
+</div>
+</div>
+<!-- Product Card: Watermelon -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-emerald-900/5 transition-all duration-500 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Juicy Watermelon Slices" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 rounded-b-xl" data-alt="Vibrant red slices of seedless watermelon arranged on a rustic wooden table under bright, high-noon summer sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2W6yL3KBVN4XxX4iDW1HpN1KVEoVRePqJF2UGrsJMirKPHYdlg3FXskFew-o-dXjASQGdpmjIdLC3RCaQv_SinUt0KEZuJomZK-88S2pI8B4U6t-h7rsxLeLjgxcXJvttae1GWkEO68eAKsXRzmGRmIiepQcYpCC1pqhNg766esMKbrQmSybGNLi5perM5uUEYWy0z6SKay4NBErF02sTysf3XJ3GkCfy5JmiFN96j5Dt99yH--VL_dWzSvhq3oMi__8csyphCA"/>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-on-surface">Summer Watermelon</h3>
+<span class="text-lg font-extrabold text-primary">₹270</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 flex-1">Hydration-focused seedless slices. Rich in lycopene and essential electrolytes for recovery.</p>
+<button class="w-full py-3 bg-surface-container-high text-on-surface font-bold rounded-full group-hover:bg-primary group-hover:text-white transition-all flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined text-xl">shopping_cart</span>
+<span>Add to Cart</span>
+</button>
+</div>
+</div>
+<!-- Product Card: Fruit Juices -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-emerald-900/5 transition-all duration-500 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Cold Pressed Orange Juice" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 rounded-b-xl" data-alt="A row of colorful cold-pressed fruit juices in clear glass bottles with condensation on a clean, bright white surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDspr43fvTgHmSqUdnx6QQgSdPFqqsJaTdVJD2wXI_9Nny_ahzenvVuUH1iPgFUMwt-U_zpX580XvjRHkJtiiKWAuePfR_sqAmPeAuU-9UZjB6Jj-SAtDlPDf9S1y10BOzlxXYR7dJTRSiBSy5zt5Rl3EySA5E7QuMenBnfWyA-GbTUXl0bGCDk7r_nLwFKWUV6Vn4GfJSnJKB4mMqc_icPWPuaQafNyynRxKlsIXBEpdrurUReytj05UFKeea3YyDZXo5nBcaD0Q"/>
+<div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-primary">Cold Pressed</div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-on-surface">Vitality Blend Juice</h3>
+<span class="text-lg font-extrabold text-primary">₹270</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 flex-1">Raw, unpasteurized orange and ginger blend. A powerhouse of Vitamin C and natural energy.</p>
+<button class="w-full py-3 bg-surface-container-high text-on-surface font-bold rounded-full group-hover:bg-primary group-hover:text-white transition-all flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined text-xl">shopping_cart</span>
+<span>Add to Cart</span>
+</button>
+</div>
+</div>
+<!-- Product Card: Boiled Eggs -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-emerald-900/5 transition-all duration-500 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Hard Boiled Eggs" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 rounded-b-xl" data-alt="Artistically arranged hard-boiled eggs cut in half showing creamy yellow yolks on a minimalist ceramic plate" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmWjlKfuCe2WcArY978xyBOmMRRK1g5F8UwcYtwamLHZdm7tKrXvYQi9L0OqHZfHKqujtQmAO4ozX8s4aQUT9X_OWktp9Wlflic4Cx_mcOLuQnaR0cx9QKWPKGgfUd0aL0F8yD69pUd_dsjk4spF50_LNnYOTf9khizJDrhbNqWi4ckt6wkgiu3uvc04SW7sCYvB2Ubbg11UMhLQFymdnGtsZvfSdSxCM-5_R5tIpWVrg7SNzQdkysOPfbm4NXLH0pZ_GOgDRAzw"/>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-on-surface">Protein Egg Duo</h3>
+<span class="text-lg font-extrabold text-primary">₹270</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 flex-1">Two perfectly soft-boiled organic eggs. The ultimate bioavailable protein snack for athletes.</p>
+<button class="w-full py-3 bg-surface-container-high text-on-surface font-bold rounded-full group-hover:bg-primary group-hover:text-white transition-all flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined text-xl">shopping_cart</span>
+<span>Add to Cart</span>
+</button>
+</div>
+</div>
+<!-- Product Card: Bananas -->
+<div class="group bg-surface-container-lowest rounded-xl overflow-hidden hover:shadow-2xl hover:shadow-emerald-900/5 transition-all duration-500 flex flex-col">
+<div class="relative h-64 overflow-hidden">
+<img alt="Fresh Bananas" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700 rounded-b-xl" data-alt="A bunch of ripe, bright yellow bananas on a tropical palm leaf with soft natural window light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCqssMT_sH7wWOp5GJ51QpynghxFWHLai5xSfRnqynWR8rY_0t726MHn0JofKXfU9xFROTzsS-GmRn3c6X1fiI620jNBB526Lhwyv8ZXqRh34RCRiGGckaVHRuB9blDEaHQvsZq6pkCdhalzBWax3vTZo7gCTdamkCqt0enRpFBm04IHbu5O0zBxjcq0kiOvhsZeis2iYmxmoVKvFRfxpHMuNxBWSnEdjEEcFBib-ClTIoC4aBc-sKVVvaiscI4tD4VmfZjMVW8tA"/>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="flex justify-between items-start mb-2">
+<h3 class="text-xl font-bold text-on-surface">Potassium Boost Bunches</h3>
+<span class="text-lg font-extrabold text-primary">₹270</span>
+</div>
+<p class="text-sm text-on-surface-variant mb-6 flex-1">Premium ripe bananas. Immediate glycogen replenishment for intense training sessions.</p>
+<button class="w-full py-3 bg-surface-container-high text-on-surface font-bold rounded-full group-hover:bg-primary group-hover:text-white transition-all flex items-center justify-center space-x-2">
+<span class="material-symbols-outlined text-xl">shopping_cart</span>
+<span>Add to Cart</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Marketplace Features / Promo (Bento Style) -->
+</main>
+</div>
+<!-- Mobile Bottom Navigation Shell -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full bg-[#f7faf7]/90 backdrop-blur-lg px-6 py-4 flex justify-between items-center z-50 border-t border-emerald-100">
+<button class="flex flex-col items-center space-y-1 text-emerald-800/60">
+<span class="material-symbols-outlined text-2xl">dashboard</span>
+<span class="text-[10px] font-bold">Home</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-emerald-800/60">
+<span class="material-symbols-outlined text-2xl">restaurant_menu</span>
+<span class="text-[10px] font-bold">Meals</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-emerald-700 bg-emerald-100 rounded-xl px-4 py-1">
+<span class="material-symbols-outlined text-2xl" style="font-variation-settings: 'FILL' 1;">shopping_basket</span>
+<span class="text-[10px] font-extrabold">Market</span>
+</button>
+<button class="flex flex-col items-center space-y-1 text-emerald-800/60">
+<span class="material-symbols-outlined text-2xl">account_circle</span>
+<span class="text-[10px] font-bold">Profile</span>
+</button>
+</nav>
+</body></html>

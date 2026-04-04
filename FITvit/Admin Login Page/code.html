@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Admin Portal Login - Smart Mess</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-container": "#44af1a",
+                        "surface-container": "#ebefec",
+                        "primary-fixed-dim": "#72df49",
+                        "on-surface-variant": "#3f4a38",
+                        "surface-container-low": "#f1f4f1",
+                        "on-secondary": "#ffffff",
+                        "outline": "#6f7b67",
+                        "secondary-container": "#d9e6da",
+                        "inverse-on-surface": "#eef1ee",
+                        "on-primary-container": "#0d3a00",
+                        "on-primary-fixed-variant": "#175200",
+                        "on-tertiary-fixed": "#002204",
+                        "on-surface": "#181c1b",
+                        "on-error-container": "#93000a",
+                        "on-background": "#181c1b",
+                        "tertiary-container": "#5cab5a",
+                        "surface-tint": "#216d00",
+                        "on-tertiary-container": "#003b0a",
+                        "error-container": "#ffdad6",
+                        "tertiary-fixed": "#a3f69c",
+                        "primary-fixed": "#8dfc63",
+                        "tertiary": "#1b6d24",
+                        "surface-container-highest": "#e0e3e0",
+                        "background": "#f7faf7",
+                        "surface-bright": "#f7faf7",
+                        "surface": "#f7faf7",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#2d3130",
+                        "surface-dim": "#d7dbd8",
+                        "primary": "#216d00",
+                        "error": "#ba1a1a",
+                        "secondary-fixed": "#d9e6da",
+                        "outline-variant": "#becab4",
+                        "on-secondary-container": "#5b675e",
+                        "tertiary-fixed-dim": "#88d982",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-fixed": "#131e17",
+                        "on-primary-fixed": "#052100",
+                        "secondary": "#556158",
+                        "inverse-primary": "#72df49",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-fixed-variant": "#005312",
+                        "on-secondary-fixed-variant": "#3e4a41",
+                        "secondary-fixed-dim": "#bdcabe",
+                        "surface-variant": "#e0e3e0",
+                        "surface-container-high": "#e6e9e6",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-login-texture {
+            background-image: radial-gradient(circle at 2px 2px, #216d0010 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-background min-h-screen flex flex-col selection:bg-primary-container selection:text-on-primary-container">
+<main class="flex-grow flex items-center justify-center p-6 bg-login-texture">
+<div class="w-full max-w-[1100px] grid grid-cols-1 lg:grid-cols-2 bg-surface-container-lowest rounded-xl overflow-hidden shadow-2xl shadow-on-surface/5">
+<div class="relative hidden lg:block overflow-hidden p-12 bg-primary">
+<div class="absolute inset-0 opacity-20 mix-blend-overlay">
+<img alt="Institutional Excellence" class="w-full h-full object-cover" data-alt="Modern university dining hall with sustainable wood furniture and large windows overlooking a lush green campus at morning" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCV2nn6t1Q3PsOAuAA3ZTuAzVrnF3womUCejv_Uhx1KBEso-PxzUqYhB_pnDxqegXGfjcl1FldoDANhq9stukN79LVaG50LTUv9Epc5kajfxz0AFptPtFXwT9r_oLz4CnAVmfe2PMOkieJ3HTO1eaqPnuTaS6grwc5rMQUYmkvXX9-U_sxS8Jw-ceqbrp8Yec4omuo-dernVdLE883nnzRP59OLArnSAEaJ3X6igr4cosc-kEiIV_y_X-_Jj_SDRx9-7YmAWduFeA"/>
+</div>
+<div class="relative z-10 h-full flex flex-col justify-between">
+<div>
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 bg-primary-fixed rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-on-primary-fixed" data-icon="restaurant">restaurant</span>
+</div>
+<span class="font-headline font-extrabold text-2xl tracking-tighter text-on-primary">Smart Mess Admin</span>
+</div>
+</div>
+<div class="space-y-6">
+<h1 class="font-headline font-bold text-4xl text-on-primary leading-tight">
+                            Precision Nutrition for <br/>Higher Education.
+                        </h1>
+<p class="text-on-primary/80 text-lg leading-relaxed max-w-md font-body">
+                            Access the administrative command center to manage inventory, analyze nutritional trends, and optimize student wellness.
+                        </p>
+</div>
+</div>
+</div>
+<div class="p-8 md:p-16 flex flex-col justify-center">
+<div class="max-w-md mx-auto w-full">
+<div class="mb-10 text-center lg:text-left">
+<div class="lg:hidden flex justify-center mb-6">
+<div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-white" data-icon="shield_person">shield_person</span>
+</div>
+</div>
+<h2 class="font-headline font-extrabold text-3xl text-on-surface tracking-tight mb-2">Admin Portal Login</h2>
+<p class="text-on-surface-variant font-medium">Please enter your authorized credentials to continue.</p>
+</div>
+<form class="space-y-6" id="adminSigninForm">
+<div class="space-y-2">
+<label class="font-label text-sm font-semibold text-on-surface-variant px-1 uppercase tracking-wider" for="email">Staff Email</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-lg" data-icon="alternate_email">alternate_email</span>
+</div>
+<input class="w-full pl-11 pr-4 py-4 bg-surface-container-highest border-none rounded-DEFAULT focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all duration-200 outline-none font-body text-on-surface placeholder:text-outline-variant" id="email" placeholder="admin@university.edu" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label text-sm font-semibold text-on-surface-variant px-1 uppercase tracking-wider" for="token">Password</label>
+<div class="relative group">
+<div class="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none text-outline">
+<span class="material-symbols-outlined text-lg" data-icon="key">key</span>
+</div>
+<input class="w-full pl-11 pr-12 py-4 bg-surface-container-highest border-none rounded-DEFAULT focus:ring-2 focus:ring-primary/20 focus:bg-surface-container-lowest transition-all duration-200 outline-none font-body text-on-surface placeholder:text-outline-variant" id="token" placeholder="••••••••••••" type="password"/>
+<button class="absolute inset-y-0 right-0 pr-4 flex items-center text-outline hover:text-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-lg" data-icon="visibility">visibility</span>
+</button>
+</div>
+</div>
+<div class="flex items-center justify-between px-1">
+<label class="flex items-center gap-2 cursor-pointer group">
+<div class="relative flex items-center">
+<input class="peer appearance-none w-5 h-5 rounded border-2 border-outline-variant checked:bg-primary checked:border-primary transition-all duration-200 cursor-pointer" type="checkbox"/>
+<span class="material-symbols-outlined absolute text-white text-sm left-1/2 -translate-x-1/2 opacity-0 peer-checked:opacity-100" data-icon="check">check</span>
+</div>
+<span class="text-sm font-medium text-on-surface-variant group-hover:text-primary transition-colors">Remember device</span>
+</label>
+<a class="text-sm font-bold text-primary hover:underline transition-all" href="#">Forgot Password?</a>
+</div>
+<button class="w-full py-4 px-6 bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold text-lg rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/40 active:scale-[0.98] transition-all duration-200 flex items-center justify-center gap-2 group" type="submit">
+                            Secure Sign In
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="arrow_forward">arrow_forward</span>
+</button>
+<p class="hidden text-sm font-semibold text-error" id="adminLoginError">Invalid credentials. Admin setup is not enabled yet.</p>
+</form>
+<div class="mt-12 flex flex-col items-center gap-6">
+<div class="w-full flex items-center gap-4">
+<div class="h-px bg-surface-container-highest flex-grow"></div>
+<span class="text-outline-variant text-xs font-label uppercase tracking-widest">Portal Navigation</span>
+<div class="h-px bg-surface-container-highest flex-grow"></div>
+</div>
+<a class="flex items-center gap-3 text-on-surface-variant hover:text-primary transition-colors group px-6 py-3 rounded-full bg-surface-container hover:bg-primary/5" href="/stitch/stitch_smart_mess_dashboard%20(10)/code.html" id="backToStudentPortal" target="_top">
+<span class="material-symbols-outlined text-xl" data-icon="arrow_back">arrow_back</span>
+<span class="font-headline font-semibold">Return to Student Portal</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</main>
+<footer class="w-full py-8 flex flex-col md:flex-row justify-between items-center px-8 mt-auto">
+<div class="flex items-center gap-2 mb-4 md:mb-0">
+<span class="font-['Manrope'] text-xs uppercase tracking-widest text-zinc-400">© 2024 University Nutrition Services • Smart Mess High-Performance System</span>
+</div>
+<div class="flex gap-8">
+<a class="font-['Manrope'] text-xs uppercase tracking-widest text-zinc-400 hover:text-green-600 transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Manrope'] text-xs uppercase tracking-widest text-zinc-400 hover:text-green-600 transition-colors" href="#">Security Standards</a>
+<a class="font-['Manrope'] text-xs uppercase tracking-widest text-zinc-400 hover:text-green-600 transition-colors" href="#">Support</a>
+</div>
+</footer>
+<script src="/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/supabase-client.js"></script>
+<script>
+    (() => {
+        const form = document.getElementById("adminSigninForm");
+        const error = document.getElementById("adminLoginError");
+
+        if (!form) return;
+
+        form.addEventListener("submit", async (event) => {
+            event.preventDefault();
+
+            const email = (document.getElementById("email")?.value || "").trim().toLowerCase();
+            const password = (document.getElementById("token")?.value || "").trim();
+            if (!email) {
+                alert("Please enter your staff email.");
+                return;
+            }
+            if (!password) {
+                alert("Please enter your password.");
+                return;
+            }
+
+            if (!window.FitVitSupabase?.isConfigured()) {
+                alert("Supabase is not configured. Add fitvit_supabase_url and fitvit_supabase_anon_key first.");
+                return;
+            }
+
+            const authResult = await window.FitVitSupabase.signInWithPassword(email, password);
+            if (authResult?.error) {
+                if (error) {
+                    error.textContent = authResult.error.message || "Invalid credentials.";
+                    error.classList.remove("hidden");
+                }
+                alert(authResult.error.message || "Invalid credentials.");
+                return;
+            }
+
+            const adminCheck = await window.FitVitSupabase.isAdminUser();
+            if (adminCheck.error || !adminCheck.data) {
+                await window.FitVitSupabase.signOutAuth();
+                if (error) {
+                    error.textContent = "Access denied. This account is not an admin account.";
+                    error.classList.remove("hidden");
+                }
+                alert("Access denied. Only profiles with admin = yes can sign in here.");
+                return;
+            }
+
+            localStorage.setItem("fitvit_token", authResult?.data?.session?.access_token || "flow-admin-token");
+            localStorage.setItem("fitvit_flow_mode", "dashboard");
+            localStorage.setItem(
+                "fitvit_user",
+                JSON.stringify({
+                    uid: email,
+                    name: authResult?.data?.user?.user_metadata?.full_name || "Admin",
+                    admin: true
+                })
+            );
+            localStorage.setItem("fitvit_is_admin", "true");
+            window.location.href = "/stitch/Admin%20main%20dashboard/code.html";
+        });
+    })();
+</script>
+</body></html>

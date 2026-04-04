@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>FitVit Admin - Waste Management</title>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            primary: "#216d00",
+            "primary-container": "#44af1a",
+            "surface": "#f7faf7",
+            "surface-container": "#ebefec",
+            "surface-container-high": "#e6e9e6",
+            "surface-container-lowest": "#ffffff",
+            "outline-variant": "#becab4",
+            "on-surface": "#181c1b",
+            "on-surface-variant": "#3f4a38"
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body { font-family: 'Manrope', sans-serif; }
+    h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+    .pie-chart {
+      width: 220px;
+      height: 220px;
+      border-radius: 9999px;
+      background: conic-gradient(
+        #2f91dd 0deg 226deg,
+        #f59e0b 226deg 327deg,
+        #ef4444 327deg 360deg
+      );
+    }
+    .waste-bar {
+      width: 44px;
+      border-radius: 10px 10px 0 0;
+      background: linear-gradient(180deg, #88d982 0%, #5cab5a 100%);
+      box-shadow: inset 0 -3px 0 rgba(255,255,255,0.35);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface">
+  <header class="fixed top-0 w-full z-50 bg-[#f7faf7]/60 backdrop-blur-xl shadow-sm shadow-green-900/5">
+    <div class="flex justify-between items-center w-full px-8 py-4">
+      <div class="flex items-center gap-8">
+        <span class="text-2xl font-black text-[#216d00] tracking-tight">FitVit Admin</span>
+        <nav class="hidden md:flex gap-6 items-center">
+          <a class="font-['Plus_Jakarta_Sans'] font-bold text-lg text-stone-500 hover:text-[#216d00] transition-colors" href="/stitch/Admin%20main%20dashboard/code.html">Main Dashboard</a>
+          <a class="font-['Plus_Jakarta_Sans'] font-bold text-lg text-stone-500 hover:text-[#216d00] transition-colors" href="/stitch/Admin%20Popular%20foods/code.html">Popular Foods</a>
+          <a class="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#216d00] border-b-2 border-[#216d00] pb-1 transition-colors" href="/stitch/Admin%20Waste%20management/code.html">Waste Management</a>
+        </nav>
+      </div>
+      <span class="material-symbols-outlined text-[#216d00] text-3xl">account_circle</span>
+    </div>
+  </header>
+
+  <div class="flex min-h-screen pt-20">
+    <aside class="fixed left-0 top-0 h-full w-64 pt-24 bg-[#f7faf7] border-r border-outline-variant/10 hidden md:block">
+      <div class="px-6 py-6 flex flex-col justify-between h-[calc(100vh-6rem)]">
+        <nav class="mb-8 space-y-2">
+          <a class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all" href="/stitch/Admin%20main%20dashboard/code.html">
+            <span class="material-symbols-outlined">dashboard</span>
+            <span class="text-sm">Main Dashboard</span>
+          </a>
+          <a class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all" href="/stitch/Admin%20Popular%20foods/code.html">
+            <span class="material-symbols-outlined">restaurant_menu</span>
+            <span class="text-sm">Popular Foods</span>
+          </a>
+          <a class="flex items-center gap-3 px-4 py-3 rounded-full bg-primary-container text-on-surface font-bold transition-all" href="/stitch/Admin%20Waste%20management/code.html">
+            <span class="material-symbols-outlined">delete</span>
+            <span class="text-sm">Waste Management</span>
+          </a>
+        </nav>
+        <nav class="space-y-2 mb-4">
+          <a class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+            <span class="material-symbols-outlined">settings</span>
+            <span class="text-sm">Settings</span>
+          </a>
+          <a class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all" href="/stitch/Admin%20Login%20Page/code.html" id="adminLogoutLink">
+            <span class="material-symbols-outlined">logout</span>
+            <span class="text-sm">Logout</span>
+          </a>
+        </nav>
+      </div>
+    </aside>
+
+    <main class="flex-1 md:ml-64 p-8 space-y-8">
+      <section class="flex items-center justify-between">
+        <div>
+          <p class="text-sm font-bold tracking-[0.2em] text-primary uppercase">Eco Campus Initiative</p>
+          <h1 class="text-5xl font-black tracking-tight mt-1">Waste Management</h1>
+        </div>
+        <div class="h-14 w-14 rounded-full bg-[#11a87d] flex items-center justify-center text-white shadow-lg">
+          <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">eco</span>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div class="bg-surface-container-lowest rounded-xl border border-outline-variant/20 p-6">
+          <p class="text-5xl font-black">303.3 <span class="text-2xl">kg</span></p>
+          <p class="text-on-surface-variant mt-2 font-bold tracking-widest uppercase text-xs">7-Day Total</p>
+        </div>
+        <div class="bg-surface-container-lowest rounded-xl border border-outline-variant/20 p-6">
+          <p class="text-5xl font-black">43.3 <span class="text-2xl">kg</span></p>
+          <p class="text-on-surface-variant mt-2 font-bold tracking-widest uppercase text-xs">Daily Avg</p>
+        </div>
+        <div class="bg-surface-container-lowest rounded-xl border border-outline-variant/20 p-6">
+          <p class="text-5xl font-black">Friday</p>
+          <p class="text-on-surface-variant mt-2 font-bold tracking-widest uppercase text-xs">61.5 kg Peak Day</p>
+        </div>
+        <div class="bg-surface-container-lowest rounded-xl border border-outline-variant/20 p-6">
+          <p class="text-5xl font-black">76%</p>
+          <p class="text-on-surface-variant mt-2 font-bold tracking-widest uppercase text-xs">Recyclable</p>
+        </div>
+      </section>
+
+      <section class="bg-surface-container-lowest rounded-xl border border-outline-variant/20 p-6">
+        <h2 class="text-4xl font-black tracking-tight mb-6">Daily Waste Output (kg)</h2>
+        <div class="overflow-x-auto">
+          <div class="min-w-[720px]">
+            <div class="flex items-end justify-between h-72 px-6 pb-4 border-b border-outline-variant/20">
+              <div class="flex flex-col items-center gap-2"><p class="text-2xl font-black text-[#4b9f7d]">34.3</p><div class="waste-bar" style="height: 34%;"></div><p class="text-on-surface-variant font-bold">Sun</p></div>
+              <div class="flex flex-col items-center gap-2"><p class="text-2xl font-black text-[#4b9f7d]">38.0</p><div class="waste-bar" style="height: 38%;"></div><p class="text-on-surface-variant font-bold">Mon</p></div>
+              <div class="flex flex-col items-center gap-2"><p class="text-2xl font-black text-[#4b9f7d]">51.5</p><div class="waste-bar" style="height: 52%;"></div><p class="text-on-surface-variant font-bold">Tue</p></div>
+              <div class="flex flex-col items-center gap-2"><p class="text-2xl font-black text-[#4b9f7d]">54.0</p><div class="waste-bar" style="height: 54%;"></div><p class="text-on-surface-variant font-bold">Wed</p></div>
+              <div class="flex flex-col items-center gap-2"><p class="text-2xl font-black text-[#4b9f7d]">41.6</p><div class="waste-bar" style="height: 42%;"></div><p class="text-on-surface-variant font-bold">Thu</p></div>
+              <div class="flex flex-col items-center gap-2"><p class="text-2xl font-black text-[#4b9f7d]">61.5</p><div class="waste-bar" style="height: 62%;"></div><p class="text-on-surface-variant font-bold">Fri</p></div>
+              <div class="flex flex-col items-center gap-2"><p class="text-2xl font-black text-[#4b9f7d]">22.4</p><div class="waste-bar" style="height: 22%;"></div><p class="text-on-surface-variant font-bold">Sat</p></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="grid grid-cols-1 xl:grid-cols-2 gap-6">
+        <div class="bg-surface-container-lowest rounded-xl border border-outline-variant/20 p-6">
+          <h2 class="text-4xl font-black tracking-tight mb-6">Waste Composition</h2>
+          <div class="flex flex-wrap items-center gap-8">
+            <div class="pie-chart"></div>
+            <div class="space-y-5 text-2xl">
+              <p><span class="inline-block h-4 w-4 rounded-full bg-[#2f91dd] mr-3"></span>189 Wet Waste</p>
+              <p><span class="inline-block h-4 w-4 rounded-full bg-[#f59e0b] mr-3"></span>84 Dry Waste</p>
+              <p><span class="inline-block h-4 w-4 rounded-full bg-[#ef4444] mr-3"></span>30 Bones</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bg-surface-container-lowest rounded-xl border border-outline-variant/20 p-6">
+          <h2 class="text-4xl font-black tracking-tight mb-6">Smart Insights</h2>
+          <div class="space-y-3 text-xl">
+            <div class="rounded-lg bg-surface-container p-4 border-l-4 border-[#11a87d]">Friday generates the most waste at 61.5 kg. Consider reducing portion sizes on this day.</div>
+            <div class="rounded-lg bg-surface-container p-4 border-l-4 border-[#11a87d]">Saturday is the cleanest day at 22.4 kg. Study what makes this day efficient.</div>
+            <div class="rounded-lg bg-surface-container p-4 border-l-4 border-[#11a87d]">Wet waste accounts for 62% of all waste. Plate-size awareness could reduce this significantly.</div>
+            <div class="rounded-lg bg-surface-container p-4 border-l-4 border-[#11a87d]">76% of total waste is recyclable: 71.2 kg manure, 27.3 kg pet shelters, 132.4 kg composting.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-surface-container-lowest rounded-xl border border-outline-variant/20 p-6">
+        <h2 class="text-4xl font-black tracking-tight mb-6">Recycling Channels</h2>
+        <div class="space-y-4 text-lg">
+          <div class="rounded-xl border border-outline-variant/20 p-5 flex items-start justify-between gap-4">
+            <div>
+              <h3 class="text-3xl font-black">Dry Waste -> Soil Manure</h3>
+              <p class="text-on-surface-variant mt-2">Onion shells, vegetable peels, and other dry waste can be sun-dried and converted into organic soil manure for the campus garden.</p>
+            </div>
+            <p class="text-5xl font-black text-[#11a87d]">71.2 <span class="text-xl">kg</span></p>
+          </div>
+          <div class="rounded-xl border border-outline-variant/20 p-5 flex items-start justify-between gap-4">
+            <div>
+              <h3 class="text-3xl font-black">Bones -> Pet Shelters</h3>
+              <p class="text-on-surface-variant mt-2">Chicken and fish bones can be supplied to local veterinary clinics and pet shelters.</p>
+            </div>
+            <p class="text-5xl font-black text-[#11a87d]">27.3 <span class="text-xl">kg</span></p>
+          </div>
+          <div class="rounded-xl border border-outline-variant/20 p-5 flex items-start justify-between gap-4">
+            <div>
+              <h3 class="text-3xl font-black">Wet Waste -> Composting</h3>
+              <p class="text-on-surface-variant mt-2">Student food leftovers can be processed in-house to generate nutrient-rich compost for college grounds.</p>
+            </div>
+            <p class="text-5xl font-black text-[#11a87d]">132.4 <span class="text-xl">kg</span></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-surface-container-lowest rounded-xl border border-outline-variant/20 p-6 overflow-x-auto">
+        <h2 class="text-4xl font-black tracking-tight mb-6">7-Day Breakdown</h2>
+        <table class="min-w-full text-left text-lg">
+          <thead>
+            <tr class="border-b border-outline-variant/25 text-on-surface-variant">
+              <th class="py-3 pr-4">Day</th>
+              <th class="py-3 pr-4">Bones</th>
+              <th class="py-3 pr-4">Dry</th>
+              <th class="py-3 pr-4">Wet</th>
+              <th class="py-3 pr-4">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="border-b border-outline-variant/20"><td class="py-3">Sun</td><td>3.1</td><td>8.6</td><td>22.6</td><td class="font-bold">34.3</td></tr>
+            <tr class="border-b border-outline-variant/20"><td class="py-3">Mon</td><td>5.7</td><td>10.6</td><td>21.7</td><td class="font-bold">38.0</td></tr>
+            <tr class="border-b border-outline-variant/20"><td class="py-3">Tue</td><td>6.1</td><td>21.6</td><td>23.8</td><td class="font-bold">51.5</td></tr>
+            <tr class="border-b border-outline-variant/20"><td class="py-3">Wed</td><td>2.7</td><td>11.0</td><td>40.3</td><td class="font-bold">54.0</td></tr>
+            <tr class="border-b border-outline-variant/20"><td class="py-3">Thu</td><td>5.2</td><td>11.9</td><td>24.5</td><td class="font-bold">41.6</td></tr>
+            <tr class="border-b border-outline-variant/20"><td class="py-3">Fri</td><td>4.0</td><td>14.9</td><td>42.6</td><td class="font-bold">61.5</td></tr>
+            <tr class="border-b border-outline-variant/20"><td class="py-3">Sat</td><td>3.5</td><td>5.2</td><td>13.7</td><td class="font-bold">22.4</td></tr>
+            <tr class="bg-[#daf1e0] font-black"><td class="py-3">AVG</td><td>4.3</td><td>12.0</td><td>27.0</td><td>43.3</td></tr>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </div>
+
+  <script src="/config.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="/supabase-client.js"></script>
+  <script>
+    (() => {
+      const logoutLink = document.getElementById("adminLogoutLink");
+      if (!logoutLink) return;
+
+      logoutLink.addEventListener("click", async (event) => {
+        event.preventDefault();
+
+        try {
+          if (window.FitVitSupabase?.signOutAuth) {
+            await window.FitVitSupabase.signOutAuth();
+          }
+        } catch {
+          // Best-effort sign out.
+        }
+
+        const preservedKeys = new Set(["fitvit_supabase_url", "fitvit_supabase_anon_key"]);
+        Object.keys(localStorage)
+          .filter((key) => key.startsWith("fitvit_") && !preservedKeys.has(key))
+          .forEach((key) => localStorage.removeItem(key));
+
+        Object.keys(sessionStorage)
+          .filter((key) => key.startsWith("fitvit_"))
+          .forEach((key) => sessionStorage.removeItem(key));
+
+        window.location.href = "/stitch/Admin%20Login%20Page/code.html";
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FitVit Admin - Popular Foods</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "tertiary-fixed": "#a3f69c",
+                    "inverse-on-surface": "#eef1ee",
+                    "on-primary-container": "#0d3a00",
+                    "on-tertiary-fixed-variant": "#005312",
+                    "inverse-surface": "#2d3130",
+                    "tertiary-container": "#5cab5a",
+                    "on-surface-variant": "#3f4a38",
+                    "on-background": "#181c1b",
+                    "on-primary": "#ffffff",
+                    "surface": "#f7faf7",
+                    "primary-fixed": "#8dfc63",
+                    "surface-variant": "#e0e3e0",
+                    "primary-container": "#44af1a",
+                    "on-primary-fixed": "#052100",
+                    "on-surface": "#181c1b",
+                    "on-secondary-fixed": "#131e17",
+                    "inverse-primary": "#72df49",
+                    "outline": "#6f7b67",
+                    "surface-container-highest": "#e0e3e0",
+                    "surface-container": "#ebefec",
+                    "on-tertiary": "#ffffff",
+                    "on-secondary-container": "#5b675e",
+                    "surface-container-lowest": "#ffffff",
+                    "surface-container-high": "#e6e9e6",
+                    "on-tertiary-container": "#003b0a",
+                    "primary-fixed-dim": "#72df49",
+                    "on-error-container": "#93000a",
+                    "on-tertiary-fixed": "#002204",
+                    "on-secondary": "#ffffff",
+                    "primary": "#216d00",
+                    "background": "#f7faf7",
+                    "error": "#ba1a1a",
+                    "secondary": "#556158",
+                    "on-primary-fixed-variant": "#175200",
+                    "tertiary": "#1b6d24",
+                    "secondary-fixed": "#d9e6da",
+                    "tertiary-fixed-dim": "#88d982",
+                    "surface-tint": "#216d00",
+                    "on-error": "#ffffff",
+                    "surface-dim": "#d7dbd8",
+                    "secondary-container": "#d9e6da",
+                    "on-secondary-fixed-variant": "#3e4a41",
+                    "error-container": "#ffdad6",
+                    "outline-variant": "#becab4",
+                    "secondary-fixed-dim": "#bdcabe",
+                    "surface-bright": "#f7faf7",
+                    "surface-container-low": "#f1f4f1"
+            },
+            "borderRadius": {
+                    "DEFAULT": "1rem",
+                    "lg": "2rem",
+                    "xl": "3rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Plus Jakarta Sans"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .glass-nav { background: rgba(247, 250, 247, 0.6); backdrop-filter: blur(20px); }
+        .skeleton {
+            background: linear-gradient(90deg, #e0e3e0 25%, #f1f4f1 50%, #e0e3e0 75%);
+            background-size: 200% 100%;
+            animation: skeleton-loading 1.5s infinite;
+        }
+        @keyframes skeleton-loading {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-[#f7faf7]/60 dark:bg-stone-900/60 backdrop-blur-xl shadow-sm shadow-green-900/5">
+<div class="flex justify-between items-center w-full px-8 py-4">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-black text-[#216d00] tracking-tight">FitVit Admin</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="font-['Plus_Jakarta_Sans'] font-bold text-lg text-stone-500 dark:text-stone-400 hover:text-[#216d00] transition-colors" href="/stitch/Admin%20main%20dashboard/code.html">Main Dashboard</a>
+<a class="font-['Plus_Jakarta_Sans'] font-bold text-lg text-[#216d00] border-b-2 border-[#216d00] pb-1 transition-colors" href="/stitch/Admin%20Popular%20foods/code.html">Popular Foods</a>
+<a class="font-['Plus_Jakarta_Sans'] font-bold text-lg text-stone-500 dark:text-stone-400 hover:text-[#216d00] transition-colors" href="/stitch/Admin%20Waste%20management/code.html">Waste Management</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-[#216d00] text-3xl cursor-pointer" data-icon="account_circle">account_circle</span>
+</div>
+</div>
+</header>
+<div class="flex min-h-screen pt-20">
+<!-- SideNavBar -->
+<aside class="fixed left-0 top-0 h-full w-64 pt-24 bg-[#f7faf7] dark:bg-stone-900 border-r border-outline-variant/10 hidden md:block">
+<div class="px-6 py-6 flex flex-col justify-between h-[calc(100vh-6rem)]"><nav class="mb-8 space-y-2">
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all" href="/stitch/Admin%20main%20dashboard/code.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-sm">Main Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full bg-primary-container text-on-primary-container font-bold transition-all" href="/stitch/Admin%20Popular%20foods/code.html">
+<span class="material-symbols-outlined" data-icon="restaurant_menu">restaurant_menu</span>
+<span class="text-sm">Popular Foods</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all" href="/stitch/Admin%20Waste%20management/code.html">
+<span class="material-symbols-outlined" data-icon="delete">delete</span>
+<span class="text-sm">Waste Management</span>
+</a>
+</nav><nav class="space-y-2 mb-4">
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span class="text-sm">Settings</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 rounded-full text-on-surface-variant hover:bg-surface-container-high transition-all" href="/stitch/Admin%20Login%20Page/code.html" id="adminLogoutLink">
+<span class="material-symbols-outlined" data-icon="logout">logout</span>
+<span class="text-sm">Logout</span>
+</a>
+</nav>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 p-8">
+<!-- Content Area -->
+<div class="mb-8 flex items-center justify-between">
+<div>
+<h2 class="font-['Plus_Jakarta_Sans'] font-extrabold text-3xl text-on-surface tracking-tight mb-1">Ranked Menu</h2>
+<p class="text-on-surface-variant font-medium">Ranked by Student Preferences</p>
+</div>
+</div>
+<div class="mb-6 flex flex-wrap items-center gap-3" id="slotFilterGroup">
+<button class="px-6 py-2 rounded-full bg-primary-container text-on-primary-container font-bold shadow-sm" data-slot-filter="breakfast" type="button">Breakfast</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-medium hover:bg-surface-container-highest transition-colors" data-slot-filter="lunch" type="button">Lunch</button>
+<button class="px-6 py-2 rounded-full bg-surface-container-high text-on-surface-variant font-medium hover:bg-surface-container-highest transition-colors" data-slot-filter="dinner" type="button">Dinner</button>
+</div>
+<!-- Grid of Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" id="popularFoodGrid"></div>
+<div class="hidden p-6 rounded-xl border border-outline-variant/20 bg-surface-container-lowest mt-4" id="popularNoData">
+<p class="text-xl font-bold text-on-surface">No meals found for tomorrow</p>
+<p class="text-on-surface-variant mt-1">Add tomorrow items in meals_vault to see rankings here.</p>
+</div>
+</main>
+</div>
+<script src="/config.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="/supabase-client.js"></script>
+<script>
+  (() => {
+    const popularFoodGrid = document.getElementById("popularFoodGrid");
+    const popularNoData = document.getElementById("popularNoData");
+    const logoutLink = document.getElementById("adminLogoutLink");
+    const slotFilterButtons = Array.from(document.querySelectorAll("[data-slot-filter]"));
+    let selectedSlot = "breakfast";
+
+    function normalizeDayKey(day) {
+      const t = String(day || "").trim().toLowerCase();
+      if (t.startsWith("mon")) return "Mon";
+      if (t.startsWith("tue")) return "Tue";
+      if (t.startsWith("wed")) return "Wed";
+      if (t.startsWith("thu")) return "Thu";
+      if (t.startsWith("fri")) return "Fri";
+      if (t.startsWith("sat")) return "Sat";
+      if (t.startsWith("sun")) return "Sun";
+      return "";
+    }
+
+    function normalizeSlot(slot) {
+      const t = String(slot || "").trim().toLowerCase();
+      if (t.startsWith("breakfast")) return "breakfast";
+      if (t.startsWith("lunch")) return "lunch";
+      if (t.startsWith("dinner")) return "dinner";
+      if (t.startsWith("snack")) return "snacks";
+      return "";
+    }
+
+    function slotLabel(slot) {
+      const t = normalizeSlot(slot);
+      if (t === "breakfast") return "Breakfast";
+      if (t === "lunch") return "Lunch";
+      if (t === "dinner") return "Dinner";
+      if (t === "snacks") return "Snacks";
+      return "Meal";
+    }
+
+    function escapeHtml(value) {
+      return String(value || "")
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function setSlotFilterUi() {
+      slotFilterButtons.forEach((button) => {
+        const active = button.dataset.slotFilter === selectedSlot;
+        button.classList.toggle("bg-primary-container", active);
+        button.classList.toggle("text-on-primary-container", active);
+        button.classList.toggle("font-bold", active);
+        button.classList.toggle("shadow-sm", active);
+        button.classList.toggle("bg-surface-container-high", !active);
+        button.classList.toggle("text-on-surface-variant", !active);
+        button.classList.toggle("font-medium", !active);
+      });
+    }
+
+    async function renderPopularFoods() {
+      if (!window.FitVitSupabase?.isConfigured() || !window.FitVitSupabase.getClient) {
+        popularNoData?.classList.remove("hidden");
+        if (popularFoodGrid) popularFoodGrid.innerHTML = "";
+        return;
+      }
+
+      const client = window.FitVitSupabase.getClient();
+      if (!client) {
+        popularNoData?.classList.remove("hidden");
+        if (popularFoodGrid) popularFoodGrid.innerHTML = "";
+        return;
+      }
+
+      const ratingsResult = await client
+        .from("meal_preferences_daily")
+        .select("item_name,slot,preference_value");
+
+      if (ratingsResult.error || !Array.isArray(ratingsResult.data)) {
+        popularNoData?.classList.remove("hidden");
+        if (popularFoodGrid) popularFoodGrid.innerHTML = "";
+        return;
+      }
+
+      const ratingRows = ratingsResult.data
+        .map((row) => ({
+          name: String(row.item_name || "").trim(),
+          slot: normalizeSlot(row.slot),
+          preference: row.preference_value == null ? 0 : Number(row.preference_value || 0)
+        }))
+        .filter((row) => row.name && row.slot && row.slot !== "snacks" && row.slot === selectedSlot);
+
+      if (!ratingRows.length) {
+        popularNoData?.classList.remove("hidden");
+        if (popularFoodGrid) popularFoodGrid.innerHTML = "";
+        return;
+      }
+
+      const ratingMap = new Map();
+      ratingRows.forEach((row) => {
+        const key = `${row.name.toLowerCase()}::${row.slot}`;
+        if (!key) return;
+        const rating = row.preference;
+        const current = ratingMap.get(key) || 0;
+        ratingMap.set(key, current + (Number.isNaN(rating) ? 0 : rating));
+      });
+
+      const uniqueByNameSlot = new Map();
+      ratingRows.forEach((meal) => {
+        const mapKey = `${meal.name.toLowerCase()}::${meal.slot}`;
+        if (!uniqueByNameSlot.has(mapKey)) {
+          uniqueByNameSlot.set(mapKey, {
+            name: meal.name,
+            slot: meal.slot,
+            totalRating: ratingMap.get(mapKey) || 0
+          });
+        }
+      });
+
+      const ranked = Array.from(uniqueByNameSlot.values()).sort((a, b) => b.totalRating - a.totalRating);
+      if (!ranked.length) {
+        popularNoData?.classList.remove("hidden");
+        if (popularFoodGrid) popularFoodGrid.innerHTML = "";
+        return;
+      }
+
+      popularNoData?.classList.add("hidden");
+      if (!popularFoodGrid) return;
+
+      popularFoodGrid.innerHTML = ranked
+        .map((item, index) => `
+          <div class="bg-surface-container-lowest rounded-xl p-5 border border-outline-variant/10 shadow-sm">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-sm font-black px-3 py-1 rounded-full bg-primary-container text-on-primary-container">#${index + 1}</span>
+              <span class="text-xs font-bold px-3 py-1 rounded-full bg-surface-container-high text-on-surface-variant">${slotLabel(item.slot)}</span>
+            </div>
+            <h4 class="text-xl font-bold text-on-surface leading-tight">${escapeHtml(item.name)}</h4>
+            <p class="text-sm text-on-surface-variant mt-3">Total Rating: <span class="font-bold text-on-surface">${item.totalRating}</span></p>
+          </div>
+        `)
+        .join("");
+    }
+
+    slotFilterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        selectedSlot = button.dataset.slotFilter || selectedSlot;
+        setSlotFilterUi();
+        renderPopularFoods();
+      });
+    });
+
+    setSlotFilterUi();
+    renderPopularFoods();
+
+    if (!logoutLink) return;
+
+    logoutLink.addEventListener("click", async (event) => {
+      event.preventDefault();
+
+      try {
+        if (window.FitVitSupabase?.signOutAuth) {
+          await window.FitVitSupabase.signOutAuth();
+        }
+      } catch {
+        // Best-effort sign out.
+      }
+
+      const preservedKeys = new Set(["fitvit_supabase_url", "fitvit_supabase_anon_key"]);
+      Object.keys(localStorage)
+        .filter((key) => key.startsWith("fitvit_") && !preservedKeys.has(key))
+        .forEach((key) => localStorage.removeItem(key));
+
+      Object.keys(sessionStorage)
+        .filter((key) => key.startsWith("fitvit_"))
+        .forEach((key) => sessionStorage.removeItem(key));
+
+      window.location.href = "/stitch/Admin%20Login%20Page/code.html";
+    });
+  })();
+</script>
+</body></html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FitVit - Step 3: Dietary Goals</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "on-tertiary-container": "#003b0a",
+            "on-surface-variant": "#3f4a38",
+            "surface-container": "#ebefec",
+            "outline-variant": "#becab4",
+            "on-primary": "#ffffff",
+            "tertiary-fixed": "#a3f69c",
+            "on-surface": "#181c1b",
+            "secondary-fixed": "#d9e6da",
+            "on-tertiary": "#ffffff",
+            "inverse-on-surface": "#eef1ee",
+            "secondary": "#556158",
+            "inverse-surface": "#2d3130",
+            "on-secondary-fixed": "#131e17",
+            "on-background": "#181c1b",
+            "surface": "#f7faf7",
+            "outline": "#6f7b67",
+            "tertiary-fixed-dim": "#88d982",
+            "on-tertiary-fixed-variant": "#005312",
+            "tertiary-container": "#5cab5a",
+            "surface-container-lowest": "#ffffff",
+            "tertiary": "#1b6d24",
+            "on-secondary-fixed-variant": "#3e4a41",
+            "surface-container-highest": "#e0e3e0",
+            "on-secondary-container": "#5b675e",
+            "on-error-container": "#93000a",
+            "surface-dim": "#d7dbd8",
+            "surface-bright": "#f7faf7",
+            "primary": "#216d00",
+            "surface-container-high": "#e6e9e6",
+            "error-container": "#ffdad6",
+            "surface-variant": "#e0e3e0",
+            "inverse-primary": "#72df49",
+            "secondary-fixed-dim": "#bdcabe",
+            "on-tertiary-fixed": "#002204",
+            "primary-container": "#44af1a",
+            "on-error": "#ffffff",
+            "surface-container-low": "#f1f4f1",
+            "on-primary-fixed-variant": "#175200",
+            "background": "#f7faf7",
+            "primary-fixed-dim": "#72df49",
+            "secondary-container": "#d9e6da",
+            "on-primary-fixed": "#052100",
+            "error": "#ba1a1a",
+            "on-secondary": "#ffffff",
+            "primary-fixed": "#8dfc63",
+            "on-primary-container": "#0d3a00",
+            "surface-tint": "#216d00"
+          },
+          fontFamily: {
+            "headline": ["Plus Jakarta Sans"],
+            "body": ["Manrope"],
+            "label": ["Manrope"]
+          },
+          borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+        },
+      },
+    }
+  </script>
+<style>
+    body { font-family: 'Manrope', sans-serif; }
+    h1, h2, h3, h4 { font-family: 'Plus Jakarta Sans', sans-serif; }
+    .glass-nav {
+      background: rgba(247, 250, 247, 0.6);
+      backdrop-filter: blur(20px);
+    }
+    .primary-gradient {
+      background: linear-gradient(135deg, #216d00 0%, #44af1a 100%);
+    }
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      vertical-align: middle;
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface">
+<!-- SideNavBar Component -->
+<aside class="fixed left-0 top-0 h-full flex flex-col p-6 bg-[#f7faf7] dark:bg-stone-900 h-screen w-64 border-r-0 z-50">
+<div class="mb-10">
+<span class="text-xl font-bold text-green-800">FitVit</span>
+</div>
+<div class="flex flex-col gap-y-8 flex-1">
+<div class="space-y-1">
+<h3 class="text-stone-900 font-bold text-lg">Setup Progress</h3>
+<p class="text-stone-500 text-sm">Step 3 of 3</p>
+</div>
+<nav class="flex flex-col gap-y-2">
+<!-- Inactive -->
+<div class="text-stone-500 dark:text-stone-400 px-4 py-2 flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-medium">Personal Info</span>
+</div>
+<!-- Inactive -->
+<div class="text-stone-500 dark:text-stone-400 px-4 py-2 flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="straighten">straighten</span>
+<span class="font-medium">Body Metrics</span>
+</div>
+<!-- Active Mapping: Dietary Goals matches Step 3 -->
+<div class="bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200 rounded-full font-bold px-4 py-2 flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="restaurant">restaurant</span>
+<span class="font-medium">Dietary Goals</span>
+</div>
+<!-- Inactive -->
+<div class="text-stone-500 dark:text-stone-400 px-4 py-2 flex items-center gap-3">
+<span class="material-symbols-outlined" data-icon="task_alt">task_alt</span>
+<span class="font-medium">Review</span>
+</div>
+</nav>
+</div>
+<button class="primary-gradient text-white rounded-full py-4 font-bold shadow-lg hover:opacity-90 transition-all flex items-center justify-center gap-2">
+      Save Progress
+    </button>
+</aside>
+<!-- Main Canvas -->
+<main class="ml-64 min-h-screen p-12">
+<!-- TopAppBar Branding (Mobile Context) -->
+<header class="flex justify-between items-center mb-12">
+<div class="max-w-2xl">
+<h1 class="text-4xl font-extrabold tracking-tight text-on-surface mb-4">Define your performance goals.</h1>
+<p class="text-lg text-on-surface-variant leading-relaxed">Setting these targets helps our algorithms recommend the best mess options for your daily routine.</p>
+</div>
+<div class="hidden lg:block">
+<img alt="Fresh bowl of greens and healthy ingredients" class="w-24 h-24 rounded-xl object-cover shadow-sm" data-alt="Close-up of a vibrant healthy poke bowl with fresh greens, edamame, and salmon on a light textured background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBhn-HinS5Ptio2DGPJelfHlMrgRhZtnM5-hB5fhDCgFeth8KxDlJyZ2rWl_LGOu9esbGMUrUOT4PShi5sPKgnIlspE6dC0m98SjbACECdskj0aTsiW0cBHixy79yKwui6cCV6yXUZmJ0eyVL1VNSvFrr54cmdY57Ig_JqkE064T7okVD7A2Rcg50lCGh0hyXqkQC1tj3moUhmwnyLF8J_JBAxfcYEU-21n-aRJZmu3kCDQQQGZl2ODITaumDFkewfmeBF5o0B4cA"/>
+</div>
+</header>
+<!-- Content Sections -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-8">
+<!-- Goal Selection Grid -->
+<section class="xl:col-span-8 space-y-6">
+<h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="track_changes">track_changes</span>
+          Primary Objective
+        </h2>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<!-- Card 1 -->
+<div class="group cursor-pointer p-6 rounded-xl bg-surface-container-low border-2 border-transparent hover:border-primary/20 transition-all">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center mb-4 group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="balance">balance</span>
+</div>
+<h3 class="text-lg font-bold mb-2">Maintain &amp; Sustain</h3>
+<p class="text-sm text-on-surface-variant">For students who want to keep their current physique with balanced nutrients.</p>
+</div>
+<!-- Card 2 (Active State Simulation) -->
+<div class="group cursor-pointer p-6 rounded-xl bg-surface-container-lowest ring-2 ring-primary transition-all">
+<div class="flex justify-between items-start mb-4">
+<div class="w-12 h-12 rounded-full bg-primary-container text-on-primary-container flex items-center justify-center">
+<span class="material-symbols-outlined" data-icon="fitness_center">fitness_center</span>
+</div>
+<span class="bg-primary text-on-primary text-[10px] font-bold px-2 py-1 rounded-full uppercase tracking-wider">Recommended</span>
+</div>
+<h3 class="text-lg font-bold mb-2">Power &amp; Mass</h3>
+<p class="text-sm text-on-surface-variant">High protein focus designed for gym performance, heavy lifting, and muscle gain.</p>
+</div>
+<!-- Card 3 -->
+<div class="group cursor-pointer p-6 rounded-xl bg-surface-container-low border-2 border-transparent hover:border-primary/20 transition-all">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center mb-4 group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="directions_run">directions_run</span>
+</div>
+<h3 class="text-lg font-bold mb-2">Endurance &amp; Stamina</h3>
+<p class="text-sm text-on-surface-variant">Carb-optimized for long-distance runners, swimmers, or high-activity athletes.</p>
+</div>
+<!-- Card 4 -->
+<div class="group cursor-pointer p-6 rounded-xl bg-surface-container-low border-2 border-transparent hover:border-primary/20 transition-all">
+<div class="w-12 h-12 rounded-full bg-surface-container-highest flex items-center justify-center mb-4 group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">
+<span class="material-symbols-outlined" data-icon="local_fire_department">local_fire_department</span>
+</div>
+<h3 class="text-lg font-bold mb-2">Shred &amp; Define</h3>
+<p class="text-sm text-on-surface-variant">Calorie-controlled approach for fat loss while maintaining lean muscle mass.</p>
+</div>
+</div>
+</section>
+<!-- Macro Preferences Sidebar (Bento Style) -->
+<section class="xl:col-span-4 space-y-6">
+<h2 class="text-xl font-bold text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-primary" data-icon="pie_chart">pie_chart</span>
+          Macro Preferences
+        </h2>
+<div class="bg-surface-container-low rounded-xl p-6 space-y-4">
+<p class="text-sm font-medium text-on-surface-variant">How would you like to split your macros?</p>
+<div class="space-y-3">
+<!-- Chip Item -->
+<label class="flex items-center justify-between p-4 bg-surface-container-lowest rounded-lg border border-outline-variant/30 cursor-pointer hover:bg-white transition-colors">
+<div class="flex items-center gap-3">
+<input checked="" class="w-5 h-5 text-primary focus:ring-primary border-outline" name="macro" type="radio"/>
+<span class="font-semibold">High Protein</span>
+</div>
+<span class="text-xs font-bold text-primary">40/30/30</span>
+</label>
+<!-- Chip Item -->
+<label class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border border-transparent cursor-pointer hover:bg-surface-container-highest transition-colors">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 text-primary focus:ring-primary border-outline" name="macro" type="radio"/>
+<span class="font-semibold">Balanced</span>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">33/33/33</span>
+</label>
+<!-- Chip Item -->
+<label class="flex items-center justify-between p-4 bg-surface-container-low rounded-lg border border-transparent cursor-pointer hover:bg-surface-container-highest transition-colors">
+<div class="flex items-center gap-3">
+<input class="w-5 h-5 text-primary focus:ring-primary border-outline" name="macro" type="radio"/>
+<span class="font-semibold">Low Carb</span>
+</div>
+<span class="text-xs font-bold text-on-surface-variant">20/50/30</span>
+</label>
+</div>
+<div class="pt-4 border-t border-outline-variant/20">
+<div class="flex justify-between items-center text-sm mb-2">
+<span class="text-on-surface-variant">Protein Target</span>
+<span class="font-bold text-primary">180g / day</span>
+</div>
+<div class="h-2 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[75%]"></div>
+</div>
+</div>
+</div>
+<!-- Visual Tip Card -->
+<div class="relative overflow-hidden rounded-xl bg-on-tertiary-container text-on-tertiary p-6 h-48 flex flex-col justify-end">
+<div class="absolute inset-0 opacity-40">
+<img alt="Athlete preparing a meal" class="w-full h-full object-cover" data-alt="Professional athlete preparing a high-protein meal in a clean modern kitchen with soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD4H6Cygaieg8uiRU8xlnPLPmcISZK_5xIK2ID725nkATX4dKUov8itIvb6OLCCV_xMvy4fajcCA6i7ml7RAk29GWBkRXmUMpWQ8ncRM-xbjBnp5qGIYTXibC3tALQSOiulTK0DXGtjzI3fjkeEGke0A777_vPHqPX3nsnsyfExs8W8OV08S03mpBN4qbLJn2yALt3bOvRyfdy589vkj9lPPXLJ6zMDIxT5uTmvrHYovoAHlbOxJZsM6MJzh5dSX5-PGiOX3Utfrg"/>
+</div>
+<div class="relative z-10">
+<h4 class="font-bold text-lg leading-tight mb-1">Performance Fueling</h4>
+<p class="text-xs opacity-80">Our algorithms adjust serving sizes based on your workout intensity.</p>
+</div>
+</div>
+</section>
+</div>
+<!-- Navigation Footer -->
+<footer class="mt-16 flex items-center justify-between pt-8 border-t border-outline-variant/10">
+<button class="flex items-center gap-2 text-on-surface-variant font-bold hover:text-on-surface transition-colors">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+        Back
+      </button>
+<div class="flex items-center gap-4">
+<div class="hidden md:flex gap-1">
+<div class="w-2 h-2 rounded-full bg-outline-variant"></div>
+<div class="w-2 h-2 rounded-full bg-outline-variant"></div>
+<div class="w-8 h-2 rounded-full bg-primary"></div>
+<div class="w-2 h-2 rounded-full bg-outline-variant"></div>
+</div>
+<button class="primary-gradient text-white px-10 py-4 rounded-full font-extrabold text-lg shadow-xl shadow-primary/20 hover:scale-[1.02] active:scale-95 transition-all">
+          Finish Setup
+        </button>
+</div>
+</footer>
+</main>
+</body></html>
