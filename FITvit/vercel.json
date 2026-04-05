@@ -1,0 +1,24 @@
+{
+  "cleanUrls": false,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/config.js", "destination": "/fitvit-web/public/config.js" },
+    { "source": "/supabase-client.js", "destination": "/fitvit-web/public/supabase-client.js" },
+    { "source": "/db/mockData.json", "destination": "/fitvit-web/db/mockData.json" },
+    { "source": "/api/bootstrap", "destination": "/fitvit-web/db/mockData.json" },
+
+    { "source": "/stitch/:path*", "destination": "/:path*" },
+
+    { "source": "/flow/01-food-preferences.html", "destination": "/Meal%20prefernence%20page/code.html" },
+    { "source": "/flow/02-performance-dashboard.html", "destination": "/stitch_smart_mess_dashboard%20%282%29/code.html" },
+    { "source": "/flow/03-meal-rating.html", "destination": "/Meal%20Rating%20Screen/code.html" },
+    { "source": "/flow/04-meal-planner.html", "destination": "/stitch_smart_mess_dashboard%20%284%29/code.html" },
+    { "source": "/flow/07-profile-settings.html", "destination": "/stitch_smart_mess_dashboard%20%281%29/code.html" },
+
+    { "source": "/admin/dashboard", "destination": "/Admin%20main%20dashboard/code.html" },
+    { "source": "/admin/popular-foods", "destination": "/Admin%20Popular%20foods/code.html" },
+    { "source": "/admin/waste-management", "destination": "/Admin%20Waste%20management/code.html" },
+
+    { "source": "/", "destination": "/stitch_smart_mess_dashboard%20%2810%29/code.html" }
+  ]
+}
