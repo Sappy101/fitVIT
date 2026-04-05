@@ -1,0 +1,69 @@
+﻿name: Build and Publish fitVIT APKs
+on: [push, workflow_dispatch]
+
+permissions:
+  contents: write
+
+jobs:
+  build-and-release:
+    name: Build and Release fitVIT APKs
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        app:
+          - folder: 'FitVITv3'
+            tag: 'v3.1'
+            desc: 'fitVIT v3.1 from FitVITv3'
+            name: 'fitVIT-v3.1.apk'
+          - folder: 'FitVITv3 copy'
+            tag: 'v3.2'
+            desc: 'fitVIT v3.2 from FitVITv3 copy'
+            name: 'fitVIT-v3.2.apk'
+          - folder: 'FitVITv4'
+            tag: 'v4.0'
+            desc: 'fitVIT v4 from FitVITv4'
+            name: 'fitVIT-v4.apk'
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          ref: app
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'zulu'
+          java-version: '17'
+
+      - name: Install dependencies
+        working-directory: ./"$\{{ matrix.app.folder }}"/frontend
+        run: npm ci || npm install
+
+      - name: Native Expo Prebuild Android
+        working-directory: ./"$\{{ matrix.app.folder }}"/frontend
+        run: npx expo prebuild -p android --no-install
+
+      - name: Build APK via Gradle
+        working-directory: ./"$\{{ matrix.app.folder }}"/frontend/android
+        run: ./gradlew assembleRelease
+
+      - name: Rename APK
+        working-directory: ./"$\{{ matrix.app.folder }}"/frontend
+        run: cp android/app/build/outputs/apk/release/app-release-unsigned.apk "$\{{ matrix.app.name }}"
+
+      - name: Release APK to GitHub Releases
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: "$\{{ matrix.app.tag }}"
+          name: "fitVIT $\{{ matrix.app.tag }}"
+          body: "$\{{ matrix.app.desc }}"
+          files: "./$\{{ matrix.app.folder }}/frontend/$\{{ matrix.app.name }}"
+          draft: false
+          prerelease: false
