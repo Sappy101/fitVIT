@@ -1,0 +1,128 @@
+{
+  "theme": "light",
+  "archetype": "1_and_2_hybrid",
+  "archetype_description": "A hybrid of 'Organic & Earthy' (for food/nutrition) and 'Performance Pro' (for elite fitness/health tracking). Primary palette relies heavily on stark whites and deep, vibrant emerald greens.",
+  "design_philosophy": "Elite Performance Nutrition. The UI should feel like a premium health coaching app, not a typical clunky university mess portal. High contrast, precise data visualization, and immersive food imagery.",
+  "colors": {
+    "background": {
+      "default": "#FFFFFF",
+      "subtle": "#F8FAF9",
+      "muted": "#F0FDF4"
+    },
+    "primary": {
+      "DEFAULT": "#059669",
+      "hover": "#047857",
+      "active": "#065F46",
+      "light": "#D1FAE5"
+    },
+    "text": {
+      "primary": "#022C22",
+      "secondary": "#064E3B",
+      "muted": "#059669",
+      "inverse": "#FFFFFF"
+    },
+    "border": {
+      "default": "#E2E8F0",
+      "focus": "#10B981",
+      "subtle": "#F1F5F9"
+    },
+    "status": {
+      "success": "#10B981",
+      "warning": "#F59E0B",
+      "error": "#EF4444",
+      "info": "#3B82F6"
+    }
+  },
+  "typography": {
+    "font_family": {
+      "heading": "Cabinet Grotesk, sans-serif",
+      "body": "Manrope, sans-serif"
+    },
+    "headings": {
+      "h1": "text-4xl tracking-tighter font-black text-[#022C22]",
+      "h2": "text-2xl tracking-tight font-bold text-[#022C22]",
+      "h3": "text-xl tracking-tight font-semibold text-[#064E3B]",
+      "h4": "text-lg font-semibold text-[#064E3B]"
+    },
+    "body": {
+      "default": "text-base leading-relaxed text-[#064E3B]/80 font-medium",
+      "small": "text-sm leading-normal text-[#064E3B]/60",
+      "overline": "text-xs uppercase tracking-[0.15em] font-bold text-[#059669]"
+    }
+  },
+  "spacing_and_layout": {
+    "container": "max-w-md mx-auto w-full min-h-screen bg-white shadow-2xl relative pb-20",
+    "section_padding": "py-6 px-4 md:px-6",
+    "bento_grid": "grid grid-cols-2 gap-4",
+    "card_padding": "p-5",
+    "border_radius": {
+      "card": "rounded-2xl",
+      "button": "rounded-xl",
+      "pill": "rounded-full"
+    }
+  },
+  "components": {
+    "buttons": {
+      "primary": "bg-[#059669] hover:bg-[#047857] text-white font-bold rounded-xl px-6 py-3 transition-colors flex items-center justify-center",
+      "secondary": "bg-[#D1FAE5] hover:bg-[#A7F3D0] text-[#065F46] font-bold rounded-xl px-6 py-3 transition-colors",
+      "ghost": "bg-transparent hover:bg-gray-100 text-[#022C22] font-semibold rounded-xl px-4 py-2"
+    },
+    "cards": {
+      "default": "bg-white border border-[#E2E8F0] shadow-sm rounded-2xl p-5",
+      "highlight": "bg-[#022C22] text-white border border-[#064E3B] shadow-lg rounded-2xl p-5"
+    },
+    "inputs": {
+      "default": "w-full bg-[#F8FAF9] border border-[#E2E8F0] rounded-xl px-4 py-3 text-[#022C22] focus:ring-2 focus:ring-[#10B981] focus:border-transparent outline-none transition-all placeholder:text-gray-400"
+    },
+    "bottom_nav": {
+      "container": "fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white/80 backdrop-blur-xl border-t border-gray-100 flex justify-around items-center h-20 px-2 z-50",
+      "item_active": "flex flex-col items-center justify-center text-[#059669]",
+      "item_inactive": "flex flex-col items-center justify-center text-gray-400 hover:text-gray-600"
+    },
+    "tabs": {
+      "list": "flex p-1 space-x-1 bg-[#F8FAF9] rounded-xl border border-gray-100",
+      "trigger_active": "w-full rounded-lg py-2.5 text-sm font-bold bg-white text-[#059669] shadow-sm",
+      "trigger_inactive": "w-full rounded-lg py-2.5 text-sm font-medium text-gray-500 hover:text-gray-700 hover:bg-gray-50"
+    }
+  },
+  "motion_and_interactions": {
+    "hover": "transition-all duration-200 ease-out",
+    "active": "active:scale-[0.98]",
+    "page_transition": "animate-in fade-in slide-in-from-bottom-4 duration-500"
+  },
+  "media_and_images": {
+    "login_hero": {
+      "url": "https://images.unsplash.com/photo-1625485617425-4eb8ed7d82d4?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDk1Nzh8MHwxfHNlYXJjaHwxfHxiaXJ5YW5pJTIwcGxhdGV8ZW58MHx8fHwxNzc1MjUxMjgyfDA&ixlib=rb-4.1.0&q=85",
+      "description": "Premium dark-themed Indian food dish, used for the two-column split login background."
+    },
+    "dashboard_texture": {
+      "url": "https://images.pexels.com/photos/131634/pexels-photo-131634.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Green abstract texture, use sparingly for high-end accent cards or premium stats backgrounds with dark overlay."
+    },
+    "meal_placeholder_1": {
+      "url": "https://images.unsplash.com/photo-1676300186673-615bcc8d5d68?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA0MTJ8MHwxfHNlYXJjaHwyfHxoZWFsdGh5JTIwbWVhbCUyMGZyZXNoJTIwZm9vZCUyMGJvd2wlMjBncmVlbnxlbnwwfHx8fDE3NzUyNTEyNzd8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Healthy salad bowl for lunch/dinner meal items."
+    },
+    "meal_placeholder_2": {
+      "url": "https://images.unsplash.com/photo-1605719161691-5d9771fc144f?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NTZ8MHwxfHNlYXJjaHwxfHxpbmRpYW4lMjBmb29kJTIwYm93bHxlbnwwfHx8fDE3NzUyNTEyODJ8MA&ixlib=rb-4.1.0&q=85",
+      "description": "Indian bowl dish for dinner menu items."
+    },
+    "meal_placeholder_3": {
+      "url": "https://images.pexels.com/photos/28674547/pexels-photo-28674547.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+      "description": "Rich Indian dish for special/premium meal items."
+    }
+  },
+  "icons_library": "lucide-react",
+  "data_testid_convention": "All interactive elements must use kebab-case data-testid attributes (e.g., login-submit-button, meal-rating-star, menu-tab-lunch).",
+  "instructions_to_main_agent": [
+    "Build a mobile-first web app within a 'max-w-md mx-auto min-h-screen' container to simulate a mobile app interface. Add shadow to the container to distinguish it on desktop screens.",
+    "Implement bottom navigation tabs for mobile view instead of a sidebar.",
+    "Use the specified Cabinet Grotesk font for headings to deliver an 'Elite Performance' vibe.",
+    "Login Screen: Implement a split or overlaid layout using the 'login_hero' image. The form should feel like an elite fitness app.",
+    "Student Dashboard: Use the 'bento_grid' pattern for daily energy stats (Kcal, Protein, Carbs, Fats). Underneath, use 'tabs' for Breakfast/Lunch/Dinner to show today's menu.",
+    "Meal Planner: Build a weekly calendar horizontal scroll (MON-SUN) with diet tabs (Veg/Non-Veg/Special).",
+    "Meal Rating: Implement star ratings and serving size controls with a clean UI. Show nutritional breakdown per item in a compact, dense format.",
+    "Use Lucide-React icons heavily for visual indicators (flame for calories, star for rating, etc).",
+    "Admin Dashboard: Ensure analytics cards are dense and data-rich. Use red/green colors for waste risk and demand metrics."
+  ]
+}
