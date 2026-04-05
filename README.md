@@ -3,7 +3,7 @@
 </div>
 
 <div align="center">
-  <h2 align="center">🏆 2nd Place Winner - Hackathon 🏆</h2>
+  <h2 align="center">🏆 2nd Place Winner - Solvathon 2026 🏆</h2>
 </div>
 
 <div align="center">
