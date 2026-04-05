@@ -91,5 +91,5 @@ graph TD;
 
 ---
 <div align="center">
-  <p><i>Concepted, Designed, and Built with ❤️ by 5Stars Team.</i></p>
+  <p><i>Concepted, Designed, and Built with ❤️ for Solvathon Optimization</i></p>
 </div>
