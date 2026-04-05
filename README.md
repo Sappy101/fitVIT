@@ -1,5 +1,9 @@
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&amp;color=gradient&amp;height=200&amp;section=header&amp;text=FitVIT&amp;fontSize=80&amp;fontAlignY=35&amp;desc=Smart%20Mess%20%26%20Dining%20Optimization&amp;descSize=20&amp;descAlignY=55&amp;animation=twinkling" alt="FitVIT Header" width="100%"/>
+  <img src="logo.png" alt="FitVIT Brand Logo" width="100%"/>
+</div>
+
+<div align="center">
+  <h2 align="center">🏆 2nd Place Winner - Hackathon 🏆</h2>
 </div>
 
 <div align="center">
@@ -91,5 +95,5 @@ graph TD;
 
 ---
 <div align="center">
-  <p><i>Concepted, Designed, and Built with ❤️ by 5Stars Team.</i></p>
+  <p><i>Concepted, Designed, and Built with ❤️ by 5Stars Team.</i></p>        
 </div>
